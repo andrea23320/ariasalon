@@ -2,38 +2,32 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Aria Salon | Atelier & Parrucchiere a Rho</title>
   <meta name="description" content="Aria Salon a Rho. Specialisti in Balayage, Air Touch e trattamenti di ricostruzione. Corso Garibaldi 15, Rho.">
   
-  <!-- FAVICON SVG NATIVA -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230B0B0B'/><text x='50%' y='68%' font-size='58' font-family='sans-serif' font-weight='700' fill='%23FFFFFF' text-anchor='middle'>A</text></svg>">
 
-  <!-- OPEN GRAPH / SOCIAL META TAGS (PUNTO 5) -->
   <meta property="og:type" content="business.business">
   <meta property="og:title" content="Aria Salon | Precision Hairdressing a Rho">
-  <meta property="og:description" content="Atelier dedicato al colore di precisione, Air Touch e salute del capello. Prenota online o via WhatsApp. Corso Garibaldi 15, Rho.">
-  <meta property="og:url" content="https://www.ariasalon.it">
+  <meta property="og:description" content="Atelier dedicato al colore di precisione, Air Touch e salute del capello. Corso Garibaldi 15, Rho.">
+  <meta property="og:url" content="https://andrea23320.github.io/ariasalon/">
   <meta property="og:image" content="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1200&q=80">
   <meta property="og:locale" content="it_IT">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Aria Salon | Atelier & Parrucchiere a Rho">
-  <meta name="twitter:description" content="Specialisti in Air Touch, Balayage e trattamenti bio-botanici Benvoleo Alfaparf a Rho.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1200&q=80">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- SCHEMA.ORG JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "HairSalon",
     "name": "Aria Salon",
     "image": "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1000&q=80",
-    "@id": "https://www.ariasalon.it/#hairsalon",
-    "url": "https://www.ariasalon.it",
+    "@id": "https://andrea23320.github.io/ariasalon/#hairsalon",
+    "url": "https://andrea23320.github.io/ariasalon/",
     "hasMap": "https://maps.app.goo.gl/jaz7hXD66p9atume8",
     "telephone": "+390299760547",
     "priceRange": "€€",
@@ -88,7 +82,15 @@
       --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    * { box-sizing: border-box; }
     
     body {
       background-color: var(--bg);
@@ -96,27 +98,31 @@
       font-family: var(--font-main);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-      padding-bottom: 5rem;
+      padding-bottom: 5.5rem;
     }
 
     body.menu-open {
       overflow: hidden;
     }
 
-    .container { width: 92%; max-width: 1240px; margin: 0 auto; }
+    .container { 
+      width: 90%; 
+      max-width: 1200px; 
+      margin: 0 auto; 
+    }
 
     /* Top Strip */
     .top-strip {
       border-bottom: 1px solid var(--border);
       font-size: 0.75rem;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       padding: 0.65rem 0;
       color: var(--text-muted);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 0.5rem;
     }
     .top-strip a { color: var(--text-main); text-decoration: none; font-weight: 600; }
 
@@ -124,17 +130,18 @@
     header {
       position: sticky;
       top: 0;
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       z-index: 100;
+      width: 100%;
     }
     nav { 
       display: flex; 
       align-items: center; 
       justify-content: space-between; 
-      padding: 1rem 0; 
+      padding: 0.85rem 0; 
     }
     .brand-logo { 
       display: inline-flex; 
@@ -143,48 +150,45 @@
       text-decoration: none; 
       color: var(--text-main); 
     }
-    .brand-logo svg { height: 36px; width: auto; }
+    .brand-logo svg { height: 32px; width: auto; }
     
-    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
       color: var(--text-main);
       text-decoration: none;
       font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      transition: opacity 0.2s;
+      transition: opacity 0.2s ease;
     }
     .nav-links a:hover { opacity: 0.5; }
 
-    /* Hamburger Button */
     .hamburger-btn {
       display: none;
       background: none;
       border: none;
       cursor: pointer;
-      padding: 0.5rem;
+      padding: 0.4rem;
       color: var(--text-main);
       z-index: 101;
     }
 
-    /* Mobile Drawer */
     .mobile-nav-drawer {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+      inset: 0;
+      width: 100vw;
       height: 100vh;
       background: #FFFFFF;
       z-index: 99;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 1.75rem;
+      gap: 2rem;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 0.25s ease;
     }
     .mobile-nav-drawer.is-active {
       opacity: 1;
@@ -193,7 +197,7 @@
     .mobile-nav-drawer a {
       color: var(--text-main);
       text-decoration: none;
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -204,15 +208,13 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.85rem 1.8rem;
+      padding: 0.85rem 1.6rem;
       font-size: 0.8rem;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
       font-weight: 600;
-      transition: all 0.25s ease;
       cursor: pointer;
-      border-radius: 2px;
       min-height: 48px;
     }
     .btn-solid { background: var(--text-main); color: #FFF; border: 1px solid var(--text-main); }
@@ -221,40 +223,38 @@
     .btn-line:hover { background: var(--text-main); color: #FFF; }
 
     /* Hero Section */
-    .hero { padding: 4rem 0 3.5rem; border-bottom: 1px solid var(--border); }
-    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3.5rem; align-items: center; }
+    .hero { padding: 3.5rem 0 3rem; border-bottom: 1px solid var(--border); }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
     .hero-meta {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       color: var(--text-muted);
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
       display: block;
-      font-weight: 500;
+      font-weight: 600;
     }
     .hero h1 {
-      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
       font-weight: 700;
-      line-height: 1.02;
+      line-height: 1.05;
       letter-spacing: -0.04em;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.2rem;
       text-transform: uppercase;
     }
     .hero p {
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: var(--text-muted);
       font-weight: 300;
       line-height: 1.6;
-      max-width: 520px;
-      margin-bottom: 2rem;
+      margin-bottom: 1.8rem;
     }
-    .hero-actions { display: flex; gap: 0.75rem; }
+    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
     .hero-img-frame { position: relative; width: 100%; }
     .hero-img-frame img {
       width: 100%;
-      height: 520px;
+      height: 480px;
       object-fit: cover;
-      filter: grayscale(15%) contrast(105%);
       display: block;
     }
     .hero-stamp {
@@ -263,63 +263,63 @@
       right: 0;
       background: var(--text-main);
       color: #FFF;
-      padding: 1rem 1.4rem;
-      font-size: 0.72rem;
+      padding: 0.85rem 1.25rem;
+      font-size: 0.7rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 600;
     }
 
     /* Video Reel Section */
-    .video-section { padding: 5rem 0; border-bottom: 1px solid var(--border); background: var(--bg-subtle); }
-    .video-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 4rem; align-items: center; }
-    .reel-container { display: flex; justify-content: center; width: 100%; }
+    .video-section { padding: 4.5rem 0; border-bottom: 1px solid var(--border); background: var(--bg-subtle); }
+    .video-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 3.5rem; align-items: center; }
+    .reel-container { display: flex; justify-content: center; width: 100%; max-width: 100%; }
     .reel-frame-wrap {
       width: 100%;
-      max-width: 380px;
+      max-width: 360px;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
       border: 1px solid var(--border);
       background: #FFFFFF;
     }
     .video-narrative h2 {
-      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
       font-weight: 700;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.03em;
       text-transform: uppercase;
-      line-height: 1.08;
-      margin-bottom: 1.25rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
     }
     .video-narrative p {
       color: var(--text-muted);
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 300;
-      line-height: 1.65;
-      margin-bottom: 1.75rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
     }
-    .partner-banner { border-top: 1px solid var(--border); padding-top: 1.75rem; display: flex; flex-direction: column; gap: 0.35rem; }
-    .partner-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-muted); font-weight: 600; }
-    .partner-brand { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+    .partner-banner { border-top: 1px solid var(--border); padding-top: 1.5rem; }
+    .partner-title { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 600; }
+    .partner-brand { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.2rem; }
 
     /* Specialties Grid */
     .specialties { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--border); }
-    .specialty-item { padding: 3rem 2rem; border-right: 1px solid var(--border); }
+    .specialty-item { padding: 2.5rem 1.75rem; border-right: 1px solid var(--border); }
     .specialty-item:last-child { border-right: none; }
-    .specialty-num { font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.1em; display: block; margin-bottom: 1.25rem; }
-    .specialty-item h3 { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.65rem; text-transform: uppercase; }
-    .specialty-item p { font-size: 0.92rem; color: var(--text-muted); font-weight: 300; line-height: 1.6; }
+    .specialty-num { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.1em; display: block; margin-bottom: 1rem; }
+    .specialty-item h3 { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.5rem; text-transform: uppercase; }
+    .specialty-item p { font-size: 0.9rem; color: var(--text-muted); font-weight: 300; line-height: 1.55; }
 
     /* Before / After Slider */
-    .comparison-section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
-    .comparison-header { text-align: center; max-width: 600px; margin: 0 auto 3rem; }
-    .comparison-header h2 { font-size: clamp(2rem, 3.8vw, 2.8rem); font-weight: 700; letter-spacing: -0.04em; text-transform: uppercase; margin-bottom: 0.65rem; }
-    .comparison-header p { color: var(--text-muted); font-weight: 300; font-size: 0.95rem; }
-    .comparison-wrapper { max-width: 980px; margin: 0 auto; }
+    .comparison-section { padding: 4.5rem 0; border-bottom: 1px solid var(--border); }
+    .comparison-header { text-align: center; max-width: 600px; margin: 0 auto 2.5rem; }
+    .comparison-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.03em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .comparison-header p { color: var(--text-muted); font-weight: 300; font-size: 0.9rem; }
+    .comparison-wrapper { max-width: 900px; margin: 0 auto; width: 100%; }
     .comparison-container { 
       position: relative; 
       width: 100%; 
-      height: 540px; 
+      height: 500px; 
       overflow: hidden; 
       user-select: none; 
       -webkit-user-select: none;
@@ -331,35 +331,34 @@
     .comparison-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
     .img-before-wrapper { position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; z-index: 2; }
     .img-before { position: absolute; top: 0; left: 0; height: 100%; max-width: none; }
-    .label-badge { position: absolute; bottom: 1.2rem; padding: 0.45rem 0.85rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; pointer-events: none; z-index: 3; }
-    .label-before { left: 1.2rem; background: rgba(11, 11, 11, 0.85); color: #FFF; }
-    .label-after { right: 1.2rem; background: rgba(255, 255, 255, 0.9); color: #0B0B0B; border: 1px solid var(--border); }
+    .label-badge { position: absolute; bottom: 1rem; padding: 0.4rem 0.75rem; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; pointer-events: none; z-index: 3; }
+    .label-before { left: 1rem; background: rgba(11, 11, 11, 0.85); color: #FFF; }
+    .label-after { right: 1rem; background: rgba(255, 255, 255, 0.9); color: #0B0B0B; border: 1px solid var(--border); }
     .slider-handle { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: #FFF; z-index: 10; transform: translateX(-50%); pointer-events: none; }
     .handle-button { 
       position: absolute; 
       top: 50%; 
       left: 50%; 
       transform: translate(-50%, -50%); 
-      width: 46px; 
-      height: 46px; 
+      width: 44px; 
+      height: 44px; 
       background: #0B0B0B; 
       border: 2px solid #FFF; 
       border-radius: 50%; 
       display: flex; 
       align-items: center; 
       justify-content: center; 
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35); 
     }
-    .handle-button svg { width: 18px; height: 18px; stroke: #FFF; }
+    .handle-button svg { width: 16px; height: 16px; stroke: #FFF; }
 
     /* Menu / Listino */
-    .menu-section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
+    .menu-section { padding: 4.5rem 0; border-bottom: 1px solid var(--border); }
     .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; }
-    .section-header h2 { font-size: clamp(2rem, 3.8vw, 2.8rem); font-weight: 700; letter-spacing: -0.04em; text-transform: uppercase; }
+    .section-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.03em; text-transform: uppercase; }
     .menu-filter-tabs { 
       display: flex; 
       gap: 0.5rem; 
-      margin-bottom: 2.5rem; 
+      margin-bottom: 2rem; 
       overflow-x: auto; 
       white-space: nowrap; 
       padding-bottom: 0.5rem;
@@ -369,63 +368,50 @@
     .menu-filter-tabs::-webkit-scrollbar { display: none; }
     
     .tab-btn {
-      padding: 0.6rem 1.25rem;
+      padding: 0.55rem 1.15rem;
       background: var(--bg-subtle);
       border: 1px solid var(--border);
       color: var(--text-muted);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       font-weight: 600;
       border-radius: 999px;
       cursor: pointer;
       flex-shrink: 0;
-      min-height: 40px;
+      min-height: 38px;
     }
     .tab-btn.is-active, .tab-btn:hover { background: var(--text-main); color: #FFFFFF; border-color: var(--text-main); }
-    .menu-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; }
-    .menu-group-title { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; padding-bottom: 0.85rem; border-bottom: 2px solid var(--text-main); margin-bottom: 1.25rem; }
-    .menu-row { display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 0.5rem; border-bottom: 1px solid var(--border); transition: background-color 0.2s ease; }
+    .menu-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .menu-group-title { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; padding-bottom: 0.75rem; border-bottom: 2px solid var(--text-main); margin-bottom: 1.25rem; }
+    .menu-row { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0.5rem; border-bottom: 1px solid var(--border); }
     .menu-row.is-hidden { display: none !important; }
-    .menu-row:hover { background-color: var(--bg-subtle); }
-    .menu-name { font-size: 0.98rem; font-weight: 500; }
+    .menu-name { font-size: 0.95rem; font-weight: 500; }
     .menu-actions-wrap { display: flex; align-items: center; gap: 1rem; }
     .menu-meta-col { display: flex; flex-direction: column; align-items: flex-end; }
-    .menu-cost { font-size: 1rem; font-weight: 600; letter-spacing: -0.02em; }
-    .duration-tag { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.04em; }
+    .menu-cost { font-size: 0.95rem; font-weight: 600; }
+    .duration-tag { font-size: 0.68rem; color: var(--text-muted); }
     .btn-row-book {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       text-decoration: none;
       color: var(--text-main);
       border: 1px solid var(--border-dark);
-      padding: 0.4rem 0.85rem;
+      padding: 0.35rem 0.75rem;
       background: transparent;
-      min-height: 38px;
+      min-height: 34px;
     }
     .btn-row-book:hover { background: var(--text-main); color: #FFF; }
 
-    /* ==========================================================
-       SEZIONE STAFF & TEAM
-       ========================================================== */
-    .team-section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-    .team-card {
-      background: var(--bg-subtle);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
+    /* Staff & Team */
+    .team-section { padding: 4.5rem 0; border-bottom: 1px solid var(--border); }
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    .team-card { background: var(--bg-subtle); border: 1px solid var(--border); overflow: hidden; }
     .team-img-wrapper {
       position: relative;
       aspect-ratio: 1 / 1;
@@ -434,131 +420,87 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--text-muted);
-      overflow: hidden;
     }
-    .team-img-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-    .team-card:hover .team-img-wrapper img {
-      transform: scale(1.04);
-    }
-    .team-placeholder-avatar {
-      font-size: 2.2rem;
-      font-weight: 300;
-      color: #999999;
-      letter-spacing: -0.05em;
-    }
-    .team-info {
-      padding: 1.4rem 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-    .team-name {
-      font-size: 1.1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-    }
-    .team-role {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
+    .team-placeholder-avatar { font-size: 2rem; font-weight: 300; color: #999999; }
+    .team-info { padding: 1.2rem 1rem; display: flex; flex-direction: column; gap: 0.2rem; }
+    .team-name { font-size: 1rem; font-weight: 700; text-transform: uppercase; }
+    .team-role { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 600; }
 
-    /* Modulo Recensioni Google */
-    .reviews-section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
-    .reviews-header-wrap { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; }
+    /* Recensioni Google */
+    .reviews-section { padding: 4.5rem 0; border-bottom: 1px solid var(--border); }
+    .reviews-header-wrap { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; }
     .reviews-badge-google {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      padding: 0.65rem 1.2rem;
+      gap: 0.85rem;
+      padding: 0.55rem 1rem;
       border: 1px solid var(--border);
       border-radius: 4px;
       background: var(--bg-subtle);
     }
-    .google-g-icon { width: 22px; height: 22px; flex-shrink: 0; }
-    .reviews-badge-text span:first-child { font-weight: 700; font-size: 0.95rem; color: var(--text-main); display: block; }
-    .reviews-badge-text small { color: var(--text-muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; }
-    
+    .google-g-icon { width: 20px; height: 20px; flex-shrink: 0; }
+    .reviews-badge-text span:first-child { font-weight: 700; font-size: 0.9rem; }
+    .reviews-badge-text small { color: var(--text-muted); font-size: 0.7rem; text-transform: uppercase; }
     .reviews-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
     .review-box {
       background: var(--bg-subtle);
       border: 1px solid var(--border);
-      padding: 1.8rem 1.5rem;
+      padding: 1.5rem 1.25rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    .stars-line { color: #F59E0B; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 0.85rem; }
-    .review-box p { font-size: 0.88rem; font-weight: 300; line-height: 1.6; color: var(--text-main); margin-bottom: 1.25rem; }
-    .reviewer-meta { border-top: 1px solid var(--border); padding-top: 0.85rem; }
-    .reviewer-name { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; display: block; }
-    .reviewer-tag { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.15rem; display: block; }
+    .stars-line { color: #F59E0B; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 0.75rem; }
+    .review-box p { font-size: 0.85rem; font-weight: 300; line-height: 1.6; color: var(--text-main); margin-bottom: 1rem; }
+    .reviewer-meta { border-top: 1px solid var(--border); padding-top: 0.75rem; }
+    .reviewer-name { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+    .reviewer-tag { font-size: 0.68rem; color: var(--text-muted); }
 
-    /* Gallery Creazioni */
-    .instagram-section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
-    .ig-header-wrap { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; }
-    .ig-handle-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-main); text-decoration: none; }
+    /* Creazioni / Instagram */
+    .instagram-section { padding: 4.5rem 0; border-bottom: 1px solid var(--border); }
+    .ig-header-wrap { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; }
+    .ig-handle-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; color: var(--text-main); text-decoration: none; }
     .instagram-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
-    .ig-card { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--bg-subtle); border: 1px solid var(--border); text-decoration: none; color: #FFF; display: block; }
+    .ig-card { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--bg-subtle); border: 1px solid var(--border); display: block; text-decoration: none; }
     .ig-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .ig-overlay { position: absolute; inset: 0; background: rgba(11, 11, 11, 0.45); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); opacity: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 1.25rem; transition: opacity 0.3s ease; z-index: 2; }
+    .ig-overlay { position: absolute; inset: 0; background: rgba(11, 11, 11, 0.45); opacity: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 1.2rem; transition: opacity 0.25s ease; z-index: 2; }
     .ig-card:hover .ig-overlay { opacity: 1; }
-    .ig-tag { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; color: #FFF; }
-    .ig-action-cta { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+    .ig-tag { font-size: 0.7rem; text-transform: uppercase; font-weight: 600; color: #FFF; }
+    .ig-action-cta { display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; text-transform: uppercase; font-weight: 600; color: #FFF; }
 
-    /* Studio & Map con dettagli Logistica (Punto 4) */
-    .studio-hub { padding: 5rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .studio-hub h2 { font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; text-transform: uppercase; margin-bottom: 1.25rem; }
+    /* Studio & Map */
+    .studio-hub { padding: 4.5rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+    .studio-hub h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; line-height: 1.05; text-transform: uppercase; margin-bottom: 1.2rem; }
     
     .logistics-card {
       background: var(--bg-subtle);
       border: 1px solid var(--border);
-      padding: 1.25rem 1.5rem;
+      padding: 1.2rem;
       border-radius: 4px;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
     }
-    .logistics-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      font-size: 0.88rem;
-      color: var(--text-main);
-      line-height: 1.5;
-    }
-    .logistics-item svg {
-      flex-shrink: 0;
-      margin-top: 0.2rem;
-    }
+    .logistics-item { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.85rem; line-height: 1.45; }
+    .logistics-item svg { flex-shrink: 0; margin-top: 0.15rem; }
 
-    .hub-info { list-style: none; margin: 1.75rem 0; display: flex; flex-direction: column; gap: 1rem; border-top: 1px solid var(--border); padding-top: 1.75rem; }
-    .hub-info li { display: flex; justify-content: space-between; font-size: 0.92rem; }
-    .hub-info li span:first-child { color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
-    .nav-actions { display: flex; gap: 0.65rem; margin-top: 1.25rem; flex-wrap: wrap; }
-    .btn-nav-app { display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem; padding: 0.65rem 1.15rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; border: 1px solid var(--border); color: var(--text-main); text-decoration: none; background: #FFF; min-height: 44px; }
-    .map-frame { width: 100%; height: 240px; border: 1px solid var(--border); margin-top: 1.5rem; filter: grayscale(100%) contrast(90%); }
-    .booking-card { background: var(--bg-subtle); padding: 3rem 2rem; border: 1px solid var(--border); text-align: center; }
-    .booking-card h3 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.65rem; text-transform: uppercase; }
-    .booking-card p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.75rem; font-weight: 300; }
+    .hub-info { list-style: none; margin: 1.5rem 0; display: flex; flex-direction: column; gap: 0.85rem; border-top: 1px solid var(--border); padding-top: 1.5rem; }
+    .hub-info li { display: flex; justify-content: space-between; font-size: 0.88rem; }
+    .hub-info li span:first-child { color: var(--text-muted); text-transform: uppercase; font-size: 0.75rem; }
+    .nav-actions { display: flex; gap: 0.65rem; margin-top: 1.2rem; flex-wrap: wrap; }
+    .btn-nav-app { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.65rem 1rem; font-size: 0.72rem; text-transform: uppercase; font-weight: 600; border: 1px solid var(--border); color: var(--text-main); text-decoration: none; background: #FFF; min-height: 42px; }
+    .map-frame { width: 100%; height: 230px; border: 1px solid var(--border); margin-top: 1.5rem; filter: grayscale(100%) contrast(90%); }
+    .booking-card { background: var(--bg-subtle); padding: 2.5rem 1.75rem; border: 1px solid var(--border); text-align: center; }
+    .booking-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase; }
+    .booking-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; font-weight: 300; }
 
     /* Footer */
-    footer { border-top: 1px solid var(--border); padding: 2rem 0; font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; }
     .footer-wrap { display: flex; justify-content: space-between; align-items: center; }
     .footer-wrap a { color: var(--text-main); text-decoration: none; font-weight: 600; }
 
-    /* Mobile Floating Dock Bar */
+    /* Dock WhatsApp Bar */
     .mobile-bar {
       display: none;
       position: fixed;
@@ -568,38 +510,36 @@
       background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+      padding: 0.65rem 1rem calc(0.65rem + env(safe-area-inset-bottom));
       border-top: 1px solid var(--border);
       z-index: 99;
-      box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05);
     }
-    .mobile-bar .btn { width: 100%; min-height: 48px; }
+    .mobile-bar .btn { width: 100%; min-height: 46px; }
 
     /* Cookie Banner */
-    .cookie-banner { position: fixed; bottom: 5rem; right: 1rem; left: 1rem; max-width: 400px; margin: 0 auto; background: #0B0B0B; color: #FFFFFF; padding: 1.25rem; border-radius: 4px; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); z-index: 1000; display: none; }
-    .cookie-banner p { font-size: 0.8rem; color: #BDBDBD; line-height: 1.5; margin-bottom: 1rem; font-weight: 300; }
-    .cookie-banner .cookie-actions { display: flex; gap: 0.65rem; }
-    .btn-cookie-accept { background: #FFFFFF; color: #0B0B0B; border: 1px solid #FFFFFF; padding: 0.5rem 1rem; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; cursor: pointer; min-height: 38px; }
-    .btn-cookie-refuse { background: transparent; color: #8E8E8E; border: 1px solid rgba(255, 255, 255, 0.2); padding: 0.5rem 0.85rem; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; cursor: pointer; min-height: 38px; }
+    .cookie-banner { position: fixed; bottom: 5rem; right: 1rem; left: 1rem; max-width: 380px; margin: 0 auto; background: #0B0B0B; color: #FFFFFF; padding: 1.2rem; border-radius: 4px; z-index: 1000; display: none; }
+    .cookie-banner p { font-size: 0.78rem; color: #BDBDBD; margin-bottom: 0.85rem; }
+    .cookie-banner .cookie-actions { display: flex; gap: 0.5rem; }
+    .btn-cookie-accept { background: #FFFFFF; color: #0B0B0B; border: none; padding: 0.45rem 0.85rem; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; cursor: pointer; }
+    .btn-cookie-refuse { background: transparent; color: #8E8E8E; border: 1px solid rgba(255, 255, 255, 0.2); padding: 0.45rem 0.75rem; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; cursor: pointer; }
 
-    /* Scroll Reveal */
-    .reveal-on-scroll { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal-on-scroll.is-revealed { opacity: 1; transform: translateY(0); }
-
-    /* MEDIA QUERIES ULTRA-RESPONSIVE */
+    /* ==========================================================
+       MEDIA QUERIES SMARTPHONE (MAX 768px)
+       ========================================================== */
     @media (max-width: 992px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .hero-img-frame img { height: 380px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-img-frame img { height: 360px; }
       .video-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
-      .partner-banner { align-items: center; }
+      .partner-banner { display: flex; flex-direction: column; align-items: center; }
       .specialties { grid-template-columns: 1fr; }
-      .specialty-item { border-right: none; border-bottom: 1px solid var(--border); padding: 2.2rem 1.5rem; }
-      .menu-columns { grid-template-columns: 1fr; gap: 2.5rem; }
+      .specialty-item { border-right: none; border-bottom: 1px solid var(--border); padding: 2rem 1.25rem; }
+      .menu-columns { grid-template-columns: 1fr; gap: 2rem; }
       .team-grid { grid-template-columns: repeat(2, 1fr); }
       .reviews-grid-4 { grid-template-columns: repeat(2, 1fr); }
-      .reviews-header-wrap { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+      .reviews-header-wrap { flex-direction: column; align-items: flex-start; gap: 1rem; }
       .instagram-grid { grid-template-columns: repeat(2, 1fr); }
-      .studio-hub { grid-template-columns: 1fr; gap: 3rem; }
+      .studio-hub { grid-template-columns: 1fr; gap: 2.5rem; }
       .nav-links { display: none; }
       .hamburger-btn { display: block; }
       .mobile-nav-drawer { display: flex; }
@@ -607,76 +547,80 @@
     }
 
     @media (max-width: 768px) {
+      .container { width: 92%; }
       .top-strip span:last-child { display: none; }
-      .hero { padding: 3rem 0 2.5rem; }
+      .hero { padding: 2.5rem 0 2rem; }
       .hero-actions { flex-direction: column; width: 100%; }
       .hero-actions .btn { width: 100%; }
       
-      .comparison-container { height: 380px; }
-      .label-badge { font-size: 0.65rem; padding: 0.35rem 0.65rem; bottom: 0.85rem; }
+      .comparison-container { height: 360px; }
+      .label-badge { font-size: 0.62rem; padding: 0.3rem 0.6rem; }
 
       .menu-row {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.85rem;
-        padding: 1.2rem 0.75rem;
+        gap: 0.75rem;
+        padding: 1.1rem 0.85rem;
         background: var(--bg-subtle);
         border: 1px solid var(--border);
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.65rem;
       }
       .menu-actions-wrap {
         width: 100%;
         justify-content: space-between;
       }
-      .menu-meta-col {
-        align-items: flex-start;
-      }
       .btn-row-book {
         flex: 1;
-        max-width: 120px;
+        max-width: 110px;
         text-align: center;
       }
 
-      /* Swipe Carousel per Team, Recensioni & Lavori */
+      /* SWIPE CAROUSEL SNAP SU MOBILE */
       .team-grid, .reviews-grid-4, .instagram-grid {
-        display: flex;
-        overflow-x: auto;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
         scroll-snap-type: x mandatory;
-        gap: 1rem;
-        padding-bottom: 1rem;
+        gap: 0.85rem;
+        padding: 0 4% 1rem 4%;
+        margin: 0 -4%;
+        width: calc(100% + 8%);
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
-        margin: 0 -4%;
-        padding-left: 4%;
-        padding-right: 4%;
       }
-      .team-grid::-webkit-scrollbar, .reviews-grid-4::-webkit-scrollbar, .instagram-grid::-webkit-scrollbar { display: none; }
+      .team-grid::-webkit-scrollbar, .reviews-grid-4::-webkit-scrollbar, .instagram-grid::-webkit-scrollbar { 
+        display: none; 
+      }
       
       .team-card {
-        min-width: 75%;
+        min-width: 72vw !important;
+        max-width: 72vw !important;
         scroll-snap-align: center;
-        flex-shrink: 0;
+        flex-shrink: 0 !important;
       }
       .review-box {
-        min-width: 82%;
+        min-width: 80vw !important;
+        max-width: 80vw !important;
         scroll-snap-align: center;
-        flex-shrink: 0;
+        flex-shrink: 0 !important;
       }
       .ig-card {
-        min-width: 72%;
+        min-width: 70vw !important;
+        max-width: 70vw !important;
         scroll-snap-align: center;
-        flex-shrink: 0;
+        flex-shrink: 0 !important;
       }
       .ig-overlay {
         opacity: 1;
-        background: linear-gradient(to top, rgba(11, 11, 11, 0.7) 0%, transparent 60%);
+        background: linear-gradient(to top, rgba(11, 11, 11, 0.75) 0%, transparent 60%);
       }
 
       .mobile-bar { display: block; }
-      .footer-wrap { flex-direction: column; gap: 0.85rem; text-align: center; }
+      .footer-wrap { flex-direction: column; gap: 0.75rem; text-align: center; }
       .nav-actions { flex-direction: column; }
       .nav-actions .btn-nav-app { width: 100%; }
-      .hub-info li { flex-direction: column; gap: 0.25rem; }
+      .hub-info li { flex-direction: column; gap: 0.2rem; }
     }
   </style>
 </head>
@@ -691,7 +635,7 @@
     </div>
   </div>
 
-  <!-- Header con Hamburger Mobile -->
+  <!-- Header con Menu Essenziale a 4 Voci -->
   <header>
     <div class="container">
       <nav>
@@ -705,23 +649,18 @@
           </svg>
         </a>
 
-        <!-- Menu Desktop -->
+        <!-- Menu Desktop Essenziale -->
         <ul class="nav-links">
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#specialita">Atelier</a></li>
-          <li><a href="#trasformazioni">Prima / Dopo</a></li>
-          <li><a href="#listino">Listino</a></li>
+          <li><a href="#listino">Servizi</a></li>
+          <li><a href="#trasformazioni">Lavori</a></li>
           <li><a href="#team">Team</a></li>
-          <li><a href="#recensioni">Recensioni (70+)</a></li>
-          <li><a href="#lavori">Creazioni</a></li>
-          <li><a href="#hub">Mappa</a></li>
+          <li><a href="#hub">Contatti</a></li>
         </ul>
 
         <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20un%20appuntamento." class="btn btn-solid">Prenota</a>
 
-        <!-- Hamburger Icon -->
-        <button class="hamburger-btn" id="mobileMenuToggle" aria-label="Apri Menu di Navigazione">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <button class="hamburger-btn" id="mobileMenuToggle" aria-label="Apri Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12"/>
             <line x1="3" y1="6" x2="21" y2="6"/>
             <line x1="3" y1="18" x2="21" y2="18"/>
@@ -731,22 +670,18 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer Menu -->
+  <!-- Mobile Drawer Menu Essenziale -->
   <div class="mobile-nav-drawer" id="mobileDrawer">
-    <a href="#experience" class="mobile-link">Experience</a>
-    <a href="#specialita" class="mobile-link">Atelier</a>
-    <a href="#trasformazioni" class="mobile-link">Prima / Dopo</a>
-    <a href="#listino" class="mobile-link">Listino</a>
+    <a href="#listino" class="mobile-link">Servizi</a>
+    <a href="#trasformazioni" class="mobile-link">Lavori</a>
     <a href="#team" class="mobile-link">Team</a>
-    <a href="#recensioni" class="mobile-link">Recensioni (70+)</a>
-    <a href="#lavori" class="mobile-link">Creazioni</a>
-    <a href="#hub" class="mobile-link">Mappa</a>
+    <a href="#hub" class="mobile-link">Contatti</a>
     <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20un%20appuntamento." class="btn btn-solid" style="margin-top: 1rem; width: 80%;">Prenota su WhatsApp</a>
   </div>
 
   <main>
     <!-- Hero Section -->
-    <section class="container hero reveal-on-scroll">
+    <section class="container hero">
       <div class="hero-grid">
         <div>
           <span class="hero-meta">Precision Hairdressing · Rho</span>
@@ -760,26 +695,26 @@
         </div>
 
         <div class="hero-img-frame">
-          <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1000&q=80" alt="Aria Salon Experience" loading="eager" fetchpriority="high">
+          <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1000&q=80" alt="Aria Salon Experience" loading="eager">
           <div class="hero-stamp">Corso Garibaldi 15</div>
         </div>
       </div>
     </section>
 
-    <!-- Sezione Video Reel CriJofPA1v3 -->
-    <section id="experience" class="video-section reveal-on-scroll">
+    <!-- Sezione Video Reel -->
+    <section id="experience" class="video-section">
       <div class="container video-grid">
         <div class="reel-container">
           <div class="reel-frame-wrap">
             <iframe 
               src="https://www.instagram.com/reel/CriJofPA1v3/embed/" 
               width="100%" 
-              height="580" 
+              height="540" 
               frameborder="0" 
               scrolling="no" 
               allowtransparency="true"
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              title="Aria Salon Tour Reel CriJofPA1v3">
+              title="Aria Salon Tour Reel">
             </iframe>
           </div>
         </div>
@@ -792,14 +727,14 @@
           <div class="partner-banner">
             <span class="partner-title">Official Partner Salon</span>
             <div class="partner-brand">Alfaparf Milano Professional</div>
-            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.35rem; margin-bottom: 0;">Trattamenti bio-botanici Benvoleo e sfumature Golden Brown studiate per la stagione.</p>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Trattamenti bio-botanici Benvoleo e sfumature Golden Brown studiate per la stagione.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Punti Chiave -->
-    <section id="specialita" class="container specialties reveal-on-scroll">
+    <section class="container specialties">
       <div class="specialty-item">
         <span class="specialty-num">01 / COLOR LAB</span>
         <h3>Air Touch & Balayage</h3>
@@ -819,12 +754,12 @@
       </div>
     </section>
 
-    <!-- Prima / Dopo Slider (Touch Optimized con Unsplash) -->
-    <section id="trasformazioni" class="container comparison-section reveal-on-scroll">
+    <!-- Prima / Dopo Slider (Lavori) -->
+    <section id="trasformazioni" class="container comparison-section">
       <div class="comparison-header">
         <span class="hero-meta">Precision & Results</span>
         <h2>Trasformazioni Reali</h2>
-        <p>Trascina il cursore per osservare l'effetto di sfumatura e lucidatura su capello naturale trattato con tecnica Air Touch.</p>
+        <p>Trascina il cursore per osservare l'effetto di sfumatura e lucidatura su capello naturale con tecnica Air Touch.</p>
       </div>
 
       <div class="comparison-wrapper">
@@ -835,17 +770,17 @@
             class="img-after"
             loading="lazy"
           >
-          <span class="label-badge label-after">Dopo · Air Touch & Gloss</span>
+          <span class="label-badge label-after">Dopo · Air Touch</span>
 
           <div class="img-before-wrapper" id="beforeWrapper">
             <img 
               src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1200&q=85" 
-              alt="Base Naturale di Partenza" 
+              alt="Base Naturale" 
               class="img-before"
               id="beforeImage"
               loading="lazy"
             >
-            <span class="label-badge label-before">Prima · Base Naturale</span>
+            <span class="label-badge label-before">Prima · Base</span>
           </div>
 
           <div class="slider-handle" id="sliderHandle">
@@ -859,14 +794,13 @@
       </div>
     </section>
 
-    <!-- Listino con Filtri a Tab e Durate Medie -->
-    <section id="listino" class="container menu-section reveal-on-scroll">
+    <!-- Listino / Servizi -->
+    <section id="listino" class="container menu-section">
       <div class="section-header">
         <div>
           <span class="hero-meta">Listino Ufficiale</span>
           <h2>Servizi & Trattamenti</h2>
         </div>
-        <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20richiedere%20una%20consulenza%20personalizzata." class="btn btn-line" style="display: none;">Chiedi consulenza</a>
       </div>
 
       <div class="menu-filter-tabs">
@@ -883,7 +817,7 @@
           <div class="menu-row" data-category="cut-style">
             <div>
               <div class="menu-name">Taglio Donna</div>
-              <small style="color: var(--text-muted); font-weight: 300;">Consulenza visagistica e detersione mirata</small>
+              <small style="color: var(--text-muted);">Consulenza visagistica e detersione mirata</small>
             </div>
             <div class="menu-actions-wrap">
               <div class="menu-meta-col">
@@ -897,7 +831,7 @@
           <div class="menu-row" data-category="cut-style">
             <div>
               <div class="menu-name">Taglio Uomo</div>
-              <small style="color: var(--text-muted); font-weight: 300;">Styling rifinito a forbice o clipper</small>
+              <small style="color: var(--text-muted);">Styling rifinito a forbice o clipper</small>
             </div>
             <div class="menu-actions-wrap">
               <div class="menu-meta-col">
@@ -911,7 +845,7 @@
           <div class="menu-row" data-category="cut-style">
             <div>
               <div class="menu-name">Piega Classica</div>
-              <small style="color: var(--text-muted); font-weight: 300;">Definizione e finitura a lunga durata</small>
+              <small style="color: var(--text-muted);">Definizione e finitura a lunga durata</small>
             </div>
             <div class="menu-actions-wrap">
               <div class="menu-meta-col">
@@ -925,7 +859,7 @@
           <div class="menu-row" data-category="cut-style">
             <div>
               <div class="menu-name">Piega Infinity</div>
-              <small style="color: var(--text-muted); font-weight: 300;">Styling con lucidatura intensa</small>
+              <small style="color: var(--text-muted);">Styling con lucidatura intensa</small>
             </div>
             <div class="menu-actions-wrap">
               <div class="menu-meta-col">
@@ -939,7 +873,7 @@
           <div class="menu-row" data-category="cut-style treatment">
             <div>
               <div class="menu-name">Piega Cosmeceutica</div>
-              <small style="color: var(--text-muted); font-weight: 300;">Con principi attivi rigeneranti applicati a caldo</small>
+              <small style="color: var(--text-muted);">Con principi attivi rigeneranti applicati a caldo</small>
             </div>
             <div class="menu-actions-wrap">
               <div class="menu-meta-col">
@@ -957,7 +891,7 @@
           <div class="menu-row" data-category="color-lab">
             <div>
               <div class="menu-name">Air Touch</div>
-              <small style="color: var(--text-muted); font-weight: 300;">Tecnica con getto d'aria a contrasto zero</small>
+              <small style="color: var(--text-muted);">Tecnica con getto d'aria a contrasto zero</small>
             </div>
             <div class="menu-actions-wrap">
               <div class="menu-meta-col">
@@ -971,7 +905,7 @@
           <div class="menu-row" data-category="color-lab">
             <div>
               <div class="menu-name">Balayage</div>
-              <small style="color: var(--text-muted); font-weight: 300;">Sfumature luminose a mano libera</small>
+              <small style="color: var(--text-muted);">Sfumature luminose a mano libera</small>
             </div>
             <div class="menu-actions-wrap">
               <div class="menu-meta-col">
@@ -985,7 +919,7 @@
           <div class="menu-row" data-category="color-lab">
             <div>
               <div class="menu-name">Colore & Tonalizzante</div>
-              <small style="color: var(--text-muted); font-weight: 300;">Copertura uniforme con pigmenti lucidi</small>
+              <small style="color: var(--text-muted);">Copertura uniforme con pigmenti lucidi</small>
             </div>
             <div class="menu-actions-wrap">
               <div class="menu-meta-col">
@@ -999,7 +933,7 @@
           <div class="menu-row" data-category="treatment">
             <div>
               <div class="menu-name">Ricostruzione Gold20</div>
-              <small style="color: var(--text-muted); font-weight: 300;">Trattamento intensivo ringiovanente stelo</small>
+              <small style="color: var(--text-muted);">Trattamento intensivo ringiovanente stelo</small>
             </div>
             <div class="menu-actions-wrap">
               <div class="menu-meta-col">
@@ -1013,7 +947,7 @@
           <div class="menu-row" data-category="treatment">
             <div>
               <div class="menu-name">Trattamento Beauty</div>
-              <small style="color: var(--text-muted); font-weight: 300;">Flash idratante e districante al lavatesta</small>
+              <small style="color: var(--text-muted);">Flash idratante e districante al lavatesta</small>
             </div>
             <div class="menu-actions-wrap">
               <div class="menu-meta-col">
@@ -1027,59 +961,42 @@
       </div>
     </section>
 
-    <!-- SEZIONE STAFF & TEAM (NUOVA) -->
-    <section id="team" class="container team-section reveal-on-scroll">
+    <!-- Team Section -->
+    <section id="team" class="container team-section">
       <div class="section-header">
         <div>
           <span class="hero-meta">I Nostri Professionisti</span>
           <h2>Aria Salon Team</h2>
         </div>
-        <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 440px;">Esperienza, cura visagistica e continua ricerca sulle migliori tecniche di sfumatura e taglio.</p>
       </div>
 
       <div class="team-grid">
-        <!-- Vince -->
         <div class="team-card">
-          <div class="team-img-wrapper">
-            <span class="team-placeholder-avatar">V</span>
-            <!-- Quando avrai la foto basterà sostituire con: <img src="vince.jpg" alt="Vince - Manager e Stilista"> -->
-          </div>
+          <div class="team-img-wrapper"><span class="team-placeholder-avatar">V</span></div>
           <div class="team-info">
             <span class="team-name">Vince</span>
             <span class="team-role">Manager & Stilista</span>
           </div>
         </div>
 
-        <!-- Annalisa -->
         <div class="team-card">
-          <div class="team-img-wrapper">
-            <span class="team-placeholder-avatar">A</span>
-            <!-- <img src="annalisa.jpg" alt="Annalisa - Manager e Receptionist"> -->
-          </div>
+          <div class="team-img-wrapper"><span class="team-placeholder-avatar">A</span></div>
           <div class="team-info">
             <span class="team-name">Annalisa</span>
             <span class="team-role">Manager & Receptionist</span>
           </div>
         </div>
 
-        <!-- Marcello -->
         <div class="team-card">
-          <div class="team-img-wrapper">
-            <span class="team-placeholder-avatar">M</span>
-            <!-- <img src="marcello.jpg" alt="Marcello - Colour Director"> -->
-          </div>
+          <div class="team-img-wrapper"><span class="team-placeholder-avatar">M</span></div>
           <div class="team-info">
             <span class="team-name">Marcello</span>
             <span class="team-role">Colour Director</span>
           </div>
         </div>
 
-        <!-- Lisa -->
         <div class="team-card">
-          <div class="team-img-wrapper">
-            <span class="team-placeholder-avatar">L</span>
-            <!-- <img src="lisa.jpg" alt="Lisa - Stylist"> -->
-          </div>
+          <div class="team-img-wrapper"><span class="team-placeholder-avatar">L</span></div>
           <div class="team-info">
             <span class="team-name">Lisa</span>
             <span class="team-role">Stylist</span>
@@ -1088,8 +1005,8 @@
       </div>
     </section>
 
-    <!-- Recensioni Google (Swipe Carousel su Mobile) -->
-    <section id="recensioni" class="container reviews-section reveal-on-scroll">
+    <!-- Recensioni -->
+    <section id="recensioni" class="container reviews-section">
       <div class="reviews-header-wrap">
         <div>
           <span class="hero-meta">Esperienze Reali</span>
@@ -1105,7 +1022,7 @@
           </svg>
           <div class="reviews-badge-text">
             <span>4.9 ★★★★★</span>
-            <small>Oltre 70 recensioni verificate</small>
+            <small>74 recensioni</small>
           </div>
           <a href="https://maps.app.goo.gl/jaz7hXD66p9atume8" target="_blank" rel="noopener noreferrer" class="btn-row-book">Leggi ↗</a>
         </div>
@@ -1119,7 +1036,7 @@
           </div>
           <div class="reviewer-meta">
             <span class="reviewer-name">Sara Brambilla</span>
-            <span class="reviewer-tag">Recensione Google Verificata</span>
+            <span class="reviewer-tag">Google Verificata</span>
           </div>
         </div>
 
@@ -1130,7 +1047,7 @@
           </div>
           <div class="reviewer-meta">
             <span class="reviewer-name">Martina Colombo</span>
-            <span class="reviewer-tag">Recensione Google Verificata</span>
+            <span class="reviewer-tag">Google Verificata</span>
           </div>
         </div>
 
@@ -1141,7 +1058,7 @@
           </div>
           <div class="reviewer-meta">
             <span class="reviewer-name">Elena Galli</span>
-            <span class="reviewer-tag">Recensione Google Verificata</span>
+            <span class="reviewer-tag">Google Verificata</span>
           </div>
         </div>
 
@@ -1152,21 +1069,21 @@
           </div>
           <div class="reviewer-meta">
             <span class="reviewer-name">Luca Marchesi</span>
-            <span class="reviewer-tag">Recensione Google Verificata</span>
+            <span class="reviewer-tag">Google Verificata</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Galleria Creazioni -->
-    <section id="lavori" class="container instagram-section reveal-on-scroll">
+    <!-- Galleria Creazioni (Lavori) -->
+    <section id="lavori" class="container instagram-section">
       <div class="ig-header-wrap">
         <div>
           <span class="hero-meta">Visual Journal</span>
           <h2>Lavori in Atelier</h2>
         </div>
         <a href="https://www.instagram.com/ariasalon.milano/" target="_blank" rel="noopener noreferrer" class="ig-handle-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           @ariasalon.milano ↗
         </a>
       </div>
@@ -1176,32 +1093,23 @@
           <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Air Touch Signature" loading="lazy">
           <div class="ig-overlay">
             <span class="ig-tag">Air Touch Signature</span>
-            <div class="ig-action-cta">
-              Vedi su IG
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </div>
+            <div class="ig-action-cta">Vedi su IG ↗</div>
           </div>
         </a>
 
         <a href="https://www.instagram.com/ariasalon.milano/" target="_blank" rel="noopener noreferrer" class="ig-card">
           <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=80" alt="Soft Balayage & Gloss" loading="lazy">
           <div class="ig-overlay">
-            <span class="ig-tag">Soft Balayage & Gloss</span>
-            <div class="ig-action-cta">
-              Vedi su IG
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </div>
+            <span class="ig-tag">Soft Balayage</span>
+            <div class="ig-action-cta">Vedi su IG ↗</div>
           </div>
         </a>
 
         <a href="https://www.instagram.com/ariasalon.milano/" target="_blank" rel="noopener noreferrer" class="ig-card">
           <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=800&q=80" alt="Trattamento Gold20" loading="lazy">
           <div class="ig-overlay">
-            <span class="ig-tag">Trattamento Gold20</span>
-            <div class="ig-action-cta">
-              Vedi su IG
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </div>
+            <span class="ig-tag">Rituale Gold20</span>
+            <div class="ig-action-cta">Vedi su IG ↗</div>
           </div>
         </a>
 
@@ -1209,63 +1117,42 @@
           <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80" alt="Atelier Interior" loading="lazy">
           <div class="ig-overlay">
             <span class="ig-tag">Atelier Rho</span>
-            <div class="ig-action-cta">
-              Vedi su IG
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </div>
+            <div class="ig-action-cta">Vedi su IG ↗</div>
           </div>
         </a>
       </div>
     </section>
 
-    <!-- Hub Contatti, Logistica Parcheggio & Mappa (Punto 4) -->
-    <section id="hub" class="container studio-hub reveal-on-scroll">
+    <!-- Hub Contatti & Mappa -->
+    <section id="hub" class="container studio-hub">
       <div>
-        <span class="hero-meta">Posizione & Come Raggiungerci</span>
+        <span class="hero-meta">Posizione & Dettagli</span>
         <h2>Nel centro storico di Rho.</h2>
         
-        <!-- CARD LOGISTICA: PARCHEGGIO & TRENO -->
         <div class="logistics-card">
           <div class="logistics-item">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
             <div>
-              <strong>Parcheggi nelle vicinanze:</strong>
-              <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.15rem;">Ampia disponibilità di parcheggi gratuiti e a disco orario lungo Corso Garibaldi e nelle vie limitrofe (Via Meda / Piazza Visconti).</p>
+              <strong>Parcheggio:</strong> Ampia disponibilità di parcheggi gratuiti e a disco orario lungo Corso Garibaldi e vie limitrofe (Via Meda / Piazza Visconti).
             </div>
           </div>
           <div class="logistics-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16M12 3v8M8 19l-2 3M16 19l2 3"/><circle cx="8" cy="15" r="1"/><circle cx="16" cy="15" r="1"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16M12 3v8M8 19l-2 3M16 19l2 3"/></svg>
             <div>
-              <strong>In treno da Milano e provincia:</strong>
-              <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.15rem;">A soli <strong>5 minuti a piedi</strong> dalla Stazione FS di Rho (Linee suburbane S5, S6 e collegamenti diretti da Milano Porta Garibaldi/Centrale).</p>
+              <strong>Treno:</strong> A 5 minuti a piedi dalla Stazione FS di Rho (Linee S5, S6 e collegamenti Milano Porta Garibaldi/Centrale).
             </div>
           </div>
         </div>
 
         <ul class="hub-info">
-          <li>
-            <span>Indirizzo</span>
-            <strong>Corso Giuseppe Garibaldi, 15 – 20017 Rho (MI)</strong>
-          </li>
-          <li>
-            <span>Telefono</span>
-            <strong><a href="tel:+390299760547" style="color: inherit; text-decoration: none;">+39 02 99760547</a></strong>
-          </li>
-          <li>
-            <span>Orari</span>
-            <span>Mar - Mer - Ven - Sab: 09:30 - 18:00<br>Gio: 11:00 - 20:00 (Serale)<br>Dom - Lun: Chiuso</span>
-          </li>
+          <li><span>Indirizzo</span><strong>Corso G. Garibaldi, 15 – Rho (MI)</strong></li>
+          <li><span>Telefono</span><strong><a href="tel:+390299760547" style="color: inherit; text-decoration: none;">+39 02 99760547</a></strong></li>
+          <li><span>Orari</span><span>Mar-Sab: 09:30-18:00 (Gio: 11:00-20:00)</span></li>
         </ul>
 
         <div class="nav-actions">
-          <a href="https://maps.app.goo.gl/jaz7hXD66p9atume8" target="_blank" rel="noopener noreferrer" class="btn-nav-app">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Google Maps
-          </a>
-          <a href="https://maps.apple.com/?daddr=Corso+Giuseppe+Garibaldi+15,+20017+Rho+MI" target="_blank" rel="noopener noreferrer" class="btn-nav-app">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
-            Apple Maps
-          </a>
+          <a href="https://maps.app.goo.gl/jaz7hXD66p9atume8" target="_blank" rel="noopener noreferrer" class="btn-nav-app">Google Maps</a>
+          <a href="https://maps.apple.com/?daddr=Corso+Giuseppe+Garibaldi+15,+20017+Rho+MI" target="_blank" rel="noopener noreferrer" class="btn-nav-app">Apple Maps</a>
         </div>
 
         <iframe 
@@ -1273,14 +1160,13 @@
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2794.678007267676!2d9.03799331555986!3d45.53127807910188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478693a201c1abff%3A0x283b7f141bf1620a!2sCorso%20Giuseppe%20Garibaldi%2C%2015%2C%2020017%20Rho%20MI!5e0!3m2!1sit!2sit!4v1710000000000!5m2!1sit!2sit"
           allowfullscreen="" 
           loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Mappa di Aria Salon a Rho">
+          title="Mappa Aria Salon">
         </iframe>
       </div>
 
       <div class="booking-card">
-        <h3>Prenotazione Istantanea</h3>
-        <p>Scrivici su WhatsApp per verificare in tempo reale gli orari disponibili o richiedere una diagnosi per schiariture complesse.</p>
+        <h3>Prenotazione Rapida</h3>
+        <p>Scrivici su WhatsApp per verificare in tempo reale le disponibilità o richiedere una diagnosi per il colore.</p>
         <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20un%20appuntamento." class="btn btn-solid" style="width: 100%;">Scrivi su WhatsApp</a>
       </div>
     </section>
@@ -1290,27 +1176,24 @@
   <footer class="container">
     <div class="footer-wrap">
       <div>© 2026 ARIA SALON SNC · P.IVA 06220590969 · Rho (MI)</div>
-      <div>
-        <a href="https://www.instagram.com/ariasalon.milano/" target="_blank" rel="noopener noreferrer">Instagram @ariasalon.milano</a>
-      </div>
+      <div><a href="https://www.instagram.com/ariasalon.milano/" target="_blank" rel="noopener noreferrer">@ariasalon.milano</a></div>
     </div>
   </footer>
 
-  <!-- Mobile Floating Dock Bar -->
+  <!-- Dock WhatsApp Mobile -->
   <div class="mobile-bar">
     <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20prenotare%20un%20appuntamento." class="btn btn-solid">Prenota su WhatsApp</a>
   </div>
 
   <!-- Cookie Banner -->
   <div class="cookie-banner" id="cookieBanner">
-    <p>Utilizziamo cookie tecnici ed elementi integrati di terze parti (Instagram e Google Maps) per garantirti la migliore esperienza visiva.</p>
+    <p>Utilizziamo elementi integrati (Instagram e Maps) per garantire la migliore esperienza sul sito.</p>
     <div class="cookie-actions">
       <button class="btn-cookie-accept" id="acceptCookiesBtn">Accetta</button>
       <button class="btn-cookie-refuse" id="refuseCookiesBtn">Chiudi</button>
     </div>
   </div>
 
-  <!-- Scripts Interattivi -->
   <script>
     // 1. Mobile Drawer Navigation
     (function initMobileDrawer() {
@@ -1321,25 +1204,19 @@
 
       if (!toggleBtn || !drawer) return;
 
-      function toggleMenu() {
+      toggleBtn.addEventListener('click', () => {
         const isOpen = drawer.classList.contains('is-active');
-        if (isOpen) {
-          drawer.classList.remove('is-active');
-          body.classList.remove('menu-open');
-        } else {
-          drawer.classList.add('is-active');
-          body.classList.add('menu-open');
-        }
-      }
+        drawer.classList.toggle('is-active', !isOpen);
+        body.classList.toggle('menu-open', !isOpen);
+      });
 
-      toggleBtn.addEventListener('click', toggleMenu);
       links.forEach(l => l.addEventListener('click', () => {
         drawer.classList.remove('is-active');
         body.classList.remove('menu-open');
       }));
     })();
 
-    // 2. Script Before / After Slider (Touch & Pointer Events)
+    // 2. Before / After Slider
     (function initBeforeAfterSlider() {
       const container = document.getElementById('beforeAfterSlider');
       const beforeWrapper = document.getElementById('beforeWrapper');
@@ -1351,17 +1228,14 @@
       let isDragging = false;
 
       function updateImageWidth() {
-        const containerWidth = container.offsetWidth;
-        beforeImage.style.width = containerWidth + 'px';
+        beforeImage.style.width = container.offsetWidth + 'px';
       }
 
       function setPosition(clientX) {
         const rect = container.getBoundingClientRect();
         let offsetX = clientX - rect.left;
-
         if (offsetX < 0) offsetX = 0;
         if (offsetX > rect.width) offsetX = rect.width;
-
         const percentage = (offsetX / rect.width) * 100;
         beforeWrapper.style.width = percentage + '%';
         handle.style.left = percentage + '%';
@@ -1385,7 +1259,7 @@
       updateImageWidth();
     })();
 
-    // 3. Script Filtri Listino Tabs
+    // 3. Filtri Listino Tabs
     (function initMenuTabs() {
       const tabBtns = document.querySelectorAll('.tab-btn');
       const menuRows = document.querySelectorAll('.menu-row');
@@ -1404,38 +1278,14 @@
               row.classList.remove('is-hidden');
             } else {
               const categories = row.getAttribute('data-category') || '';
-              if (categories.includes(filter)) {
-                row.classList.remove('is-hidden');
-              } else {
-                row.classList.add('is-hidden');
-              }
+              row.classList.toggle('is-hidden', !categories.includes(filter));
             }
           });
         });
       });
     })();
 
-    // 4. Script Scroll Reveal
-    (function initScrollReveal() {
-      const revealElements = document.querySelectorAll('.reveal-on-scroll');
-      if (!revealElements.length) return;
-
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -30px 0px'
-      });
-
-      revealElements.forEach(el => observer.observe(el));
-    })();
-
-    // 5. Script Cookie Banner
+    // 4. Cookie Banner
     (function initCookieBanner() {
       const banner = document.getElementById('cookieBanner');
       const acceptBtn = document.getElementById('acceptCookiesBtn');
@@ -1444,9 +1294,7 @@
       if (!banner || !acceptBtn || !refuseBtn) return;
 
       if (!localStorage.getItem('aria_cookies_choice')) {
-        setTimeout(() => {
-          banner.style.display = 'block';
-        }, 1200);
+        setTimeout(() => { banner.style.display = 'block'; }, 1000);
       }
 
       acceptBtn.addEventListener('click', () => {
@@ -1461,7 +1309,6 @@
     })();
   </script>
 
-  <!-- Script Ufficiale Instagram Embed -->
   <script async src="//www.instagram.com/embed.js"></script>
 
 </body>
