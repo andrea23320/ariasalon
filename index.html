@@ -29,7 +29,7 @@
     "@context": "https://schema.org",
     "@type": "HairSalon",
     "name": "Aria Salon",
-    "description": "Salone parrucchiere atelier a Rho specializzato in tecniche di schiaritura Air Touch, Balayage, taglio personalizzato e rituali di ricostruzione.",
+    "description": "Salone parrucchiere atelier a Rho fondato da Vincenzo Lombardo, specializzato in tecniche di schiaritura Air Touch, Balayage, taglio personalizzato e rituali di ricostruzione.",
     "image": "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1000&q=80",
     "@id": "https://andrea23320.github.io/ariasalon/#hairsalon",
     "url": "https://andrea23320.github.io/ariasalon/",
@@ -321,6 +321,72 @@
     .partner-title { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 600; }
     .partner-brand { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.2rem; }
 
+    /* ==========================================================
+       SEZIONE ABOUT & MISSION
+       ========================================================== */
+    .about-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-story h2 {
+      font-size: clamp(1.9rem, 3.8vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .about-story p {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    .about-story strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+    .mission-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--text-main);
+      padding: 2.5rem 2.25rem;
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .mission-badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .mission-quote {
+      font-size: 1.15rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--text-main);
+      font-style: italic;
+    }
+    .mission-highlight {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--text-main);
+      text-transform: uppercase;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+
     /* Specialties Grid */
     .specialties { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--border); }
     .specialty-item { padding: 2.5rem 1.75rem; border-right: 1px solid var(--border); }
@@ -549,6 +615,7 @@
       .hero-img-frame img { height: 360px; }
       .video-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
       .partner-banner { display: flex; flex-direction: column; align-items: center; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .specialties { grid-template-columns: 1fr; }
       .specialty-item { border-right: none; border-bottom: 1px solid var(--border); padding: 2rem 1.25rem; }
       .menu-columns { grid-template-columns: 1fr; gap: 2rem; }
@@ -570,6 +637,8 @@
       .hero-actions { flex-direction: column; width: 100%; }
       .hero-actions .btn { width: 100%; }
       
+      .about-section { padding: 3.5rem 0; }
+      .mission-card { padding: 1.75rem 1.5rem; }
       .comparison-container { height: 360px; }
       .label-badge { font-size: 0.62rem; padding: 0.3rem 0.6rem; }
 
@@ -665,7 +734,9 @@
           </svg>
         </a>
 
+        <!-- Menu Desktop con Chi Siamo -->
         <ul class="nav-links">
+          <li><a href="#about">Chi Siamo</a></li>
           <li><a href="#listino">Servizi</a></li>
           <li><a href="#trasformazioni">Lavori</a></li>
           <li><a href="#team">Team</a></li>
@@ -687,6 +758,7 @@
 
   <!-- Mobile Drawer Menu -->
   <div class="mobile-nav-drawer" id="mobileDrawer">
+    <a href="#about" class="mobile-link">Chi Siamo</a>
     <a href="#listino" class="mobile-link">Servizi</a>
     <a href="#trasformazioni" class="mobile-link">Lavori</a>
     <a href="#team" class="mobile-link">Team</a>
@@ -744,6 +816,28 @@
             <div class="partner-brand">Alfaparf Milano Professional</div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Protocolli bio-botanici certificati Benvoleo, tonalizzanti glossy e colorazioni delicate studiate per preservare la fibra del capello.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEZIONE ABOUT & MISSION -->
+    <section id="about" class="container about-section">
+      <div class="about-grid">
+        <div class="about-story">
+          <span class="hero-meta">Da oltre 20 anni a Rho</span>
+          <h2>Dalla visione di un sognatore a ciò che siamo oggi</h2>
+          <p>Il nostro salone è ubicato nel comune di Rho da <strong>oltre 20 anni</strong>. Come tutte le storie, quella di Aria Salon nasce da un sognatore: <strong>Vincenzo Lombardo</strong>, manager e stilista di spessore, forte di una solida formazione internazionale presso le più accreditate accademie di <strong>Francia ed Inghilterra</strong>.</p>
+          <p>Aria Salon è un atelier di bellezza che si rivolge a tutti coloro che vogliono rivoluzionare o personalizzare il proprio stile, soddisfacendo qualsiasi esigenza di immagine attraverso un'attenta <strong>consulenza fatta di ascolto e confronto</strong>.</p>
+          <p>Nel 2015 nasce un progetto entusiasmante di nome <strong>KAPERA</strong>. Ed è qui che cresce l'attenzione verso una visione ampia del concetto di bellezza, impreziosita dall'utilizzo di prodotti di elevata qualità, elevate performance e una cura speciale verso l'<strong>aspetto green</strong>, fino ad arrivare a ciò che Aria Salon è oggi.</p>
+        </div>
+
+        <div class="mission-card">
+          <span class="mission-badge">La Nostra Mission</span>
+          <p class="mission-quote">“Prenderci cura di chi sa che attraverso la bellezza passa anche un supplemento di benessere, di chi sa che attraverso la bellezza passa un supplemento di anima.”</p>
+          <div class="mission-highlight">
+            È vero, la bellezza salverà il mondo e noi lavoriamo per salvare la bellezza.
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin: 0;">Un'attenzione autentica e costante verso l'essere umano e verso il pianeta che lo accoglie.</p>
         </div>
       </div>
     </section>
