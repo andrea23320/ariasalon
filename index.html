@@ -95,7 +95,8 @@
       --bg-subtle: #F6F6F6;
       --surface: #FFFFFF;
       --text-main: #0B0B0B;
-      --text-muted: #666666;
+      --text-muted: #444444; /* Contrasto elevato conforme WCAG */
+      --text-subtle: #555555;
       --border: #E8E8E8;
       --border-dark: #1F1F1F;
       --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -264,7 +265,7 @@
     .hero p {
       font-size: 1rem;
       color: var(--text-muted);
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.65;
       margin-bottom: 1.8rem;
     }
@@ -313,7 +314,7 @@
     .video-narrative p {
       color: var(--text-muted);
       font-size: 0.95rem;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.6;
       margin-bottom: 1.5rem;
     }
@@ -321,9 +322,7 @@
     .partner-title { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 600; }
     .partner-brand { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.2rem; }
 
-    /* ==========================================================
-       SEZIONE ABOUT & MISSION
-       ========================================================== */
+    /* About & Mission */
     .about-section {
       padding: 5rem 0;
       border-bottom: 1px solid var(--border);
@@ -345,7 +344,7 @@
     .about-story p {
       font-size: 0.98rem;
       color: var(--text-muted);
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.7;
       margin-bottom: 1.25rem;
     }
@@ -393,13 +392,13 @@
     .specialty-item:last-child { border-right: none; }
     .specialty-num { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.1em; display: block; margin-bottom: 1rem; }
     .specialty-item h3 { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.5rem; text-transform: uppercase; }
-    .specialty-item p { font-size: 0.9rem; color: var(--text-muted); font-weight: 300; line-height: 1.55; }
+    .specialty-item p { font-size: 0.9rem; color: var(--text-muted); font-weight: 400; line-height: 1.55; }
 
     /* Before / After Slider */
     .comparison-section { padding: 4.5rem 0; border-bottom: 1px solid var(--border); }
     .comparison-header { text-align: center; max-width: 650px; margin: 0 auto 2.5rem; }
     .comparison-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.03em; text-transform: uppercase; margin-bottom: 0.5rem; }
-    .comparison-header p { color: var(--text-muted); font-weight: 300; font-size: 0.9rem; }
+    .comparison-header p { color: var(--text-muted); font-weight: 400; font-size: 0.9rem; }
     .comparison-wrapper { max-width: 900px; margin: 0 auto; width: 100%; }
     .comparison-container { 
       position: relative; 
@@ -475,7 +474,7 @@
     .menu-actions-wrap { display: flex; align-items: center; gap: 1rem; }
     .menu-meta-col { display: flex; flex-direction: column; align-items: flex-end; }
     .menu-cost { font-size: 0.95rem; font-weight: 600; }
-    .duration-tag { font-size: 0.68rem; color: var(--text-muted); }
+    .duration-tag { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; }
     .btn-row-book {
       display: inline-flex;
       align-items: center;
@@ -491,7 +490,6 @@
       background: transparent;
       min-height: 34px;
     }
-    .btn-row-book:hover { background: var(--text-main); color: #FFF; }
 
     /* Staff & Team */
     .team-section { padding: 4.5rem 0; border-bottom: 1px solid var(--border); }
@@ -525,7 +523,7 @@
     }
     .google-g-icon { width: 20px; height: 20px; flex-shrink: 0; }
     .reviews-badge-text span:first-child { font-weight: 700; font-size: 0.9rem; }
-    .reviews-badge-text small { color: var(--text-muted); font-size: 0.7rem; text-transform: uppercase; }
+    .reviews-badge-text small { color: var(--text-muted); font-size: 0.72rem; text-transform: uppercase; font-weight: 500; }
     .reviews-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
     .review-box {
       background: var(--bg-subtle);
@@ -536,10 +534,10 @@
       justify-content: space-between;
     }
     .stars-line { color: #F59E0B; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 0.75rem; }
-    .review-box p { font-size: 0.85rem; font-weight: 300; line-height: 1.6; color: var(--text-main); margin-bottom: 1rem; }
+    .review-box p { font-size: 0.88rem; font-weight: 400; line-height: 1.6; color: var(--text-main); margin-bottom: 1rem; }
     .reviewer-meta { border-top: 1px solid var(--border); padding-top: 0.75rem; }
     .reviewer-name { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
-    .reviewer-tag { font-size: 0.68rem; color: var(--text-muted); }
+    .reviewer-tag { font-size: 0.7rem; color: var(--text-muted); font-weight: 500; }
 
     /* Creazioni / Instagram */
     .instagram-section { padding: 4.5rem 0; border-bottom: 1px solid var(--border); }
@@ -552,6 +550,109 @@
     .ig-card:hover .ig-overlay { opacity: 1; }
     .ig-tag { font-size: 0.7rem; text-transform: uppercase; font-weight: 600; color: #FFF; }
     .ig-action-cta { display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; text-transform: uppercase; font-weight: 600; color: #FFF; }
+
+    /* ==========================================================
+       SEZIONE ACCORDION FAQ
+       ========================================================== */
+    .faq-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+      background: #FFFFFF;
+    }
+    .faq-header {
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+    }
+    .faq-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .faq-header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+    .faq-list {
+      max-width: 860px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .faq-item {
+      border: 1px solid var(--border);
+      background: var(--bg-subtle);
+      transition: border-color 0.2s ease;
+    }
+    .faq-item.is-open {
+      border-color: var(--text-main);
+      background: #FFFFFF;
+    }
+    .faq-question {
+      width: 100%;
+      padding: 1.25rem 1.4rem;
+      background: none;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      text-align: left;
+      cursor: pointer;
+      gap: 1rem;
+    }
+    .faq-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      position: relative;
+      transition: transform 0.25s ease;
+    }
+    .faq-icon::before, .faq-icon::after {
+      content: '';
+      position: absolute;
+      background: var(--text-main);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .faq-icon::before {
+      width: 12px;
+      height: 2px;
+    }
+    .faq-icon::after {
+      width: 2px;
+      height: 12px;
+      transition: transform 0.25s ease;
+    }
+    .faq-item.is-open .faq-icon::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+      opacity: 0;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+      padding: 0 1.4rem;
+    }
+    .faq-item.is-open .faq-answer {
+      max-height: 300px;
+      padding: 0 1.4rem 1.4rem 1.4rem;
+      transition: max-height 0.3s ease-in-out, padding 0.3s ease;
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-weight: 400;
+      margin: 0;
+    }
 
     /* Studio & Map */
     .studio-hub { padding: 4.5rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
@@ -567,21 +668,21 @@
       flex-direction: column;
       gap: 0.75rem;
     }
-    .logistics-item { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.85rem; line-height: 1.45; }
+    .logistics-item { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.88rem; line-height: 1.5; color: var(--text-main); }
     .logistics-item svg { flex-shrink: 0; margin-top: 0.15rem; }
 
     .hub-info { list-style: none; margin: 1.5rem 0; display: flex; flex-direction: column; gap: 0.85rem; border-top: 1px solid var(--border); padding-top: 1.5rem; }
-    .hub-info li { display: flex; justify-content: space-between; font-size: 0.88rem; }
-    .hub-info li span:first-child { color: var(--text-muted); text-transform: uppercase; font-size: 0.75rem; }
+    .hub-info li { display: flex; justify-content: space-between; font-size: 0.9rem; }
+    .hub-info li span:first-child { color: var(--text-muted); text-transform: uppercase; font-size: 0.75rem; font-weight: 600; }
     .nav-actions { display: flex; gap: 0.65rem; margin-top: 1.2rem; flex-wrap: wrap; }
     .btn-nav-app { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.65rem 1rem; font-size: 0.72rem; text-transform: uppercase; font-weight: 600; border: 1px solid var(--border); color: var(--text-main); text-decoration: none; background: #FFF; min-height: 42px; }
     .map-frame { width: 100%; height: 230px; border: 1px solid var(--border); margin-top: 1.5rem; filter: grayscale(100%) contrast(90%); }
     .booking-card { background: var(--bg-subtle); padding: 2.5rem 1.75rem; border: 1px solid var(--border); text-align: center; }
     .booking-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase; }
-    .booking-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; font-weight: 300; }
+    .booking-card p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.5rem; font-weight: 400; }
 
     /* Footer */
-    footer { border-top: 1px solid var(--border); padding: 2rem 0; font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; }
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; font-weight: 500; }
     .footer-wrap { display: flex; justify-content: space-between; align-items: center; }
     .footer-wrap a { color: var(--text-main); text-decoration: none; font-weight: 600; }
 
@@ -604,10 +705,10 @@
 
     /* Cookie Banner */
     .cookie-banner { position: fixed; bottom: 5rem; right: 1rem; left: 1rem; max-width: 380px; margin: 0 auto; background: #0B0B0B; color: #FFFFFF; padding: 1.2rem; border-radius: 4px; z-index: 1000; display: none; }
-    .cookie-banner p { font-size: 0.78rem; color: #BDBDBD; margin-bottom: 0.85rem; }
+    .cookie-banner p { font-size: 0.8rem; color: #D0D0D0; margin-bottom: 0.85rem; }
     .cookie-banner .cookie-actions { display: flex; gap: 0.5rem; }
     .btn-cookie-accept { background: #FFFFFF; color: #0B0B0B; border: none; padding: 0.45rem 0.85rem; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; cursor: pointer; }
-    .btn-cookie-refuse { background: transparent; color: #8E8E8E; border: 1px solid rgba(255, 255, 255, 0.2); padding: 0.45rem 0.75rem; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; cursor: pointer; }
+    .btn-cookie-refuse { background: transparent; color: #CCCCCC; border: 1px solid rgba(255, 255, 255, 0.3); padding: 0.45rem 0.75rem; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; cursor: pointer; }
 
     /* MEDIA QUERIES SMARTPHONE (MAX 768px) */
     @media (max-width: 992px) {
@@ -734,16 +835,17 @@
           </svg>
         </a>
 
-        <!-- Menu Desktop con Chi Siamo -->
+        <!-- Menu Desktop -->
         <ul class="nav-links">
           <li><a href="#about">Chi Siamo</a></li>
           <li><a href="#listino">Servizi</a></li>
           <li><a href="#trasformazioni">Lavori</a></li>
           <li><a href="#team">Team</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#hub">Contatti</a></li>
         </ul>
 
-        <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20un%20appuntamento." class="btn btn-solid">Prenota</a>
+        <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20un%20appuntamento%20dal%20sito%20web." class="btn btn-solid">Prenota</a>
 
         <button class="hamburger-btn" id="mobileMenuToggle" aria-label="Menu navigazione">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -762,8 +864,9 @@
     <a href="#listino" class="mobile-link">Servizi</a>
     <a href="#trasformazioni" class="mobile-link">Lavori</a>
     <a href="#team" class="mobile-link">Team</a>
+    <a href="#faq" class="mobile-link">FAQ</a>
     <a href="#hub" class="mobile-link">Contatti</a>
-    <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20un%20appuntamento." class="btn btn-solid" style="margin-top: 1rem; width: 80%;">Prenota su WhatsApp</a>
+    <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20un%20appuntamento%20dal%20sito%20web." class="btn btn-solid" style="margin-top: 1rem; width: 80%;">Prenota su WhatsApp</a>
   </div>
 
   <main>
@@ -776,7 +879,7 @@
           <p>Esperti in schiariture ad altissima precisione, sfumature naturali senza stacco e rituali di ricostruzione profonda. Valorizziamo l'armonia del tuo viso con una diagnosi visagistica su misura in pieno centro a Rho.</p>
           
           <div class="hero-actions">
-            <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20un%20appuntamento%20per%20una%20consulenza%20colore." class="btn btn-solid">Prenota Consulenza</a>
+            <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20una%20consulenza%20colore%20preventiva%20dal%20sito%20web." class="btn btn-solid">Prenota Consulenza</a>
             <a href="#listino" class="btn btn-line">Consulta il Listino Prezzi</a>
           </div>
         </div>
@@ -903,7 +1006,7 @@
       </div>
     </section>
 
-    <!-- Listino / Servizi -->
+    <!-- Listino / Servizi con WhatsApp Precompilati -->
     <section id="listino" class="container menu-section">
       <div class="section-header">
         <div>
@@ -933,7 +1036,7 @@
                 <span class="menu-cost">40 €</span>
                 <span class="duration-tag">~45 min</span>
               </div>
-              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20un%20appuntamento%20per:%20Taglio%20Donna%20(40%20%E2%82%AC)." class="btn-row-book">Prenota</a>
+              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20prenotare:%20Taglio%20Donna%20(40%20%E2%82%AC)%20-%20dal%20sito%20web." class="btn-row-book">Prenota</a>
             </div>
           </div>
 
@@ -947,7 +1050,7 @@
                 <span class="menu-cost">25 €</span>
                 <span class="duration-tag">~30 min</span>
               </div>
-              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20un%20appuntamento%20per:%20Taglio%20Uomo%20(25%20%E2%82%AC)." class="btn-row-book">Prenota</a>
+              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20prenotare:%20Taglio%20Uomo%20(25%20%E2%82%AC)%20-%20dal%20sito%20web." class="btn-row-book">Prenota</a>
             </div>
           </div>
 
@@ -961,7 +1064,7 @@
                 <span class="menu-cost">25 €</span>
                 <span class="duration-tag">~35 min</span>
               </div>
-              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20un%20appuntamento%20per:%20Piega%20Classica%20(25%20%E2%82%AC)." class="btn-row-book">Prenota</a>
+              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20prenotare:%20Piega%20Classica%20(25%20%E2%82%AC)%20-%20dal%20sito%20web." class="btn-row-book">Prenota</a>
             </div>
           </div>
 
@@ -975,7 +1078,7 @@
                 <span class="menu-cost">35 €</span>
                 <span class="duration-tag">~45 min</span>
               </div>
-              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20un%20appuntamento%20per:%20Piega%20Infinity%20(35%20%E2%82%AC)." class="btn-row-book">Prenota</a>
+              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20prenotare:%20Piega%20Infinity%20(35%20%E2%82%AC)%20-%20dal%20sito%20web." class="btn-row-book">Prenota</a>
             </div>
           </div>
 
@@ -989,7 +1092,7 @@
                 <span class="menu-cost">39 €</span>
                 <span class="duration-tag">~50 min</span>
               </div>
-              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20un%20appuntamento%20per:%20Piega%20Cosmeceutica%20(39%20%E2%82%AC)." class="btn-row-book">Prenota</a>
+              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20prenotare:%20Piega%20Cosmeceutica%20(39%20%E2%82%AC)%20-%20dal%20sito%20web." class="btn-row-book">Prenota</a>
             </div>
           </div>
         </div>
@@ -1007,7 +1110,7 @@
                 <span class="menu-cost">da 150 €</span>
                 <span class="duration-tag">~3h 30m</span>
               </div>
-              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20richiedere%20disponibilit%C3%A0%20per%20una%20seduta%20di%20Air%20Touch%20(da%20150%20%E2%82%AC)." class="btn-row-book">Prenota</a>
+              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20verificare%20disponibilit%C3%A0%20per:%20Air%20Touch%20(da%20150%20%E2%82%AC)%20-%20dal%20sito%20web." class="btn-row-book">Prenota</a>
             </div>
           </div>
 
@@ -1021,7 +1124,7 @@
                 <span class="menu-cost">da 90 €</span>
                 <span class="duration-tag">~2h 30m</span>
               </div>
-              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20richiedere%20disponibilit%C3%A0%20per%20un%20Balayage%20(da%2090%20%E2%82%AC)." class="btn-row-book">Prenota</a>
+              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20verificare%20disponibilit%C3%A0%20per:%20Balayage%20(da%2090%20%E2%82%AC)%20-%20dal%20sito%20web." class="btn-row-book">Prenota</a>
             </div>
           </div>
 
@@ -1035,7 +1138,7 @@
                 <span class="menu-cost">da 45 €</span>
                 <span class="duration-tag">~1h 15m</span>
               </div>
-              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20un%20appuntamento%20per:%20Colore%20e%20Tonalizzante%20(da%2045%20%E2%82%AC)." class="btn-row-book">Prenota</a>
+              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20prenotare:%20Colore%20e%20Tonalizzante%20(da%2045%20%E2%82%AC)%20-%20dal%20sito%20web." class="btn-row-book">Prenota</a>
             </div>
           </div>
 
@@ -1049,7 +1152,7 @@
                 <span class="menu-cost">40 €</span>
                 <span class="duration-tag">~40 min</span>
               </div>
-              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20prenotare%20il%20trattamento:%20Ricostruzione%20Gold20%20(40%20%E2%82%AC)." class="btn-row-book">Prenota</a>
+              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20prenotare:%20Trattamento%20Ricostruzione%20Gold20%20(40%20%E2%82%AC)%20-%20dal%20sito%20web." class="btn-row-book">Prenota</a>
             </div>
           </div>
 
@@ -1063,7 +1166,7 @@
                 <span class="menu-cost">da 5 €</span>
                 <span class="duration-tag">~10 min</span>
               </div>
-              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20aggiungere%20il%20Trattamento%20Beauty%20alla%20prossima%20seduta." class="btn-row-book">Prenota</a>
+              <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20aggiungere%20il%20Trattamento%20Beauty%20alla%20prossima%20seduta%20-%20dal%20sito%20web." class="btn-row-book">Prenota</a>
             </div>
           </div>
         </div>
@@ -1232,6 +1335,57 @@
       </div>
     </section>
 
+    <!-- SEZIONE FAQ INTERATTIVA -->
+    <section id="faq" class="container faq-section">
+      <div class="faq-header">
+        <span class="hero-meta">Domande Frequenti</span>
+        <h2>Tutto Quello che Devi Sapere Prima di Prenotare</h2>
+        <p>Risposte chiare sui tempi di posa, preparazione e mantenimento dei nostri trattamenti.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Quanto dura l'effetto di un Air Touch o Balayage e ogni quanto va ritoccato?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Grazie alla nostra tecnica di sfumatura micrometrica senza linee orizzontali, la ricrescita risulta morbida e naturale. In media il ritocco totale delle schiariture si effettua ogni <strong>4–6 mesi</strong>, con un semplice passaggio di tonalizzante Gloss intermedio a 8–10 settimane per ravvivare la brillantezza dei riflessi.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Come devo preparare i capelli prima di una seduta di schiaritura importante?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Consigliamo di presentarsi con capelli lavati 24-48 ore prima, evitando piastre termiche a temperature elevate o cere pesanti nei giorni immediatamente precedenti. Se i capelli sono particolarmente sfruttati da vecchi trattamenti, effettuiamo sempre un test di elasticità dello stelo prima di procedere.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>È possibile fare una consulenza colore o diagnosi preventiva gratuita?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Certamente. Puoi scriverci direttamente su WhatsApp inviando una foto dei tuoi capelli alla luce naturale e un'immagine dell'obiettivo che desideri. Vincenzo e il team valuteranno tempi necessari, fattibilità tecnica e preventivo esatto prima di fissare l'appuntamento in salone.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Come raggiungo il salone e dove posso parcheggiare a Rho?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Siamo in <strong>Corso Giuseppe Garibaldi 56</strong> a Rho. A soli 5 minuti a piedi si trova la stazione FS di Rho (collegamento diretto con Milano in 15 minuti tramite S5 ed S6). Per chi arriva in auto, lungo Corso Garibaldi e nelle vie adiacenti (Via Meda, Piazza Visconti) sono presenti numerosi parcheggi gratuiti o con disco orario.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Hub Contatti, Posizione & Orari -->
     <section id="hub" class="container studio-hub">
       <div>
@@ -1284,7 +1438,7 @@
       <div class="booking-card">
         <h3>Prenota o Richiedi Info</h3>
         <p>Inviaci un messaggio su WhatsApp per conoscere gli orari disponibili o per una diagnosi fotografica gratuita prima del tuo nuovo colore.</p>
-        <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20un%20appuntamento." class="btn btn-solid" style="width: 100%;">Scrivi su WhatsApp</a>
+        <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20fissare%20un%20appuntamento%20dal%20sito%20web." class="btn btn-solid" style="width: 100%;">Scrivi su WhatsApp</a>
       </div>
     </section>
   </main>
@@ -1299,7 +1453,7 @@
 
   <!-- Dock WhatsApp Mobile -->
   <div class="mobile-bar">
-    <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20prenotare%20un%20appuntamento." class="btn btn-solid">Prenota su WhatsApp</a>
+    <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20prenotare%20un%20appuntamento%20dal%20sito%20web." class="btn btn-solid">Prenota su WhatsApp</a>
   </div>
 
   <!-- Cookie Banner -->
@@ -1402,7 +1556,29 @@
       });
     })();
 
-    // 4. Cookie Banner
+    // 4. Accordion FAQ Interattivo
+    (function initFaqAccordion() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      if (!faqQuestions.length) return;
+
+      faqQuestions.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.faq-item');
+          const isOpen = item.classList.contains('is-open');
+
+          // Chiude gli altri accordion aperti per ordine visivo
+          document.querySelectorAll('.faq-item').forEach(el => {
+            el.classList.remove('is-open');
+          });
+
+          if (!isOpen) {
+            item.classList.add('is-open');
+          }
+        });
+      });
+    })();
+
+    // 5. Cookie Banner
     (function initCookieBanner() {
       const banner = document.getElementById('cookieBanner');
       const acceptBtn = document.getElementById('acceptCookiesBtn');
