@@ -95,7 +95,7 @@
       --bg-subtle: #F6F6F6;
       --surface: #FFFFFF;
       --text-main: #0B0B0B;
-      --text-muted: #444444; /* Contrasto elevato conforme WCAG */
+      --text-muted: #444444;
       --text-subtle: #555555;
       --border: #E8E8E8;
       --border-dark: #1F1F1F;
@@ -291,7 +291,7 @@
     }
 
     /* Video Reel Section */
-    .video-section { padding: 4.5rem 0; border-bottom: 1px solid var(--border); background: var(--bg-subtle); }
+    .video-section { padding: 4.5rem 0 3rem; background: var(--bg-subtle); }
     .video-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 3.5rem; align-items: center; }
     .reel-container { display: flex; justify-content: center; width: 100%; max-width: 100%; }
     .reel-frame-wrap {
@@ -321,6 +321,50 @@
     .partner-banner { border-top: 1px solid var(--border); padding-top: 1.5rem; }
     .partner-title { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 600; }
     .partner-brand { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.2rem; }
+
+    /* ==========================================================
+       PUNTO 3: BADGE DI GARANZIA ALFAPARF & BENVOLEO
+       ========================================================== */
+    .guarantee-bar {
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 3.5rem;
+    }
+    .guarantee-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .guarantee-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      padding: 1.5rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .guarantee-icon-wrap {
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      background: var(--bg-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+    }
+    .guarantee-card h4 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .guarantee-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
 
     /* About & Mission */
     .about-section {
@@ -395,7 +439,7 @@
     .specialty-item p { font-size: 0.9rem; color: var(--text-muted); font-weight: 400; line-height: 1.55; }
 
     /* Before / After Slider */
-    .comparison-section { padding: 4.5rem 0; border-bottom: 1px solid var(--border); }
+    .comparison-section { padding: 4.5rem 0 3rem; }
     .comparison-header { text-align: center; max-width: 650px; margin: 0 auto 2.5rem; }
     .comparison-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.03em; text-transform: uppercase; margin-bottom: 0.5rem; }
     .comparison-header p { color: var(--text-muted); font-weight: 400; font-size: 0.9rem; }
@@ -435,8 +479,41 @@
     }
     .handle-button svg { width: 16px; height: 16px; stroke: #FFF; }
 
+    /* ==========================================================
+       PUNTO 2: MICRO-INTERAZIONE DIAGNOSI FOTOGRAFICA
+       ========================================================== */
+    .diagnosis-cta-wrap {
+      max-width: 900px;
+      margin: 2.5rem auto 4.5rem;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2.2rem 2.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+    .diagnosis-content h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+    .diagnosis-content p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .diagnosis-action-btn {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
     /* Menu / Listino */
-    .menu-section { padding: 4.5rem 0; border-bottom: 1px solid var(--border); }
+    .menu-section { padding: 4.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; }
     .section-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.03em; text-transform: uppercase; }
     .menu-filter-tabs { 
@@ -551,9 +628,7 @@
     .ig-tag { font-size: 0.7rem; text-transform: uppercase; font-weight: 600; color: #FFF; }
     .ig-action-cta { display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; text-transform: uppercase; font-weight: 600; color: #FFF; }
 
-    /* ==========================================================
-       SEZIONE ACCORDION FAQ
-       ========================================================== */
+    /* Accordion FAQ */
     .faq-section {
       padding: 5rem 0;
       border-bottom: 1px solid var(--border);
@@ -716,9 +791,12 @@
       .hero-img-frame img { height: 360px; }
       .video-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
       .partner-banner { display: flex; flex-direction: column; align-items: center; }
+      .guarantee-grid { grid-template-columns: 1fr; gap: 1rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .specialties { grid-template-columns: 1fr; }
       .specialty-item { border-right: none; border-bottom: 1px solid var(--border); padding: 2rem 1.25rem; }
+      .diagnosis-cta-wrap { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+      .diagnosis-action-btn { width: 100%; }
       .menu-columns { grid-template-columns: 1fr; gap: 2rem; }
       .team-grid { grid-template-columns: repeat(2, 1fr); }
       .reviews-grid-4 { grid-template-columns: repeat(2, 1fr); }
@@ -923,6 +1001,35 @@
       </div>
     </section>
 
+    <!-- PUNTO 3: BADGE DI GARANZIA & PROTOCOLLO ALFAPARF -->
+    <section class="guarantee-bar">
+      <div class="container guarantee-grid">
+        <div class="guarantee-card">
+          <div class="guarantee-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Bio-Botanica Certificata</h4>
+          <p>Formule Benvoleo pulite e sostenibili, ricche di attivi vegetali per nutrire la cute nel pieno rispetto dell'ambiente.</p>
+        </div>
+
+        <div class="guarantee-card">
+          <div class="guarantee-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+          </div>
+          <h4>Protezione Bond-System</h4>
+          <p>Schiariture Air Touch e Balayage eseguite con additivi protettivi che salvaguardano i ponti cheratinici del capello.</p>
+        </div>
+
+        <div class="guarantee-card">
+          <div class="guarantee-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h4>Luminosità Anti-Viraggio</h4>
+          <p>Tonalizzazioni a pH acido per sigillare le cuticole, neutralizzare i riflessi caldi indesiderati e prolungare la lucentezza.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- SEZIONE ABOUT & MISSION -->
     <section id="about" class="container about-section">
       <div class="about-grid">
@@ -1003,10 +1110,21 @@
             </div>
           </div>
         </div>
+
+        <!-- PUNTO 2: MICRO-INTERAZIONE DIAGNOSI FOTOGRAFICA -->
+        <div class="diagnosis-cta-wrap">
+          <div class="diagnosis-content">
+            <h3>Dubbio su quale tecnica sia più adatta ai tuoi capelli?</h3>
+            <p>Inviaci una foto attuale alla luce naturale e una del look desiderato: Vincenzo e i nostri coloristi ti risponderanno con fattibilità, tempi e preventivo senza impegno.</p>
+          </div>
+          <div class="diagnosis-action-btn">
+            <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vi%20scrivo%20per%20una%20diagnosi%20colore%20gratuita.%20Vi%20invio%20una%20foto%20attuale%20dei%20miei%20capelli%20e%20una%20del%20risultato%20che%20vorrei%20ottenere." class="btn btn-solid">Invia Foto su WhatsApp</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Listino / Servizi con WhatsApp Precompilati -->
+    <!-- Listino / Servizi -->
     <section id="listino" class="container menu-section">
       <div class="section-header">
         <div>
@@ -1566,7 +1684,6 @@
           const item = btn.closest('.faq-item');
           const isOpen = item.classList.contains('is-open');
 
-          // Chiude gli altri accordion aperti per ordine visivo
           document.querySelectorAll('.faq-item').forEach(el => {
             el.classList.remove('is-open');
           });
