@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Aria Salon | Atelier & Precision Hairdressing Rho</title>
-  <meta name="description" content="Atelier di bellezza a Rho. Air Touch, Balayage, taglio sartoriale e consulenza d'immagine. Corso Garibaldi 56, Rho.">
+  <title>Aria Salon | Atelier & Hairdressing Rho</title>
+  <meta name="description" content="Atelier di bellezza a Rho. Specialisti in Air Touch, Balayage sartoriale e salute del capello. Corso Garibaldi 56, Rho.">
 
-  <!-- FONTS EDITORIALI DI LUSSO -->
+  <!-- FONTS EDITORIALI DI PRESTIGIO -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-cream: #F4F1EA;
-      --bg-card: #ECE8DF;
-      --bg-dark: #0D0D0D;
-      --text-dark: #121212;
-      --text-muted: #625E57;
-      --text-light: #F4F1EA;
-      --text-light-muted: #9E9A92;
-      --border-light: rgba(18, 18, 18, 0.12);
-      --border-dark: rgba(244, 241, 234, 0.16);
+      --bg-cream: #F8F6F2;
+      --bg-card: #EFECE5;
+      --bg-dark: #121212;
+      --text-dark: #141414;
+      --text-muted: #5C5852;
+      --text-light: #F8F6F2;
+      --text-light-muted: #9E9B95;
+      --border-light: rgba(20, 20, 20, 0.08);
+      --border-dark: rgba(248, 246, 242, 0.12);
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
     }
@@ -34,45 +34,45 @@
       color: var(--text-dark);
       font-family: var(--font-sans);
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     body {
       overflow-x: hidden;
       width: 100%;
-      position: relative;
+      padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
     }
 
-    /* TIPOGRAFIA EDITORIALE */
     .serif { font-family: var(--font-serif); }
     .italic { font-style: italic; }
 
-    .section-eyebrow {
-      font-size: 0.72rem;
+    .container {
+      width: 88%;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       color: var(--text-muted);
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.75rem;
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 0.6rem;
+      font-weight: 500;
     }
-    .section-eyebrow::before {
+    .eyebrow::before {
       content: '';
-      display: inline-block;
-      width: 24px;
+      width: 18px;
       height: 1px;
       background: currentColor;
       opacity: 0.6;
     }
 
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
     /* ==========================================================
-       HEADER MINIMALE TRASPARENTE
+       HEADER MOBILE-FIRST
        ========================================================== */
     header {
       position: fixed;
@@ -80,53 +80,55 @@
       left: 0;
       width: 100%;
       z-index: 100;
-      padding: 1.25rem 5%;
+      padding: 1.1rem 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      mix-blend-mode: difference;
-      color: #FFF;
+      background: rgba(248, 246, 242, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-light);
     }
-    .brand-title {
+    .brand {
       font-family: var(--font-serif);
-      font-size: 1.45rem;
+      font-size: 1.35rem;
       letter-spacing: 0.04em;
       text-decoration: none;
-      color: #FFF;
+      color: var(--text-dark);
       display: flex;
       align-items: baseline;
-      gap: 0.4rem;
+      gap: 0.35rem;
     }
-    .brand-title small {
+    .brand small {
       font-family: var(--font-sans);
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      opacity: 0.8;
+      opacity: 0.65;
     }
-    .menu-trigger {
+    .nav-toggle {
       font-family: var(--font-sans);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       background: none;
       border: none;
-      color: #FFF;
+      color: var(--text-dark);
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
+      padding: 0.4rem;
     }
-    .menu-trigger span {
-      display: inline-block;
-      width: 22px;
+    .nav-toggle-bars {
+      width: 18px;
       height: 1px;
-      background: #FFF;
-      box-shadow: 0 -5px 0 0 #FFF;
+      background: var(--text-dark);
+      box-shadow: 0 -4px 0 0 var(--text-dark);
     }
 
-    /* FULLSCREEN DRAWER */
-    .editorial-drawer {
+    /* DRAWER FULLSCREEN */
+    .drawer {
       position: fixed;
       inset: 0;
       background: var(--bg-dark);
@@ -135,542 +137,442 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 6rem 8% 4rem;
+      padding: 5.5rem 8% calc(3rem + env(safe-area-inset-bottom));
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.3s ease;
     }
-    .editorial-drawer.is-active {
+    .drawer.active {
       opacity: 1;
       pointer-events: auto;
     }
     .drawer-close {
       position: absolute;
-      top: 1.5rem;
-      right: 5%;
+      top: 1.25rem;
+      right: 6%;
       background: none;
       border: none;
       color: var(--text-light);
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      cursor: pointer;
+      padding: 0.5rem;
     }
     .drawer-nav {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: 1.35rem;
     }
     .drawer-nav a {
       font-family: var(--font-serif);
-      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-size: clamp(1.8rem, 6vw, 2.6rem);
       color: var(--text-light);
       text-decoration: none;
-      line-height: 1.1;
-      transition: opacity 0.2s;
+      line-height: 1.15;
     }
-    .drawer-nav a:hover { opacity: 0.6; }
-    .drawer-footer {
-      font-size: 0.75rem;
-      color: var(--text-light-muted);
-      display: flex;
-      justify-content: space-between;
+    .drawer-info {
       border-top: 1px solid var(--border-dark);
       padding-top: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--text-light-muted);
+      line-height: 1.6;
     }
 
     /* ==========================================================
-       HERO FULLSCREEN CINEMATICA (00:01 - 00:06)
+       HERO CINEMATICA RESPONSIVE
        ========================================================== */
-    .hero-cinema {
+    .hero {
       position: relative;
-      height: 100vh;
-      min-height: 640px;
+      height: 92vh;
+      min-height: 580px;
       width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 0 6% 4rem;
-      background: #000;
+      padding: 0 6% 3.5rem;
       color: #FFF;
+      background: #000;
       overflow: hidden;
     }
-    .hero-bg {
+    .hero-img {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 25%;
-      filter: brightness(68%) contrast(108%);
+      object-position: center 20%;
+      filter: brightness(64%) contrast(105%);
     }
-    .hero-content {
+    .hero-wrap {
       position: relative;
       z-index: 2;
-      max-width: 580px;
+      max-width: 520px;
     }
     .hero-tag {
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      margin-bottom: 0.8rem;
-      opacity: 0.85;
+      margin-bottom: 0.75rem;
       display: block;
+      opacity: 0.85;
     }
     .hero-title {
       font-family: var(--font-serif);
-      font-size: clamp(2.8rem, 8vw, 5rem);
+      font-size: clamp(2.6rem, 8.5vw, 4.2rem);
       line-height: 0.98;
-      font-weight: 400;
+      font-weight: 300;
       letter-spacing: -0.02em;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
-    .hero-sub {
-      font-size: 0.95rem;
+    .hero-desc {
+      font-size: 0.9rem;
       font-weight: 300;
       line-height: 1.5;
-      color: rgba(255, 255, 255, 0.85);
-      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.82);
+      margin-bottom: 1.75rem;
     }
-    .btn-hero-cta {
-      display: inline-flex;
+    .hero-btn {
+      display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 2rem;
-      background: #EFECE6;
+      background: #FFFFFF;
       color: var(--text-dark);
-      padding: 1.15rem 1.75rem;
+      padding: 1rem 1.4rem;
       border-radius: 2px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       font-weight: 600;
       text-decoration: none;
       width: 100%;
-      max-width: 380px;
-    }
-    .hero-scroll-invite {
-      display: block;
-      text-align: center;
-      margin-top: 1.5rem;
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      opacity: 0.7;
-      text-decoration: none;
-      color: #FFF;
+      max-width: 320px;
     }
 
     /* ==========================================================
-       SEZIONE 01: IL SALONE (00:07 - 00:11)
+       01 — IL SALONE & STORY
        ========================================================== */
-    .salon-manifesto {
-      padding: 5.5rem 0;
+    .manifesto {
+      padding: 4.5rem 0;
       background: var(--bg-cream);
     }
-    .manifesto-heading {
+    .manifesto-title {
       font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 5.5vw, 3.8rem);
-      line-height: 1.08;
+      font-size: clamp(2rem, 5.8vw, 3.2rem);
+      line-height: 1.1;
       font-weight: 400;
-      margin: 1.25rem 0 2.5rem;
-      letter-spacing: -0.02em;
-    }
-    .manifesto-heading em {
-      font-style: italic;
-      font-weight: 400;
-      opacity: 0.85;
+      margin: 0.5rem 0 2rem;
     }
     .manifesto-img {
       width: 100%;
-      aspect-ratio: 4 / 4.2;
+      aspect-ratio: 4 / 3.8;
       object-fit: cover;
-      margin-bottom: 2rem;
       display: block;
+      margin-bottom: 1.75rem;
+      border-radius: 2px;
     }
-    .manifesto-desc {
-      font-size: 1rem;
+    .manifesto-p {
+      font-size: 0.92rem;
       color: var(--text-muted);
       line-height: 1.7;
-      font-weight: 400;
-      margin-bottom: 1.75rem;
-    }
-    .link-arrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--text-dark);
-      text-decoration: none;
+      margin-bottom: 1rem;
     }
 
     /* ==========================================================
-       SEZIONE 02: SERVIZI ACCORDION CON IMMAGINI (00:12 - 00:17)
+       02 — SERVIZI ACCORDION MOBILE-FIRST
        ========================================================== */
-    .services-accordion-section {
-      padding: 5rem 0;
+    .services-sec {
+      padding: 4.5rem 0;
       background: var(--bg-cream);
       border-top: 1px solid var(--border-light);
     }
-    .services-intro {
-      margin-bottom: 3rem;
-    }
-    .services-intro h2 {
+    .sec-title {
       font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      font-weight: 400;
+      font-size: clamp(2rem, 5.5vw, 3rem);
       line-height: 1.05;
-      margin-bottom: 0.5rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
     }
-    .services-intro p {
-      font-size: 0.88rem;
+    .sec-desc {
+      font-size: 0.85rem;
       color: var(--text-muted);
+      margin-bottom: 2rem;
     }
-
-    .service-accordion-item {
+    .service-row {
       border-top: 1px solid var(--border-light);
-      padding: 1.5rem 0;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+      padding: 1.35rem 0;
     }
-    .service-accordion-item:last-child {
+    .service-row:last-child {
       border-bottom: 1px solid var(--border-light);
     }
-    .accordion-header {
+    .service-head {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      user-select: none;
+      cursor: pointer;
     }
-    .service-num-title {
+    .service-head-left {
       display: flex;
       align-items: baseline;
-      gap: 1.25rem;
+      gap: 1rem;
     }
-    .service-num {
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
+    .service-idx {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
       color: var(--text-muted);
     }
-    .service-title {
+    .service-name {
       font-family: var(--font-serif);
-      font-size: 2.1rem;
+      font-size: 1.85rem;
       font-style: italic;
       font-weight: 400;
-      color: var(--text-dark);
     }
-    .accordion-toggle-icon {
-      width: 32px;
-      height: 32px;
-      border: 1px solid var(--border-light);
+    .service-arrow {
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
+      border: 1px solid var(--border-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
-      transition: transform 0.3s ease;
+      font-size: 0.95rem;
+      transition: transform 0.25s ease, background 0.25s;
     }
-    .service-accordion-item.is-open .accordion-toggle-icon {
+    .service-row.open .service-arrow {
       transform: rotate(90deg);
       background: var(--text-dark);
       color: #FFF;
       border-color: var(--text-dark);
     }
-
-    .accordion-body {
+    .service-panel {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), margin-top 0.3s ease;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .service-accordion-item.is-open .accordion-body {
-      max-height: 700px;
-      margin-top: 1.5rem;
+    .service-row.open .service-panel {
+      max-height: 520px;
     }
-    .accordion-img {
+    .service-panel-img {
       width: 100%;
-      height: 340px;
+      height: 240px;
       object-fit: cover;
+      margin: 1.2rem 0 1rem;
+      border-radius: 2px;
       display: block;
-      margin-bottom: 1.25rem;
     }
-    .accordion-desc {
-      font-size: 0.95rem;
+    .service-panel-desc {
+      font-size: 0.88rem;
       color: var(--text-muted);
       line-height: 1.6;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
-    .accordion-footer {
+    .service-panel-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 600;
-      padding-top: 0.5rem;
     }
-    .accordion-footer a {
+    .service-panel-bar a {
       color: var(--text-dark);
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
     }
 
     /* ==========================================================
-       SEZIONE SPECCHIO CINEMATICA (00:18 - 00:24)
+       03 — SPECCHIO QUOTE EDITORIALE
        ========================================================== */
-    .mirror-quote-section {
+    .mirror-break {
       position: relative;
-      height: 90vh;
-      min-height: 560px;
-      background: #0D0D0D;
+      height: 75vh;
+      min-height: 480px;
+      background: #000;
       display: flex;
       align-items: flex-end;
-      padding: 0 6% 4rem;
+      padding: 0 6% 3.5rem;
       color: #FFF;
       overflow: hidden;
     }
-    .mirror-bg {
+    .mirror-break-img {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(60%) contrast(110%);
+      filter: brightness(55%);
     }
-    .mirror-content {
+    .mirror-break-inner {
       position: relative;
       z-index: 2;
-      max-width: 600px;
     }
-    .mirror-content h2 {
+    .mirror-break-inner h2 {
       font-family: var(--font-serif);
-      font-size: clamp(2.4rem, 6vw, 3.8rem);
-      line-height: 1.05;
-      font-weight: 400;
-    }
-    .mirror-content em {
-      font-style: italic;
+      font-size: clamp(2.1rem, 6.5vw, 3.2rem);
+      line-height: 1.1;
       font-weight: 300;
-      opacity: 0.85;
     }
 
     /* ==========================================================
-       SEZIONE 03: FIND YOUR LOOK (INTERATTIVO) (00:25 - 00:38)
+       04 — FIND YOUR LOOK (INTERAZIONE ULTRA-FLUIDA)
        ========================================================== */
-    .find-look-section {
+    .look-sec {
       background: var(--bg-dark);
       color: var(--text-light);
-      padding: 5rem 0 4rem;
+      padding: 4.5rem 0;
     }
-    .find-look-header h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.5rem, 6.5vw, 4rem);
-      font-weight: 400;
-      line-height: 0.98;
-      margin: 1rem 0 0.85rem;
-    }
-    .find-look-header em { font-style: italic; }
-    .find-look-header p {
-      color: var(--text-light-muted);
-      font-size: 0.9rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .interactive-mood-stage {
+    .look-stage {
       position: relative;
       width: 100%;
       aspect-ratio: 4 / 4.4;
       overflow: hidden;
-      margin-bottom: 2.5rem;
+      border-radius: 2px;
+      margin: 1.5rem 0 1.75rem;
       background: #181818;
     }
-    .mood-img {
+    .look-stage-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.25s ease;
     }
-    .mood-caption {
+    .look-stage-meta {
       position: absolute;
-      bottom: 1.5rem;
-      left: 1.5rem;
-      right: 1.5rem;
-      z-index: 2;
+      bottom: 1.25rem;
+      left: 1.25rem;
+      right: 1.25rem;
     }
-    .mood-caption small {
-      font-size: 0.65rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      opacity: 0.7;
-      display: block;
-      margin-bottom: 0.2rem;
-    }
-    .mood-caption h3 {
+    .look-stage-meta h3 {
       font-family: var(--font-serif);
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-style: italic;
       line-height: 1;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.25rem;
     }
-    .mood-caption p {
-      font-size: 0.82rem;
-      opacity: 0.75;
+    .look-stage-meta p {
+      font-size: 0.8rem;
+      opacity: 0.8;
     }
-
-    .mood-selector-grid {
+    .look-pills {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
     }
-    .mood-pill-btn {
-      background: none;
-      border: none;
+    .look-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       color: var(--text-light-muted);
+      padding: 0.75rem 1rem;
       text-align: left;
       cursor: pointer;
-      padding: 0.5rem 0;
       display: flex;
       align-items: baseline;
-      gap: 0.6rem;
-      transition: color 0.2s ease;
+      justify-content: space-between;
+      border-radius: 2px;
+      transition: all 0.2s;
     }
-    .mood-pill-btn span:first-child {
-      font-size: 0.7rem;
-      opacity: 0.6;
+    .look-pill.active {
+      background: #FFF;
+      color: var(--text-dark);
+      border-color: #FFF;
     }
-    .mood-pill-btn span:last-child {
+    .look-pill span:first-child {
       font-family: var(--font-serif);
-      font-size: 1.9rem;
+      font-size: 1.25rem;
       font-style: italic;
     }
-    .mood-pill-btn.is-selected {
-      color: var(--text-light);
+    .look-pill span:last-child {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      opacity: 0.7;
     }
-    .mood-pill-btn.is-selected span:last-child {
-      text-decoration: underline;
-      text-underline-offset: 6px;
-    }
-
-    .btn-dark-cta {
+    .look-cta {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: var(--bg-cream);
       color: var(--text-dark);
-      padding: 1.15rem 1.6rem;
-      font-size: 0.75rem;
+      padding: 1rem 1.4rem;
+      font-size: 0.72rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       font-weight: 600;
       text-decoration: none;
-      width: 100%;
-      border: none;
-      cursor: pointer;
+      border-radius: 2px;
     }
 
     /* ==========================================================
-       SEZIONE 04: L'ESPERIENZA (STEP ORIZZONTALI) (00:39 - 00:44)
+       05 — L'ESPERIENZA (CAROSELLO FLUIDO)
        ========================================================== */
-    .experience-steps-section {
-      padding: 5rem 0;
+    .exp-sec {
+      padding: 4.5rem 0;
       background: var(--bg-cream);
       border-top: 1px solid var(--border-light);
     }
-    .exp-heading {
-      font-family: var(--font-serif);
-      font-size: clamp(2.4rem, 6vw, 3.6rem);
-      line-height: 1.05;
-      margin: 1rem 0 0.85rem;
-    }
-    .exp-heading em { font-style: italic; }
-    .exp-sub {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 2.5rem;
-      max-width: 520px;
-    }
-
-    .exp-carousel {
+    .exp-track {
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      gap: 1.25rem;
-      padding-bottom: 1.5rem;
-      margin: 0 -5%;
-      padding-left: 5%;
-      padding-right: 5%;
+      gap: 1rem;
+      margin: 1.5rem -6% 0;
+      padding: 0 6% 1rem;
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
     }
-    .exp-carousel::-webkit-scrollbar { display: none; }
-
-    .exp-card {
-      min-width: 82vw;
-      max-width: 82vw;
+    .exp-track::-webkit-scrollbar { display: none; }
+    .exp-item {
+      min-width: 78vw;
+      max-width: 78vw;
       scroll-snap-align: center;
       flex-shrink: 0;
     }
-    .exp-card img {
+    .exp-item img {
       width: 100%;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 4 / 4.8;
       object-fit: cover;
-      margin-bottom: 1.25rem;
+      display: block;
+      margin-bottom: 1rem;
+      border-radius: 2px;
     }
-    .exp-card-num {
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
+    .exp-item-num {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
       color: var(--text-muted);
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.25rem;
       display: block;
     }
-    .exp-card h3 {
+    .exp-item h3 {
       font-family: var(--font-serif);
-      font-size: 1.85rem;
+      font-size: 1.6rem;
       font-weight: 500;
       margin-bottom: 0.35rem;
     }
-    .exp-card p {
-      font-size: 0.88rem;
+    .exp-item p {
+      font-size: 0.85rem;
       color: var(--text-muted);
       line-height: 1.55;
     }
 
     /* ==========================================================
-       SEZIONE 05: PRIMA E DOPO (00:45 - 00:49)
+       06 — PRIMA E DOPO SLIDER
        ========================================================== */
-    .editorial-comparison-section {
-      padding: 5rem 0;
+    .comp-sec {
+      padding: 4.5rem 0;
       background: var(--bg-cream);
       border-top: 1px solid var(--border-light);
     }
-    .comp-intro h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 5.5vw, 3.4rem);
-      line-height: 1.05;
-      margin: 1rem 0 0.5rem;
-    }
-    .comp-intro p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 1.8rem;
-    }
-    .editorial-slider-box {
+    .slider-box {
       position: relative;
       width: 100%;
-      height: 480px;
+      height: 420px;
       overflow: hidden;
+      margin-top: 1.5rem;
+      border-radius: 2px;
       background: #111;
-      touch-action: pan-y;
       cursor: ew-resize;
+      touch-action: pan-y;
     }
-    .editorial-slider-box img {
+    .slider-box img {
       position: absolute;
       top: 0;
       left: 0;
@@ -679,7 +581,7 @@
       object-fit: cover;
       pointer-events: none;
     }
-    .slider-before-wrap {
+    .slider-mask {
       position: absolute;
       top: 0;
       left: 0;
@@ -688,7 +590,7 @@
       overflow: hidden;
       z-index: 2;
     }
-    .slider-handle-line {
+    .slider-bar {
       position: absolute;
       top: 0;
       bottom: 0;
@@ -698,13 +600,13 @@
       z-index: 10;
       transform: translateX(-50%);
     }
-    .slider-handle-pill {
+    .slider-handle {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 42px;
-      height: 42px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: rgba(18, 18, 18, 0.85);
       border: 1px solid rgba(255, 255, 255, 0.6);
@@ -713,379 +615,99 @@
       align-items: center;
       justify-content: center;
       color: #FFF;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
     }
-    .badge-label {
+    .badge {
       position: absolute;
-      top: 1.25rem;
-      padding: 0.35rem 0.75rem;
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
+      top: 1rem;
+      padding: 0.3rem 0.65rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 600;
       z-index: 5;
     }
-    .badge-before { left: 1.25rem; background: rgba(0,0,0,0.65); color: #FFF; }
-    .badge-after { right: 1.25rem; background: rgba(255,255,255,0.85); color: #111; }
+    .badge-b { left: 1rem; background: rgba(0,0,0,0.65); color: #FFF; }
+    .badge-a { right: 1rem; background: rgba(255,255,255,0.85); color: #111; }
 
     /* ==========================================================
-       SEZIONE 06: GALLERY LAVORI & ATMOSFERE (00:50 - 00:55)
+       07 — PRENOTAZIONE GUIDATA ULTRA-SEMPLICE
        ========================================================== */
-    .gallery-editorial {
-      padding: 5rem 0;
+    .quick-book-sec {
+      padding: 4.5rem 0;
       background: var(--bg-cream);
       border-top: 1px solid var(--border-light);
     }
-    .gallery-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 2.5rem;
-    }
-    .gallery-header h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 5.5vw, 3.4rem);
-      line-height: 1.05;
-    }
-    .gallery-header em { font-style: italic; }
-    .ig-direct {
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-dark);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .gallery-masonry-2col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-    }
-    .gallery-cell {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      text-decoration: none;
-      color: var(--text-dark);
-    }
-    .gallery-cell img {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      display: block;
-    }
-    .gallery-cell-wide {
-      grid-column: span 2;
-    }
-    .gallery-cell-wide img {
-      aspect-ratio: 16 / 10;
-    }
-    .cell-info {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    /* ==========================================================
-       SEZIONE 07: TEAM (00:56 - 00:57)
-       ========================================================== */
-    .editorial-team-section {
-      padding: 5rem 0;
-      background: var(--bg-cream);
-      border-top: 1px solid var(--border-light);
-    }
-    .team-intro h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 5.5vw, 3.4rem);
-      line-height: 1.05;
-      margin: 1rem 0 2rem;
-    }
-    .team-slider {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 1.25rem;
-      margin: 0 -5%;
-      padding: 0 5% 1rem;
-      scrollbar-width: none;
-    }
-    .team-slider::-webkit-scrollbar { display: none; }
-    .team-member-card {
-      min-width: 78vw;
-      max-width: 78vw;
-      scroll-snap-align: center;
-      flex-shrink: 0;
-    }
-    .team-member-card img {
-      width: 100%;
-      aspect-ratio: 4 / 4.8;
-      object-fit: cover;
-      margin-bottom: 1.25rem;
-    }
-    .member-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 0.35rem;
-    }
-    .member-name {
-      font-family: var(--font-serif);
-      font-size: 1.9rem;
-      font-weight: 500;
-    }
-    .member-role {
-      font-size: 0.7rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
-    .member-bio {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
-
-    /* ==========================================================
-       SEZIONE 08: RECENSIONI DARK (00:58)
-       ========================================================== */
-    .dark-reviews-section {
-      padding: 5rem 0;
-      background: var(--bg-dark);
-      color: var(--text-light);
-    }
-    .dark-review-box {
-      max-width: 720px;
-    }
-    .review-stars {
-      color: #E2C974;
-      font-size: 0.85rem;
-      letter-spacing: 3px;
-      margin-bottom: 1.5rem;
-    }
-    .review-big-quote {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 5.5vw, 3.2rem);
-      font-weight: 400;
-      line-height: 1.15;
-      font-style: italic;
-      margin-bottom: 2rem;
-    }
-    .review-author {
-      font-size: 0.75rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-light-muted);
-      font-weight: 600;
-    }
-
-    /* ==========================================================
-       SEZIONE 09: FLOW PRENOTAZIONE GUIDATA STEP (00:59 - 01:05)
-       ========================================================== */
-    .booking-flow-section {
-      padding: 5rem 0;
-      background: var(--bg-cream);
-      border-top: 1px solid var(--border-light);
-    }
-    .booking-stepper-header {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border-light);
-      padding-bottom: 1rem;
-      margin-bottom: 2.5rem;
-    }
-    .step-indicator {
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      color: var(--text-muted);
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
-    .step-indicator.is-active {
-      color: var(--text-dark);
-      font-weight: 700;
-    }
-    .step-indicator.is-active::after {
-      content: '';
-      display: block;
-      height: 2px;
-      background: var(--text-dark);
-      margin-top: 0.4rem;
-    }
-
-    .booking-step-pane {
-      display: none;
-    }
-    .booking-step-pane.is-visible {
-      display: block;
-      animation: fadeIn 0.3s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .step-pane-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 5.5vw, 3rem);
-      font-weight: 400;
-      line-height: 1.05;
-      margin-bottom: 2rem;
-    }
-
-    .selectable-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      margin-bottom: 2.5rem;
-    }
-    .selectable-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 1.4rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      cursor: pointer;
-      border-radius: 2px;
-      transition: all 0.2s ease;
-    }
-    .selectable-item.is-selected {
-      border-color: var(--text-dark);
+    .book-card {
       background: #FFFFFF;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
-    }
-    .item-name {
-      font-family: var(--font-serif);
-      font-size: 1.65rem;
-      font-weight: 500;
-      display: block;
-    }
-    .item-sub {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-    .item-price {
-      font-size: 0.88rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    /* STEP 4 RIEPILOGO */
-    .summary-card {
-      background: #FFF;
       border: 1px solid var(--border-light);
-      padding: 1.75rem;
-      margin-bottom: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      border-radius: 4px;
+      padding: 1.75rem 1.5rem;
     }
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.9rem;
-      border-bottom: 1px solid var(--border-light);
-      padding-bottom: 0.75rem;
-    }
-    .summary-row span:first-child {
-      color: var(--text-muted);
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-    }
-
-    .form-input {
-      width: 100%;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid var(--border-light);
-      padding: 0.85rem 0;
-      font-family: inherit;
-      font-size: 1rem;
-      color: var(--text-dark);
-      margin-bottom: 1.5rem;
-      outline: none;
-    }
-    .form-input:focus {
-      border-color: var(--text-dark);
-    }
-
-    /* ==========================================================
-       SEZIONE 10: READY FOR YOUR NEXT LOOK (01:06 - 01:08)
-       ========================================================== */
-    .cta-final-cinema {
-      position: relative;
-      height: 85vh;
-      min-height: 520px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: #000;
-      color: #FFF;
-      padding: 2rem;
-      overflow: hidden;
-    }
-    .final-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(45%);
-    }
-    .final-content {
-      position: relative;
-      z-index: 2;
-    }
-    .final-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2.8rem, 8vw, 4.8rem);
-      line-height: 1.05;
-      font-weight: 400;
-      margin-bottom: 2.5rem;
-    }
-    .final-circle-cta {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.45);
-      background: rgba(0,0,0,0.35);
-      backdrop-filter: blur(6px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #FFF;
-      text-decoration: none;
-      font-size: 0.68rem;
+    .book-step-title {
+      font-size: 0.72rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       font-weight: 600;
-      gap: 0.4rem;
-      margin: 0 auto;
-      transition: all 0.3s ease;
+      color: var(--text-muted);
+      margin-bottom: 0.85rem;
+      display: block;
     }
-    .final-circle-cta:hover {
-      border-color: #FFF;
-      background: rgba(255,255,255,0.15);
-      transform: scale(1.05);
+    .book-options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-bottom: 1.5rem;
+    }
+    .book-opt {
+      padding: 0.9rem 1.1rem;
+      background: var(--bg-cream);
+      border: 1px solid var(--border-light);
+      border-radius: 2px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s;
+    }
+    .book-opt.selected {
+      background: var(--bg-dark);
+      color: #FFF;
+      border-color: var(--bg-dark);
+    }
+    .book-opt strong {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+    .book-opt small {
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+    .book-submit-btn {
+      width: 100%;
+      background: var(--bg-dark);
+      color: #FFF;
+      padding: 1.1rem;
+      border: none;
+      border-radius: 2px;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     /* ==========================================================
        PILLOLA FLOTTANTE FISSA "• PRENOTA"
        ========================================================== */
-    .floating-pill-dock {
+    .dock {
       position: fixed;
-      bottom: 1.5rem;
+      bottom: calc(1.2rem + env(safe-area-inset-bottom));
       left: 0;
       width: 100%;
       display: flex;
@@ -1093,652 +715,421 @@
       z-index: 90;
       pointer-events: none;
     }
-    .pill-book-btn {
+    .dock-pill {
       pointer-events: auto;
       background: #111111;
       color: #FFFFFF;
       text-decoration: none;
-      padding: 0.85rem 1.8rem;
+      padding: 0.85rem 1.75rem;
       border-radius: 999px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       font-weight: 600;
       display: flex;
       align-items: center;
       gap: 0.65rem;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      transition: transform 0.2s ease;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.18);
     }
-    .pill-book-btn:active {
-      transform: scale(0.96);
-    }
-    .pill-dot {
+    .dock-dot {
       width: 6px;
       height: 6px;
       background: #EFECE6;
       border-radius: 50%;
-      display: inline-block;
     }
 
-    /* FOOTER ESSENZIALE */
+    /* FOOTER */
     footer {
-      background: var(--bg-cream);
-      padding: 3.5rem 0 6.5rem;
+      padding: 3rem 0 2rem;
       border-top: 1px solid var(--border-light);
       font-size: 0.75rem;
       color: var(--text-muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      line-height: 1.7;
     }
-    .footer-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .footer-links-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      margin-top: 1rem;
-    }
-    .footer-links-grid a {
+    footer a {
       color: var(--text-dark);
       text-decoration: none;
       font-weight: 600;
-      display: flex;
-      justify-content: space-between;
     }
 
     @media (min-width: 768px) {
-      .gallery-masonry-2col { grid-template-columns: repeat(3, 1fr); }
-      .gallery-cell-wide { grid-column: span 1; }
-      .exp-card { min-width: 380px; max-width: 380px; }
-      .team-member-card { min-width: 340px; max-width: 340px; }
-      .mood-selector-grid { grid-template-columns: repeat(4, 1fr); }
-      .footer-inner { flex-direction: row; justify-content: space-between; align-items: flex-start; }
-      .footer-links-grid { flex-direction: row; gap: 2.5rem; }
+      .hero-wrap { max-width: 600px; }
+      .exp-item { min-width: 360px; max-width: 360px; }
+      .look-pills { grid-template-columns: repeat(4, 1fr); }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER FISSO MINIMALE -->
   <header>
-    <a href="#" class="brand-title">
+    <a href="#" class="brand">
       Aria <small>Atelier Rho</small>
     </a>
-    <button class="menu-trigger" id="openDrawerBtn" aria-label="Apri Menu">
-      Menu <span></span>
+    <button class="nav-toggle" id="openMenuBtn" aria-label="Apri Menu">
+      Menu <div class="nav-toggle-bars"></div>
     </button>
   </header>
 
   <!-- DRAWER FULLSCREEN -->
-  <div class="editorial-drawer" id="editorialDrawer">
-    <button class="drawer-close" id="closeDrawerBtn">Chiudi ✕</button>
+  <div class="drawer" id="siteDrawer">
+    <button class="drawer-close" id="closeMenuBtn">Chiudi ✕</button>
     <nav class="drawer-nav">
       <a href="#salone" class="drawer-link">01 — Il Salone</a>
       <a href="#servizi" class="drawer-link">02 — Servizi & Listino</a>
       <a href="#look" class="drawer-link">03 — Find Your Look</a>
       <a href="#esperienza" class="drawer-link">04 — L'Esperienza</a>
       <a href="#trasformazioni" class="drawer-link">05 — Prima e Dopo</a>
-      <a href="#gallery" class="drawer-link">06 — Creazioni</a>
-      <a href="#team" class="drawer-link">07 — Team</a>
-      <a href="#booking" class="drawer-link">08 — Prenota Online</a>
+      <a href="#prenota" class="drawer-link">06 — Prenota su WhatsApp</a>
     </nav>
-    <div class="drawer-footer">
-      <span>Corso G. Garibaldi 56, Rho (MI)</span>
-      <span>+39 02 99760547</span>
+    <div class="drawer-info">
+      <strong>Aria Salon Rho</strong><br>
+      Corso Giuseppe Garibaldi 56 — Rho (MI)<br>
+      Tel: 02 99760547 · Mar-Sab 09:30–18:00 (Gio fino alle 20:00)
     </div>
   </div>
 
-  <!-- 1. HERO CINEMATICA (00:01 - 00:06) -->
-  <section class="hero-cinema">
-    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=85" alt="Aria Salon Experience" class="hero-bg">
-    <div class="hero-content">
-      <span class="hero-tag">Hair Salon — Rho Milano</span>
-      <h1 class="hero-title">Your hair.<br>Your identity.</h1>
-      <p class="hero-sub">Taglio, colore e schiariture sartoriali pensati intorno a te.</p>
-      <a href="#booking" class="btn-hero-cta">
-        <span>Prenota il tuo appuntamento</span>
-        <span>→</span>
-      </a>
-      <a href="#salone" class="hero-scroll-invite">Scopri il Salone ↓</a>
-    </div>
-  </section>
-
-  <!-- 2. IL SALONE & MANIFESTO (00:07 - 00:11) -->
-  <section id="salone" class="salon-manifesto">
-    <div class="container">
-      <div class="section-eyebrow">01 — Il Salone</div>
-      <h2 class="manifesto-heading">
-        Non cambiamo semplicemente i tuoi capelli. <em>Creiamo il modo in cui vuoi sentirti.</em>
-      </h2>
-      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80" alt="Consulenza e cura Aria Salon Rho" class="manifesto-img">
-      <p class="manifesto-desc">
-        Ogni persona è diversa. Per questo ogni taglio, colore e trattamento nasce dall'ascolto, dall'esperienza internazionale e dalla continua ricerca del dettaglio guidata da Vincenzo Lombardo da oltre 20 anni a Rho.
-      </p>
-      <a href="#servizi" class="link-arrow">Scopri i servizi →</a>
-    </div>
-  </section>
-
-  <!-- 3. SERVIZI ACCORDION CON FOTO (00:12 - 00:17) -->
-  <section id="servizi" class="services-accordion-section">
-    <div class="container">
-      <div class="services-intro">
-        <div class="section-eyebrow">02 — Servizi</div>
-        <h2>Ogni servizio parte da te.</h2>
-        <p>Prezzi indicativi. Il preventivo definitivo nasce dalla consulenza preliminare.</p>
-      </div>
-
-      <!-- 01 TAGLIO -->
-      <div class="service-accordion-item is-open">
-        <div class="accordion-header">
-          <div class="service-num-title">
-            <span class="service-num">01</span>
-            <span class="service-title">Taglio</span>
-          </div>
-          <div class="accordion-toggle-icon">↓</div>
-        </div>
-        <div class="accordion-body">
-          <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=80" alt="Taglio Donna Sartoriale" class="accordion-img">
-          <p class="accordion-desc">Forma, proporzioni e personalità. Un taglio costruito intorno alla morfologia del tuo viso e al tuo modo di vivere.</p>
-          <div class="accordion-footer">
-            <span>Da € 40 · 45 min</span>
-            <a href="#booking" onclick="selectService('Taglio Visagistico', '40')">Prenota →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 02 COLORE & SCHIARITURE -->
-      <div class="service-accordion-item">
-        <div class="accordion-header">
-          <div class="service-num-title">
-            <span class="service-num">02</span>
-            <span class="service-title">Colore & Air Touch</span>
-          </div>
-          <div class="accordion-toggle-icon">↓</div>
-        </div>
-        <div class="accordion-body">
-          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80" alt="Air Touch e Balayage" class="accordion-img">
-          <p class="accordion-desc">Tonalità calibrate per valorizzare incarnato, stile e movimento. Specializzati in Air Touch a contrasto zero e sfumature morbide che crescono senza stacchi netti.</p>
-          <div class="accordion-footer">
-            <span>Da € 90 · 150 min</span>
-            <a href="#booking" onclick="selectService('Air Touch / Balayage', '90')">Prenota →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 03 STYLING -->
-      <div class="service-accordion-item">
-        <div class="accordion-header">
-          <div class="service-num-title">
-            <span class="service-num">03</span>
-            <span class="service-title">Styling</span>
-          </div>
-          <div class="accordion-toggle-icon">↓</div>
-        </div>
-        <div class="accordion-body">
-          <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=900&q=80" alt="Piega Infinity Gloss" class="accordion-img">
-          <p class="accordion-desc">Messa in piega a lunga tenuta, onde naturali o styling liscio a specchio impreziosito da termoprotettori vegetali e gloss riparatore.</p>
-          <div class="accordion-footer">
-            <span>Da € 25 · 35 min</span>
-            <a href="#booking" onclick="selectService('Piega & Styling', '25')">Prenota →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 04 TRATTAMENTI HAIR SPA -->
-      <div class="service-accordion-item">
-        <div class="accordion-header">
-          <div class="service-num-title">
-            <span class="service-num">04</span>
-            <span class="service-title">Trattamenti & Care</span>
-          </div>
-          <div class="accordion-toggle-icon">↓</div>
-        </div>
-        <div class="accordion-body">
-          <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=80" alt="Ricostruzione Gold20 Benvoleo" class="accordion-img">
-          <p class="accordion-desc">Protocollo Gold20 e rituali bio-botanici Benvoleo di Alfaparf Milano. Rigenerazione profonda della fibra per steli disidratati o decolorati.</p>
-          <div class="accordion-footer">
-            <span>Da € 40 · 40 min</span>
-            <a href="#booking" onclick="selectService('Ricostruzione Gold20', '40')">Prenota →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. SPECCHIO CITAZIONE CINEMATICA (00:18 - 00:24) -->
-  <section class="mirror-quote-section">
-    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80" alt="Riflesso specchio atelier" class="mirror-bg">
-    <div class="mirror-content">
-      <h2>Il tuo prossimo look <em>inizia prima dello specchio.</em></h2>
-      <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.85;">Comincia da come vuoi sentirti.</p>
-    </div>
-  </section>
-
-  <!-- 5. FIND YOUR LOOK INTERATTIVO (00:25 - 00:38) -->
-  <section id="look" class="find-look-section">
-    <div class="container">
-      <div class="find-look-header">
-        <div class="section-eyebrow" style="color: var(--text-light-muted);">03 — Signature Experience</div>
-        <h2>Find your <em>look.</em></h2>
-        <p>Non scegliere semplicemente un taglio. Scopri quello che parla di te.</p>
-      </div>
-
-      <div class="interactive-mood-stage">
-        <img id="moodImage" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80" alt="Mood look" class="mood-img">
-        <div class="mood-caption">
-          <small id="moodStepTag">01 — Come vuoi sentirti?</small>
-          <h3 id="moodTitle">Essential</h3>
-          <p id="moodSubtitle">Linee pulite, eleganza minimal, nessun eccesso.</p>
-        </div>
-      </div>
-
-      <div class="mood-selector-grid">
-        <button class="mood-pill-btn is-selected" onclick="setMood('Essential', 'Linee pulite, eleganza minimal, nessun eccesso.', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80', this)">
-          <span>01</span><span>Essential</span>
-        </button>
-        <button class="mood-pill-btn" onclick="setMood('Bold', 'Contrasto, decisione, carattere e presenza.', 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80', this)">
-          <span>02</span><span>Bold</span>
-        </button>
-        <button class="mood-pill-btn" onclick="setMood('Elegant', 'Armonia classica, lucentezza senza tempo.', 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80', this)">
-          <span>03</span><span>Elegant</span>
-        </button>
-        <button class="mood-pill-btn" onclick="setMood('Natural', 'Movimento libero, luce soffusa, cura green.', 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=900&q=80', this)">
-          <span>04</span><span>Natural</span>
-        </button>
-      </div>
-
-      <a href="#booking" id="moodCtaBtn" class="btn-dark-cta">
-        <span>Continua con questo Mood</span>
-        <span>→</span>
-      </a>
-      <p style="font-size: 0.75rem; color: var(--text-light-muted); margin-top: 1.25rem; text-align: center;">Nessun algoritmo. Solo le tue sensazioni e una consulenza con chi fa questo mestiere da vent'anni.</p>
-    </div>
-  </section>
-
-  <!-- 6. L'ESPERIENZA IN SALONE (00:39 - 00:44) -->
-  <section id="esperienza" class="experience-steps-section">
-    <div class="container">
-      <div class="section-eyebrow">04 — L'Esperienza</div>
-      <h2 class="exp-heading">Più di un <em>appuntamento.</em></h2>
-      <p class="exp-sub">Dal momento in cui entri in Corso Garibaldi 56, tutto è pensato per farti rallentare. Diagnosi, rituale e tecnica si incontrano in un'esperienza costruita intorno a te.</p>
-
-      <div class="exp-carousel">
-        <div class="exp-card">
-          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80" alt="Ingresso Atelier">
-          <span class="exp-card-num">01 — Accoglienza</span>
-          <h3>Ingresso</h3>
-          <p>Un momento per rallentare, gustare un caffè e respirare l'atmosfera del nostro atelier.</p>
-        </div>
-
-        <div class="exp-card">
-          <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=800&q=80" alt="Consulenza visagistica">
-          <span class="exp-card-num">02 — Diagnosi</span>
-          <h3>Consulenza</h3>
-          <p>Prima di qualsiasi forbice o ciotola colore: ascolto attento di abitudini, stile e desideri.</p>
-        </div>
-
-        <div class="exp-card">
-          <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80" alt="Lavaggio e massaggio">
-          <span class="exp-card-num">03 — Hair Spa</span>
-          <h3>Lavaggio & Cura</h3>
-          <p>Detersione botanica, bagno aromatico e massaggio rilassante per distendere la cute.</p>
-        </div>
-
-        <div class="exp-card">
-          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Styling e risultato">
-          <span class="exp-card-num">04 — Risultato</span>
-          <h3>Finitura Sartoriale</h3>
-          <p>Asciugatura precisa ed effetto finale che riconosci immediatamente come tuo.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. PRIMA E DOPO (00:45 - 00:49) -->
-  <section id="trasformazioni" class="editorial-comparison-section">
-    <div class="container">
-      <div class="comp-intro">
-        <div class="section-eyebrow">05 — Prima e Dopo</div>
-        <h2>Il risultato parla da sé.</h2>
-        <p>Lunghezze opache e prive di movimento trasformate in sfumature luminose con tecnica Air Touch.</p>
-      </div>
-
-      <div class="editorial-slider-box" id="editorialSlider">
-        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=85" alt="Risultato Dopo">
-        <span class="badge-label badge-after">Dopo</span>
-
-        <div class="slider-before-wrap" id="sliderBeforeWrap">
-          <img id="sliderBeforeImg" src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1200&q=85" alt="Base Prima">
-          <span class="badge-label badge-before">Prima</span>
-        </div>
-
-        <div class="slider-handle-line" id="sliderLine">
-          <div class="slider-handle-pill">↔</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. GALLERY LAVORI (00:50 - 00:55) -->
-  <section id="gallery" class="gallery-editorial">
-    <div class="container">
-      <div class="gallery-header">
-        <div>
-          <div class="section-eyebrow">06 — Gallery</div>
-          <h2>Lavori, dettagli, <em>atmosfere.</em></h2>
-        </div>
-        <a href="https://www.instagram.com/ariasalon.milano/" target="_blank" rel="noopener noreferrer" class="ig-direct">Instagram @ariasalon.milano ↗</a>
-      </div>
-
-      <div class="gallery-masonry-2col">
-        <div class="gallery-cell">
-          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Styling Donna">
-          <div class="cell-info"><span>Styling Donna</span><span>01</span></div>
-        </div>
-        <div class="gallery-cell">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Taglio Uomo">
-          <div class="cell-info"><span>Precisione Uomo</span><span>02</span></div>
-        </div>
-        <div class="gallery-cell gallery-cell-wide">
-          <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1000&q=80" alt="Texture e luminosità">
-          <div class="cell-info"><span>Luminosità & Riflessi</span><span>03</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9. TEAM (00:56 - 00:57) -->
-  <section id="team" class="editorial-team-section">
-    <div class="container">
-      <div class="team-intro">
-        <div class="section-eyebrow">07 — Team</div>
-        <h2>Le persone dietro ogni dettaglio.</h2>
-      </div>
-
-      <div class="team-slider">
-        <!-- Vince -->
-        <div class="team-member-card">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" alt="Vincenzo Lombardo">
-          <div class="member-meta">
-            <span class="member-name">Vince</span>
-            <span class="member-role">Manager & Stilista</span>
-          </div>
-          <p class="member-bio">Fondatore di Aria Salon, formatosi nelle accademie di Francia e Inghilterra. Disegna forme sartoriali rispettando chi le indossa.</p>
-        </div>
-
-        <!-- Marcello -->
-        <div class="team-member-card">
-          <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=800&q=80" alt="Marcello">
-          <div class="member-meta">
-            <span class="member-name">Marcello</span>
-            <span class="member-role">Colour Director</span>
-          </div>
-          <p class="member-bio">Specialista in biondi nordici, schiariture graduate Air Touch e bilanciamento cromatico su misura.</p>
-        </div>
-
-        <!-- Lisa -->
-        <div class="team-member-card">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Lisa">
-          <div class="member-meta">
-            <span class="member-name">Lisa</span>
-            <span class="member-role">Stylist</span>
-          </div>
-          <p class="member-bio">Cura dello styling, pieghe a lunga durata e trattamenti di idratazione profonda Benvoleo.</p>
-        </div>
-
-        <!-- Annalisa -->
-        <div class="team-member-card">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Annalisa">
-          <div class="member-meta">
-            <span class="member-name">Annalisa</span>
-            <span class="member-role">Manager & Receptionist</span>
-          </div>
-          <p class="member-bio">Il punto di riferimento per l'accoglienza, la gestione degli orari in atelier e l'assistenza alle clienti.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10. RECENSIONI DARK (00:58) -->
-  <section class="dark-reviews-section">
-    <div class="container">
-      <div class="dark-review-box">
-        <div class="section-eyebrow" style="color: var(--text-light-muted);">08 — Recensioni</div>
-        <div class="review-stars">★★★★★</div>
-        <blockquote class="review-big-quote">
-          “Finalmente qualcuno che ha capito esattamente cosa volevo: un Air Touch naturale senza stacchi e capelli rinati.”
-        </blockquote>
-        <div class="review-author">Sara Brambilla — Cliente Verificata Google</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 11. SISTEMA PRENOTAZIONE GUIDATA (00:59 - 01:05) -->
-  <section id="booking" class="booking-flow-section">
-    <div class="container">
-      <div class="section-eyebrow">09 — Prenotazione Guidata</div>
-      
-      <!-- STEPPER HEADERS -->
-      <div class="booking-stepper-header">
-        <div class="step-indicator is-active" id="indStep1"><span>01</span>Servizio</div>
-        <div class="step-indicator" id="indStep2"><span>02</span>Stylist</div>
-        <div class="step-indicator" id="indStep3"><span>03</span>Data/Ora</div>
-        <div class="step-indicator" id="indStep4"><span>04</span>Riepilogo</div>
-      </div>
-
-      <!-- PANE 1: SCEGLI SERVIZIO -->
-      <div class="booking-step-pane is-visible" id="stepPane1">
-        <h3 class="step-pane-title">Scegli il servizio</h3>
-        <div class="selectable-list">
-          <div class="selectable-item is-selected" onclick="pickService('Consulenza Colore Preventiva', '0 €', this)">
-            <div>
-              <span class="item-name">Consulenza Colore</span>
-              <span class="item-sub">15 min · Diagnosi visagistica</span>
-            </div>
-            <span class="item-price">Gratuita</span>
-          </div>
-          <div class="selectable-item" onclick="pickService('Taglio Donna Visagistico', '40 €', this)">
-            <div>
-              <span class="item-name">Taglio Donna</span>
-              <span class="item-sub">45 min · Con lavaggio curativo</span>
-            </div>
-            <span class="item-price">Da € 40</span>
-          </div>
-          <div class="selectable-item" onclick="pickService('Air Touch / Balayage', 'da 90 €', this)">
-            <div>
-              <span class="item-name">Schiariture Air Touch</span>
-              <span class="item-sub">150 min · Tecnica di precisione</span>
-            </div>
-            <span class="item-price">Da € 90</span>
-          </div>
-          <div class="selectable-item" onclick="pickService('Piega & Trattamento Gold20', '65 €', this)">
-            <div>
-              <span class="item-name">Piega & Ricostruzione</span>
-              <span class="item-sub">60 min · Rigenerazione profonda</span>
-            </div>
-            <span class="item-price">€ 65</span>
-          </div>
-        </div>
-        <button class="btn-dark-cta" onclick="goToStep(2)">
-          <span>Continua con lo Stylist</span>
+  <main>
+    <!-- HERO CINEMATICA RESPONSIVE -->
+    <section class="hero">
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=85" alt="Aria Salon Atelier Rho" class="hero-img">
+      <div class="hero-wrap">
+        <span class="hero-tag">Hair Salon — Rho Milano</span>
+        <h1 class="hero-title">Your hair.<br>Your identity.</h1>
+        <p class="hero-desc">Taglio, colore e schiariture sartoriali pensati intorno a te.</p>
+        <a href="#prenota" class="hero-btn">
+          <span>Prenota Appuntamento</span>
           <span>→</span>
-        </button>
+        </a>
       </div>
+    </section>
 
-      <!-- PANE 2: SCEGLI STYLIST -->
-      <div class="booking-step-pane" id="stepPane2">
-        <h3 class="step-pane-title">Scegli lo stylist</h3>
-        <div class="selectable-list">
-          <div class="selectable-item is-selected" onclick="pickStylist('Primo Disponibile', this)">
-            <div>
-              <span class="item-name">Primo Disponibile</span>
-              <span class="item-sub">Migliore orario per te</span>
+    <!-- 01 — IL SALONE -->
+    <section id="salone" class="manifesto">
+      <div class="container">
+        <div class="eyebrow">01 — Il Salone</div>
+        <h2 class="manifesto-title">
+          Non cambiamo semplicemente i tuoi capelli. <em class="serif italic">Creiamo il modo in cui vuoi sentirti.</em>
+        </h2>
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80" alt="Atelier interno Aria Salon" class="manifesto-img">
+        <p class="manifesto-p">
+          Presente da oltre 20 anni a Rho, Aria Salon nasce dalla visione di <strong>Vincenzo Lombardo</strong>, stilista formatosi presso le più prestigiose accademie di Francia e Inghilterra.
+        </p>
+        <p class="manifesto-p">
+          Ogni taglio e sfumatura nasce dall'ascolto, valorizzando la tua fisionomia naturale attraverso prodotti ad alte performance e protocolli bio-botanici Alfaparf Milano.
+        </p>
+      </div>
+    </section>
+
+    <!-- 02 — SERVIZI ACCORDION MOBILE -->
+    <section id="servizi" class="services-sec">
+      <div class="container">
+        <div class="eyebrow">02 — Servizi</div>
+        <h2 class="sec-title">Ogni servizio parte da te.</h2>
+        <p class="sec-desc">Prezzi chiari. Diagnosi visagistica inclusa prima di ogni seduta.</p>
+
+        <!-- TAGLIO -->
+        <div class="service-row open">
+          <div class="service-head">
+            <div class="service-head-left">
+              <span class="service-idx">01</span>
+              <span class="service-name">Taglio Sartoriale</span>
             </div>
-            <span class="item-price">Standard</span>
+            <div class="service-arrow">↓</div>
           </div>
-          <div class="selectable-item" onclick="pickStylist('Vince Lombardo (Manager)', this)">
-            <div>
-              <span class="item-name">Vince</span>
-              <span class="item-sub">Manager e Stilista</span>
+          <div class="service-panel">
+            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=80" alt="Taglio Donna" class="service-panel-img">
+            <p class="service-panel-desc">Forma, proporzioni e rispetto dei volumi naturali per valorizzare il viso.</p>
+            <div class="service-panel-bar">
+              <span>Da € 40 · 45 min</span>
+              <a href="#prenota" onclick="setQuickService('Taglio Donna (40 €)')">Scegli per WhatsApp →</a>
             </div>
-            <span class="item-price">Atelier</span>
-          </div>
-          <div class="selectable-item" onclick="pickStylist('Marcello (Colour Director)', this)">
-            <div>
-              <span class="item-name">Marcello</span>
-              <span class="item-sub">Colour Director</span>
-            </div>
-            <span class="item-price">Color Lab</span>
-          </div>
-          <div class="selectable-item" onclick="pickStylist('Lisa (Stylist)', this)">
-            <div>
-              <span class="item-name">Lisa</span>
-              <span class="item-sub">Hair Stylist & Care</span>
-            </div>
-            <span class="item-price">Styling</span>
           </div>
         </div>
-        <div style="display: flex; gap: 1rem;">
-          <button class="btn-dark-cta" style="background:#ECE8DF;" onclick="goToStep(1)">← Indietro</button>
-          <button class="btn-dark-cta" onclick="goToStep(3)">Continua →</button>
+
+        <!-- COLORE & SCHIARITURE -->
+        <div class="service-row">
+          <div class="service-head">
+            <div class="service-head-left">
+              <span class="service-idx">02</span>
+              <span class="service-name">Air Touch & Colore</span>
+            </div>
+            <div class="service-arrow">↓</div>
+          </div>
+          <div class="service-panel">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80" alt="Air Touch e Schiariture" class="service-panel-img">
+            <p class="service-panel-desc">Sfumature calibrate senza stacchi netti che ricrescono dolcemente nel tempo.</p>
+            <div class="service-panel-bar">
+              <span>Da € 90 · 150 min</span>
+              <a href="#prenota" onclick="setQuickService('Air Touch / Balayage (da 90 €)')">Scegli per WhatsApp →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- STYLING -->
+        <div class="service-row">
+          <div class="service-head">
+            <div class="service-head-left">
+              <span class="service-idx">03</span>
+              <span class="service-name">Styling & Piega</span>
+            </div>
+            <div class="service-arrow">↓</div>
+          </div>
+          <div class="service-panel">
+            <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=900&q=80" alt="Styling e Piega" class="service-panel-img">
+            <p class="service-panel-desc">Definizione a lunga tenuta con termoprotettori vegetali e lucidatura a specchio.</p>
+            <div class="service-panel-bar">
+              <span>Da € 25 · 35 min</span>
+              <a href="#prenota" onclick="setQuickService('Piega & Styling (da 25 €)')">Scegli per WhatsApp →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRATTAMENTI -->
+        <div class="service-row">
+          <div class="service-head">
+            <div class="service-head-left">
+              <span class="service-idx">04</span>
+              <span class="service-name">Ricostruzione Gold20</span>
+            </div>
+            <div class="service-arrow">↓</div>
+          </div>
+          <div class="service-panel">
+            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=80" alt="Trattamento Capelli" class="service-panel-img">
+            <p class="service-panel-desc">Rigenerazione profonda della fibra per steli disidratati, spenti o decolorati.</p>
+            <div class="service-panel-bar">
+              <span>Da € 40 · 40 min</span>
+              <a href="#prenota" onclick="setQuickService('Ricostruzione Gold20 (40 €)')">Scegli per WhatsApp →</a>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- PANE 3: SCEGLI DATA / GIORNO PREFERITO -->
-      <div class="booking-step-pane" id="stepPane3">
-        <h3 class="step-pane-title">Preferenza di orario</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">Orari studio: Mar-Sab 09:00/09:30-18:00 (Giovedì serale fino alle 20:00).</p>
-        
-        <label style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 600;">Giorno o periodo desiderato:</label>
-        <input type="text" id="prefDate" class="form-input" placeholder="Es. Giovedì prossimo pomeriggio, oppure Sabato mattina">
-
-        <label style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 600;">Fascia oraria ideale:</label>
-        <input type="text" id="prefTime" class="form-input" placeholder="Es. 11:30 o dopo le 17:00">
-
-        <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-          <button class="btn-dark-cta" style="background:#ECE8DF;" onclick="goToStep(2)">← Indietro</button>
-          <button class="btn-dark-cta" onclick="goToStep(4)">Vai al Riepilogo →</button>
-        </div>
+    <!-- 03 — SPECCHIO QUOTE -->
+    <section class="mirror-break">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80" alt="Specchio Atelier" class="mirror-break-img">
+      <div class="mirror-break-inner">
+        <h2>Il tuo prossimo look<br><em class="serif italic">inizia prima dello specchio.</em></h2>
+        <p style="margin-top: 0.8rem; font-size: 0.85rem; opacity: 0.8;">Comincia da come vuoi sentirti.</p>
       </div>
+    </section>
 
-      <!-- PANE 4: RIEPILOGO & INVIO SU WHATSAPP -->
-      <div class="booking-step-pane" id="stepPane4">
-        <h3 class="step-pane-title">Il tuo appuntamento</h3>
-        
-        <div class="summary-card">
-          <div class="summary-row">
-            <span>Servizio Scelto</span>
-            <strong id="sumService">Consulenza Colore</strong>
-          </div>
-          <div class="summary-row">
-            <span>Stylist</span>
-            <strong id="sumStylist">Primo Disponibile</strong>
-          </div>
-          <div class="summary-row">
-            <span>Momento Desiderato</span>
-            <strong id="sumDateTime">Da concordare</strong>
+    <!-- 04 — FIND YOUR LOOK (INTERATTIVO LEGGERO) -->
+    <section id="look" class="look-sec">
+      <div class="container">
+        <div class="eyebrow" style="color: var(--text-light-muted);">03 — Signature Experience</div>
+        <h2 class="sec-title" style="color: #FFF;">Find your <em class="serif italic">look.</em></h2>
+        <p style="font-size: 0.85rem; color: var(--text-light-muted);">Scegli un'attitudine. Guarda cosa cambia.</p>
+
+        <div class="look-stage">
+          <img id="stageImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80" alt="Mood look" class="look-stage-img">
+          <div class="look-stage-meta">
+            <h3 id="stageTitle">Essential</h3>
+            <p id="stageDesc">Linee pure, equilibrio sartoriale, nessun eccesso.</p>
           </div>
         </div>
 
-        <input type="text" id="clientName" class="form-input" placeholder="Il tuo Nome e Cognome *">
-        <input type="tel" id="clientPhone" class="form-input" placeholder="Il tuo Numero di Telefono *">
+        <div class="look-pills">
+          <button class="look-pill active" onclick="switchMood('Essential', 'Linee pure, equilibrio sartoriale, nessun eccesso.', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80', this)">
+            <span>Essential</span><span>01</span>
+          </button>
+          <button class="look-pill" onclick="switchMood('Bold', 'Contrasto deciso, carattere e luminosità forte.', 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80', this)">
+            <span>Bold</span><span>02</span>
+          </button>
+          <button class="look-pill" onclick="switchMood('Elegant', 'Lucentezza classica e morbidezza senza tempo.', 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80', this)">
+            <span>Elegant</span><span>03</span>
+          </button>
+          <button class="look-pill" onclick="switchMood('Natural', 'Movimento libero, sfumature baciate dal sole.', 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=900&q=80', this)">
+            <span>Natural</span><span>04</span>
+          </button>
+        </div>
 
-        <button class="btn-dark-cta" style="background:#111; color:#FFF;" onclick="sendFinalWhatsApp()">
-          <span>Invia Richiesta su WhatsApp</span>
+        <a href="#prenota" id="moodActionBtn" class="look-cta">
+          <span>Continua con questo Mood</span>
           <span>→</span>
-        </button>
+        </a>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- 05 — L'ESPERIENZA CAROSELLO -->
+    <section id="esperienza" class="exp-sec">
+      <div class="container">
+        <div class="eyebrow">04 — L'Esperienza</div>
+        <h2 class="sec-title">Più di un <em class="serif italic">appuntamento.</em></h2>
+        <p class="sec-desc">Dal momento in cui entri in Corso Garibaldi 56, tutto è pensato per farti rallentare.</p>
 
-  <!-- 12. FINALE CINEMATICO: READY FOR YOUR NEXT LOOK (01:06 - 01:08) -->
-  <section class="cta-final-cinema">
-    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80" alt="Nuovo Look Aria Salon" class="final-bg">
-    <div class="final-content">
-      <h2 class="final-title">Ready for your<br>next look?</h2>
-      <a href="#booking" class="final-circle-cta">
-        <span>Prenota Ora</span>
-        <span>→</span>
-      </a>
-    </div>
-  </section>
+        <div class="exp-track">
+          <div class="exp-item">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80" alt="Ingresso">
+            <span class="exp-item-num">01 — ACCOGLIENZA</span>
+            <h3>Ingresso</h3>
+            <p>Un momento per staccare dal ritmo quotidiano e respirare l'atmosfera del nostro atelier.</p>
+          </div>
+          <div class="exp-item">
+            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=800&q=80" alt="Consulenza">
+            <span class="exp-item-num">02 — DIAGNOSI</span>
+            <h3>Consulenza</h3>
+            <p>Prima delle forbici: diagnosi della struttura del capello e studio morfologico del viso.</p>
+          </div>
+          <div class="exp-item">
+            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80" alt="Hair Spa">
+            <span class="exp-item-num">03 — HAIR SPA</span>
+            <h3>Lavaggio & Cura</h3>
+            <p>Detersione botanica, trattamento protettivo Alfaparf e massaggio distensivo.</p>
+          </div>
+          <div class="exp-item">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Risultato">
+            <span class="exp-item-num">04 — FINISH</span>
+            <h3>Risultato</h3>
+            <p>Asciugatura sartoriale e lucentezza naturale che senti subito tua.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 — PRIMA E DOPO SLIDER -->
+    <section id="trasformazioni" class="comp-sec">
+      <div class="container">
+        <div class="eyebrow">05 — Prima e Dopo</div>
+        <h2 class="sec-title">Il risultato parla da sé.</h2>
+        <p class="sec-desc">Trascina per osservare il passaggio dal colore piatto a una schiaritura Air Touch fluida.</p>
+
+        <div class="slider-box" id="touchSlider">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=85" alt="Risultato finale">
+          <span class="badge badge-a">Dopo</span>
+
+          <div class="slider-mask" id="sliderMask">
+            <img id="sliderInnerImg" src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1200&q=85" alt="Base di partenza">
+            <span class="badge badge-b">Prima</span>
+          </div>
+
+          <div class="slider-bar" id="sliderBar">
+            <div class="slider-handle">↔</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 — PRENOTAZIONE GUIDATA ULTRA-SEMPLICE -->
+    <section id="prenota" class="quick-book-sec">
+      <div class="container">
+        <div class="eyebrow">06 — Prenota Subito</div>
+        <h2 class="sec-title">Fissa la tua poltrona.</h2>
+        <p class="sec-desc">Scegli il servizio e invia direttamente la richiesta su WhatsApp con i dettagli già pronti.</p>
+
+        <div class="book-card">
+          <span class="book-step-title">1. Servizio desiderato</span>
+          <div class="book-options-grid" id="serviceOptions">
+            <div class="book-opt selected" onclick="pickOpt(this, 'service', 'Consulenza Colore (Gratuita)')">
+              <strong>Consulenza Colore</strong>
+              <small>Gratuita · 15 min</small>
+            </div>
+            <div class="book-opt" onclick="pickOpt(this, 'service', 'Taglio Sartoriale (40 €)')">
+              <strong>Taglio Sartoriale</strong>
+              <small>Da € 40 · 45 min</small>
+            </div>
+            <div class="book-opt" onclick="pickOpt(this, 'service', 'Air Touch / Balayage (da 90 €)')">
+              <strong>Air Touch / Balayage</strong>
+              <small>Da € 90 · Schiariture</small>
+            </div>
+            <div class="book-opt" onclick="pickOpt(this, 'service', 'Ricostruzione Gold20 (40 €)')">
+              <strong>Trattamento Gold20</strong>
+              <small>€ 40 · Rigenerazione</small>
+            </div>
+          </div>
+
+          <span class="book-step-title">2. Stylist di riferimento</span>
+          <div class="book-options-grid" id="stylistOptions">
+            <div class="book-opt selected" onclick="pickOpt(this, 'stylist', 'Primo Disponibile')">
+              <strong>Primo Disponibile</strong>
+              <small>Migliore orario</small>
+            </div>
+            <div class="book-opt" onclick="pickOpt(this, 'stylist', 'Vince Lombardo (Manager)')">
+              <strong>Vince Lombardo</strong>
+              <small>Manager & Stilista</small>
+            </div>
+            <div class="book-opt" onclick="pickOpt(this, 'stylist', 'Marcello (Colour Director)')">
+              <strong>Marcello</strong>
+              <small>Colour Director</small>
+            </div>
+            <div class="book-opt" onclick="pickOpt(this, 'stylist', 'Lisa (Stylist)')">
+              <strong>Lisa</strong>
+              <small>Stylist</small>
+            </div>
+          </div>
+
+          <button class="book-submit-btn" onclick="launchWhatsApp()">
+            <span>Invia su WhatsApp</span>
+            <span>→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
-    <div class="container footer-inner">
-      <div>
-        <strong>Aria Salon Rho</strong>
-        <p style="margin-top: 0.35rem; color: var(--text-muted); font-size: 0.8rem; text-transform: none;">
-          Corso Giuseppe Garibaldi 56 — 20017 Rho (MI)<br>
-          P.IVA 06220590969 · Partner Alfaparf Milano Professional
-        </p>
-      </div>
-
-      <div class="footer-links-grid">
-        <a href="tel:+390299760547">Telefono: 02 99760547 ↗</a>
-        <a href="https://wa.me/390299760547">WhatsApp Dedicato ↗</a>
-        <a href="https://maps.google.com/?q=Corso+Giuseppe+Garibaldi+56,+Rho">Google Maps ↗</a>
-      </div>
+    <div class="container">
+      <strong>Aria Salon Rho</strong><br>
+      Corso Giuseppe Garibaldi 56 — 20017 Rho (MI)<br>
+      Tel: <a href="tel:+390299760547">02 99760547</a> · WhatsApp: <a href="https://wa.me/390299760547">+39 02 99760547</a><br>
+      Orari: Mar-Sab 09:30–18:00 (Giovedì serale fino alle 20:00)
     </div>
   </footer>
 
-  <!-- PILLOLA FLOTTANTE FISSA "• PRENOTA" -->
-  <div class="floating-pill-dock">
-    <a href="#booking" class="pill-book-btn">
-      <span class="pill-dot"></span>
+  <!-- PILLOLA FLOTTANTE FISSA -->
+  <div class="dock">
+    <a href="#prenota" class="dock-pill">
+      <div class="dock-dot"></div>
       <span>Prenota</span>
     </a>
   </div>
 
-  <!-- SCRIPT MICRO-INTERAZIONI EDITORIALI -->
   <script>
-    // 1. GESTIONE DRAWER FULLSCREEN
-    const drawer = document.getElementById('editorialDrawer');
-    document.getElementById('openDrawerBtn').addEventListener('click', () => drawer.classList.add('is-active'));
-    document.getElementById('closeDrawerBtn').addEventListener('click', () => drawer.classList.remove('is-active'));
+    // 1. DRAWER MENU
+    const drawer = document.getElementById('siteDrawer');
+    document.getElementById('openMenuBtn').onclick = () => drawer.classList.add('active');
+    document.getElementById('closeMenuBtn').onclick = () => drawer.classList.remove('active');
     document.querySelectorAll('.drawer-link').forEach(link => {
-      link.addEventListener('click', () => drawer.classList.remove('is-active'));
+      link.onclick = () => drawer.classList.remove('active');
     });
 
-    // 2. ACCORDION SERVIZI ESCLUSIVO
-    const accItems = document.querySelectorAll('.service-accordion-item');
-    accItems.forEach(item => {
-      item.querySelector('.accordion-header').addEventListener('click', () => {
-        const isOpen = item.classList.contains('is-open');
-        accItems.forEach(i => i.classList.remove('is-open'));
-        if (!isOpen) item.classList.add('is-open');
-      });
+    // 2. ACCORDION SERVIZI (Uno aperto per volta)
+    const rows = document.querySelectorAll('.service-row');
+    rows.forEach(r => {
+      r.querySelector('.service-head').onclick = () => {
+        const isOpen = r.classList.contains('open');
+        rows.forEach(x => x.classList.remove('open'));
+        if (!isOpen) r.classList.add('open');
+      };
     });
 
-    // 3. FIND YOUR LOOK INTERATTIVO
-    function setMood(title, desc, imgUrl, btn) {
-      document.querySelectorAll('.mood-pill-btn').forEach(b => b.classList.remove('is-selected'));
-      btn.classList.add('is-selected');
-      
-      const img = document.getElementById('moodImage');
-      img.style.opacity = '0.3';
+    // 3. MOOD FINDER
+    let currentMood = 'Essential';
+    function switchMood(name, desc, img, btn) {
+      document.querySelectorAll('.look-pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+
+      const el = document.getElementById('stageImg');
+      el.style.opacity = '0.3';
       setTimeout(() => {
-        img.src = imgUrl;
-        document.getElementById('moodTitle').innerText = title;
-        document.getElementById('moodSubtitle').innerText = desc;
-        img.style.opacity = '1';
-      }, 200);
+        el.src = img;
+        document.getElementById('stageTitle').innerText = name;
+        document.getElementById('stageDesc').innerText = desc;
+        el.style.opacity = '1';
+      }, 150);
 
-      window.selectedMood = title;
+      currentMood = name;
     }
 
-    // 4. SLIDER PRIMA E DOPO
+    // 4. TOUCH SLIDER PRIMA E DOPO
     (function initSlider() {
-      const box = document.getElementById('editorialSlider');
-      const wrap = document.getElementById('sliderBeforeWrap');
-      const img = document.getElementById('sliderBeforeImg');
-      const line = document.getElementById('sliderLine');
+      const box = document.getElementById('touchSlider');
+      const mask = document.getElementById('sliderMask');
+      const img = document.getElementById('sliderInnerImg');
+      const bar = document.getElementById('sliderBar');
 
       function update(clientX) {
         const rect = box.getBoundingClientRect();
@@ -1746,8 +1137,8 @@
         if (x < 0) x = 0;
         if (x > rect.width) x = rect.width;
         const pct = (x / rect.width) * 100;
-        wrap.style.width = pct + '%';
-        line.style.left = pct + '%';
+        mask.style.width = pct + '%';
+        bar.style.left = pct + '%';
       }
 
       function resize() {
@@ -1762,72 +1153,37 @@
       resize();
     })();
 
-    // 5. STEPPER PRENOTAZIONE GUIDATA
-    let bookingData = {
-      service: 'Consulenza Colore Preventiva',
-      price: 'Gratuita',
-      stylist: 'Primo Disponibile',
-      date: '',
-      time: ''
-    };
+    // 5. SELEZIONE PRENOTAZIONE RAPIDA
+    let chosenService = 'Consulenza Colore (Gratuita)';
+    let chosenStylist = 'Primo Disponibile';
 
-    function pickService(name, price, el) {
-      document.querySelectorAll('#stepPane1 .selectable-item').forEach(i => i.classList.remove('is-selected'));
-      el.classList.add('is-selected');
-      bookingData.service = name;
-      bookingData.price = price;
+    function pickOpt(el, type, val) {
+      const parent = el.parentElement;
+      parent.querySelectorAll('.book-opt').forEach(opt => opt.classList.remove('selected'));
+      el.classList.add('selected');
+      if (type === 'service') chosenService = val;
+      if (type === 'stylist') chosenStylist = val;
     }
 
-    function selectService(name, price) {
-      bookingData.service = name;
-      bookingData.price = price;
-      goToStep(2);
+    function setQuickService(serviceName) {
+      chosenService = serviceName;
+      document.querySelectorAll('#serviceOptions .book-opt').forEach(opt => {
+        if (opt.innerText.includes(serviceName.split(' ')[0])) {
+          opt.classList.add('selected');
+        } else {
+          opt.classList.remove('selected');
+        }
+      });
     }
 
-    function pickStylist(name, el) {
-      document.querySelectorAll('#stepPane2 .selectable-item').forEach(i => i.classList.remove('is-selected'));
-      el.classList.add('is-selected');
-      bookingData.stylist = name;
-    }
+    function launchWhatsApp() {
+      let text = `Ciao Aria Salon! Vorrei verificare disponibilità per un appuntamento:\n\n`;
+      text += `• Servizio: ${chosenService}\n`;
+      text += `• Stylist: ${chosenStylist}\n`;
+      if (currentMood) text += `• Mood d'ispirazione: ${currentMood}\n`;
+      text += `\nQuali date/orari avete liberi nei prossimi giorni?`;
 
-    function goToStep(stepNumber) {
-      // Aggiorna indicatori
-      for (let i = 1; i <= 4; i++) {
-        document.getElementById('indStep' + i).classList.toggle('is-active', i <= stepNumber);
-        document.getElementById('stepPane' + i).classList.toggle('is-visible', i === stepNumber);
-      }
-
-      if (stepNumber === 4) {
-        const dateInput = document.getElementById('prefDate').value.trim();
-        const timeInput = document.getElementById('prefTime').value.trim();
-        bookingData.date = dateInput || 'Da definire';
-        bookingData.time = timeInput || 'Fascia da concordare';
-
-        document.getElementById('sumService').innerText = bookingData.service + ' (' + bookingData.price + ')';
-        document.getElementById('sumStylist').innerText = bookingData.stylist;
-        document.getElementById('sumDateTime').innerText = bookingData.date + ' — ' + bookingData.time;
-      }
-    }
-
-    function sendFinalWhatsApp() {
-      const name = document.getElementById('clientName').value.trim();
-      const phone = document.getElementById('clientPhone').value.trim();
-
-      if (!name) {
-        alert('Inserisci il tuo nome per completare la richiesta.');
-        return;
-      }
-
-      let text = `Ciao Aria Salon! Vorrei fissare un appuntamento dal sito web:\n\n`;
-      text += `• Servizio: ${bookingData.service}\n`;
-      text += `• Stylist preferito: ${bookingData.stylist}\n`;
-      text += `• Preferenza orario: ${bookingData.date} (${bookingData.time})\n`;
-      if (window.selectedMood) text += `• Mood d'ispirazione: ${window.selectedMood}\n`;
-      text += `• Nominativo: ${name}\n`;
-      if (phone) text += `• Recapito: ${phone}\n`;
-
-      const waUrl = `https://wa.me/390299760547?text=${encodeURIComponent(text)}`;
-      window.open(waUrl, '_blank');
+      window.open(`https://wa.me/390299760547?text=${encodeURIComponent(text)}`, '_blank');
     }
   </script>
 
