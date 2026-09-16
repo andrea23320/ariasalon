@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Aria Salon | Atelier & Hairdressing Rho</title>
-  <meta name="description" content="Atelier di bellezza a Rho. Specialisti in Air Touch, Balayage sartoriale e salute del capello. Corso Garibaldi 56, Rho.">
+  <title>Aria Salon | Atelier & Precision Hairdressing Rho</title>
+  <meta name="description" content="Atelier di bellezza a Rho. Specialisti in Air Touch, Balayage sartoriale e cura del capello. Corso Garibaldi 56, Rho.">
 
-  <!-- FONTS EDITORIALI DI PRESTIGIO -->
+  <!-- FONTS EDITORIALI -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -48,31 +48,31 @@
 
     .container {
       width: 88%;
-      max-width: 980px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
     .eyebrow {
       font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       color: var(--text-muted);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      font-weight: 500;
+      font-weight: 600;
     }
     .eyebrow::before {
       content: '';
-      width: 18px;
+      width: 22px;
       height: 1px;
       background: currentColor;
       opacity: 0.6;
     }
 
     /* ==========================================================
-       HEADER MOBILE-FIRST
+       HEADER (DESKTOP HYBRID + MOBILE DRAWER)
        ========================================================== */
     header {
       position: fixed;
@@ -80,32 +80,73 @@
       left: 0;
       width: 100%;
       z-index: 100;
-      padding: 1.1rem 6%;
+      padding: 1.25rem 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(248, 246, 242, 0.88);
+      background: rgba(248, 246, 242, 0.92);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border-light);
+      transition: all 0.3s ease;
     }
     .brand {
       font-family: var(--font-serif);
-      font-size: 1.35rem;
+      font-size: 1.45rem;
       letter-spacing: 0.04em;
       text-decoration: none;
       color: var(--text-dark);
       display: flex;
       align-items: baseline;
-      gap: 0.35rem;
+      gap: 0.4rem;
     }
     .brand small {
       font-family: var(--font-sans);
-      font-size: 0.58rem;
-      letter-spacing: 0.2em;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      opacity: 0.65;
+      opacity: 0.7;
     }
+
+    .desktop-nav {
+      display: none;
+      align-items: center;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .desktop-nav a {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .desktop-nav a:hover { opacity: 0.5; }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .header-book-btn {
+      display: none;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #FFF;
+      background: var(--text-dark);
+      padding: 0.65rem 1.4rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .header-book-btn:hover {
+      background: #2a2a2a;
+    }
+
     .nav-toggle {
       font-family: var(--font-sans);
       font-size: 0.72rem;
@@ -142,10 +183,7 @@
       pointer-events: none;
       transition: opacity 0.3s ease;
     }
-    .drawer.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
+    .drawer.active { opacity: 1; pointer-events: auto; }
     .drawer-close {
       position: absolute;
       top: 1.25rem;
@@ -157,12 +195,9 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       padding: 0.5rem;
+      cursor: pointer;
     }
-    .drawer-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 1.35rem;
-    }
+    .drawer-nav { display: flex; flex-direction: column; gap: 1.35rem; }
     .drawer-nav a {
       font-family: var(--font-serif);
       font-size: clamp(1.8rem, 6vw, 2.6rem);
@@ -179,17 +214,17 @@
     }
 
     /* ==========================================================
-       HERO CINEMATICA RESPONSIVE
+       HERO CINEMATICA
        ========================================================== */
     .hero {
       position: relative;
-      height: 92vh;
-      min-height: 580px;
+      height: 94vh;
+      min-height: 620px;
       width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 0 6% 3.5rem;
+      padding: 0 6% 4.5rem;
       color: #FFF;
       background: #000;
       overflow: hidden;
@@ -200,36 +235,37 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 20%;
+      object-position: center 25%;
       filter: brightness(64%) contrast(105%);
     }
     .hero-wrap {
       position: relative;
       z-index: 2;
-      max-width: 520px;
+      max-width: 680px;
     }
     .hero-tag {
-      font-size: 0.68rem;
+      font-size: 0.72rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
       display: block;
       opacity: 0.85;
     }
     .hero-title {
       font-family: var(--font-serif);
-      font-size: clamp(2.6rem, 8.5vw, 4.2rem);
-      line-height: 0.98;
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      line-height: 0.96;
       font-weight: 300;
       letter-spacing: -0.02em;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
     .hero-desc {
-      font-size: 0.9rem;
+      font-size: 1rem;
       font-weight: 300;
-      line-height: 1.5;
-      color: rgba(255, 255, 255, 0.82);
-      margin-bottom: 1.75rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 2rem;
+      max-width: 500px;
     }
     .hero-btn {
       display: flex;
@@ -237,28 +273,39 @@
       justify-content: space-between;
       background: #FFFFFF;
       color: var(--text-dark);
-      padding: 1rem 1.4rem;
+      padding: 1.15rem 1.6rem;
       border-radius: 2px;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       font-weight: 600;
       text-decoration: none;
       width: 100%;
       max-width: 320px;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .hero-btn:hover {
+      background: #F4F1EA;
+      transform: translateY(-2px);
     }
 
     /* ==========================================================
-       01 — IL SALONE & STORY
+       01 — IL SALONE & MANIFESTO (DESKTOP ASIMMETRICO)
        ========================================================== */
     .manifesto {
-      padding: 4.5rem 0;
+      padding: 6.5rem 0;
       background: var(--bg-cream);
+    }
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
     }
     .manifesto-title {
       font-family: var(--font-serif);
-      font-size: clamp(2rem, 5.8vw, 3.2rem);
-      line-height: 1.1;
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      line-height: 1.08;
       font-weight: 400;
       margin: 0.5rem 0 2rem;
     }
@@ -267,43 +314,47 @@
       aspect-ratio: 4 / 3.8;
       object-fit: cover;
       display: block;
-      margin-bottom: 1.75rem;
       border-radius: 2px;
     }
     .manifesto-p {
-      font-size: 0.92rem;
+      font-size: 0.98rem;
       color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 1rem;
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
     }
 
     /* ==========================================================
-       02 — SERVIZI ACCORDION MOBILE-FIRST
+       02 — SERVIZI ACCORDION (DESKTOP SPLIT LOOKBOOK)
        ========================================================== */
     .services-sec {
-      padding: 4.5rem 0;
+      padding: 6.5rem 0;
       background: var(--bg-cream);
       border-top: 1px solid var(--border-light);
     }
     .sec-title {
       font-family: var(--font-serif);
-      font-size: clamp(2rem, 5.5vw, 3rem);
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
       line-height: 1.05;
       font-weight: 400;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
     .sec-desc {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
+    }
+    .services-desktop-split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+      align-items: start;
     }
     .service-row {
       border-top: 1px solid var(--border-light);
-      padding: 1.35rem 0;
+      padding: 1.5rem 0;
+      transition: padding 0.25s;
     }
-    .service-row:last-child {
-      border-bottom: 1px solid var(--border-light);
-    }
+    .service-row:last-child { border-bottom: 1px solid var(--border-light); }
     .service-head {
       display: flex;
       justify-content: space-between;
@@ -313,28 +364,29 @@
     .service-head-left {
       display: flex;
       align-items: baseline;
-      gap: 1rem;
+      gap: 1.25rem;
     }
     .service-idx {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       letter-spacing: 0.14em;
       color: var(--text-muted);
+      font-weight: 500;
     }
     .service-name {
       font-family: var(--font-serif);
-      font-size: 1.85rem;
+      font-size: 2.1rem;
       font-style: italic;
       font-weight: 400;
     }
     .service-arrow {
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       border: 1px solid var(--border-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.95rem;
+      font-size: 1rem;
       transition: transform 0.25s ease, background 0.25s;
     }
     .service-row.open .service-arrow {
@@ -355,21 +407,21 @@
       width: 100%;
       height: 240px;
       object-fit: cover;
-      margin: 1.2rem 0 1rem;
+      margin: 1.25rem 0 1rem;
       border-radius: 2px;
       display: block;
     }
     .service-panel-desc {
-      font-size: 0.88rem;
+      font-size: 0.92rem;
       color: var(--text-muted);
-      line-height: 1.6;
+      line-height: 1.65;
       margin-bottom: 1rem;
     }
     .service-panel-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 600;
@@ -379,17 +431,33 @@
       text-decoration: none;
     }
 
+    /* Anteprima fissa desktop */
+    .services-desktop-preview {
+      display: none;
+      position: sticky;
+      top: 6rem;
+      height: 520px;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .services-desktop-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+
     /* ==========================================================
-       03 — SPECCHIO QUOTE EDITORIALE
+       03 — SPECCHIO QUOTE
        ========================================================== */
     .mirror-break {
       position: relative;
       height: 75vh;
-      min-height: 480px;
+      min-height: 500px;
       background: #000;
       display: flex;
       align-items: flex-end;
-      padding: 0 6% 3.5rem;
+      padding: 0 6% 4.5rem;
       color: #FFF;
       overflow: hidden;
     }
@@ -404,29 +472,35 @@
     .mirror-break-inner {
       position: relative;
       z-index: 2;
+      max-width: 800px;
     }
     .mirror-break-inner h2 {
       font-family: var(--font-serif);
-      font-size: clamp(2.1rem, 6.5vw, 3.2rem);
-      line-height: 1.1;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      line-height: 1.08;
       font-weight: 300;
     }
 
     /* ==========================================================
-       04 — FIND YOUR LOOK (INTERAZIONE ULTRA-FLUIDA)
+       04 — FIND YOUR LOOK (SPLIT DESKTOP)
        ========================================================== */
     .look-sec {
       background: var(--bg-dark);
       color: var(--text-light);
-      padding: 4.5rem 0;
+      padding: 6.5rem 0;
+    }
+    .look-split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+      align-items: center;
     }
     .look-stage {
       position: relative;
       width: 100%;
-      aspect-ratio: 4 / 4.4;
+      aspect-ratio: 4 / 4.5;
       overflow: hidden;
       border-radius: 2px;
-      margin: 1.5rem 0 1.75rem;
       background: #181818;
     }
     .look-stage-img {
@@ -437,32 +511,32 @@
     }
     .look-stage-meta {
       position: absolute;
-      bottom: 1.25rem;
-      left: 1.25rem;
-      right: 1.25rem;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      right: 1.5rem;
     }
     .look-stage-meta h3 {
       font-family: var(--font-serif);
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       font-style: italic;
       line-height: 1;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.35rem;
     }
     .look-stage-meta p {
-      font-size: 0.8rem;
+      font-size: 0.88rem;
       opacity: 0.8;
     }
     .look-pills {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
+      gap: 0.85rem;
+      margin: 2rem 0;
     }
     .look-pill {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
       color: var(--text-light-muted);
-      padding: 0.75rem 1rem;
+      padding: 1rem 1.25rem;
       text-align: left;
       cursor: pointer;
       display: flex;
@@ -478,11 +552,11 @@
     }
     .look-pill span:first-child {
       font-family: var(--font-serif);
-      font-size: 1.25rem;
+      font-size: 1.45rem;
       font-style: italic;
     }
     .look-pill span:last-child {
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       letter-spacing: 0.1em;
       opacity: 0.7;
     }
@@ -492,20 +566,22 @@
       align-items: center;
       background: var(--bg-cream);
       color: var(--text-dark);
-      padding: 1rem 1.4rem;
-      font-size: 0.72rem;
+      padding: 1.15rem 1.6rem;
+      font-size: 0.75rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       font-weight: 600;
       text-decoration: none;
       border-radius: 2px;
+      transition: transform 0.2s;
     }
+    .look-cta:hover { transform: translateY(-2px); }
 
     /* ==========================================================
-       05 — L'ESPERIENZA (CAROSELLO FLUIDO)
+       05 — L'ESPERIENZA (GRIGLIA 4 COLONNE SU DESKTOP)
        ========================================================== */
     .exp-sec {
-      padding: 4.5rem 0;
+      padding: 6.5rem 0;
       background: var(--bg-cream);
       border-top: 1px solid var(--border-light);
     }
@@ -513,8 +589,8 @@
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      gap: 1rem;
-      margin: 1.5rem -6% 0;
+      gap: 1.25rem;
+      margin: 2.5rem -6% 0;
       padding: 0 6% 1rem;
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
@@ -531,42 +607,42 @@
       aspect-ratio: 4 / 4.8;
       object-fit: cover;
       display: block;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
       border-radius: 2px;
     }
     .exp-item-num {
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
       color: var(--text-muted);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.35rem;
       display: block;
     }
     .exp-item h3 {
       font-family: var(--font-serif);
-      font-size: 1.6rem;
+      font-size: 1.75rem;
       font-weight: 500;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.4rem;
     }
     .exp-item p {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     /* ==========================================================
        06 — PRIMA E DOPO SLIDER
        ========================================================== */
     .comp-sec {
-      padding: 4.5rem 0;
+      padding: 6.5rem 0;
       background: var(--bg-cream);
       border-top: 1px solid var(--border-light);
     }
     .slider-box {
       position: relative;
       width: 100%;
-      height: 420px;
+      height: 480px;
       overflow: hidden;
-      margin-top: 1.5rem;
+      margin-top: 2rem;
       border-radius: 2px;
       background: #111;
       cursor: ew-resize;
@@ -605,8 +681,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       background: rgba(18, 18, 18, 0.85);
       border: 1px solid rgba(255, 255, 255, 0.6);
@@ -615,52 +691,57 @@
       align-items: center;
       justify-content: center;
       color: #FFF;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
     }
     .badge {
       position: absolute;
-      top: 1rem;
-      padding: 0.3rem 0.65rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
+      top: 1.25rem;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       font-weight: 600;
       z-index: 5;
     }
-    .badge-b { left: 1rem; background: rgba(0,0,0,0.65); color: #FFF; }
-    .badge-a { right: 1rem; background: rgba(255,255,255,0.85); color: #111; }
+    .badge-b { left: 1.25rem; background: rgba(0,0,0,0.65); color: #FFF; }
+    .badge-a { right: 1.25rem; background: rgba(255,255,255,0.85); color: #111; }
 
     /* ==========================================================
-       07 — PRENOTAZIONE GUIDATA ULTRA-SEMPLICE
+       07 — PRENOTAZIONE (DOPPIA COLONNA SU DESKTOP)
        ========================================================== */
     .quick-book-sec {
-      padding: 4.5rem 0;
+      padding: 6.5rem 0;
       background: var(--bg-cream);
       border-top: 1px solid var(--border-light);
+    }
+    .book-card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
     .book-card {
       background: #FFFFFF;
       border: 1px solid var(--border-light);
       border-radius: 4px;
-      padding: 1.75rem 1.5rem;
+      padding: 2.25rem 2rem;
     }
     .book-step-title {
       font-size: 0.72rem;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       font-weight: 600;
       color: var(--text-muted);
-      margin-bottom: 0.85rem;
+      margin-bottom: 1rem;
       display: block;
     }
     .book-options-grid {
       display: flex;
       flex-direction: column;
-      gap: 0.65rem;
-      margin-bottom: 1.5rem;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
     }
     .book-opt {
-      padding: 0.9rem 1.1rem;
+      padding: 1rem 1.25rem;
       background: var(--bg-cream);
       border: 1px solid var(--border-light);
       border-radius: 2px;
@@ -677,29 +758,33 @@
     }
     .book-opt strong {
       font-family: var(--font-serif);
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       font-weight: 500;
     }
     .book-opt small {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       opacity: 0.8;
     }
     .book-submit-btn {
       width: 100%;
       background: var(--bg-dark);
       color: #FFF;
-      padding: 1.1rem;
+      padding: 1.25rem;
       border: none;
       border-radius: 2px;
       font-family: var(--font-sans);
-      font-size: 0.75rem;
-      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       font-weight: 600;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: background 0.2s;
+    }
+    .book-submit-btn:hover {
+      background: #2a2a2a;
     }
 
     /* ==========================================================
@@ -707,7 +792,7 @@
        ========================================================== */
     .dock {
       position: fixed;
-      bottom: calc(1.2rem + env(safe-area-inset-bottom));
+      bottom: calc(1.5rem + env(safe-area-inset-bottom));
       left: 0;
       width: 100%;
       display: flex;
@@ -720,7 +805,7 @@
       background: #111111;
       color: #FFFFFF;
       text-decoration: none;
-      padding: 0.85rem 1.75rem;
+      padding: 0.85rem 1.85rem;
       border-radius: 999px;
       font-size: 0.72rem;
       letter-spacing: 0.16em;
@@ -731,7 +816,9 @@
       gap: 0.65rem;
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
       border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: transform 0.2s;
     }
+    .dock-pill:hover { transform: scale(1.03); }
     .dock-dot {
       width: 6px;
       height: 6px;
@@ -739,13 +826,20 @@
       border-radius: 50%;
     }
 
-    /* FOOTER */
+    /* ==========================================================
+       FOOTER
+       ========================================================== */
     footer {
-      padding: 3rem 0 2rem;
+      padding: 4.5rem 0 3rem;
       border-top: 1px solid var(--border-light);
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
-      line-height: 1.7;
+      line-height: 1.8;
+    }
+    .footer-split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
     }
     footer a {
       color: var(--text-dark);
@@ -753,26 +847,101 @@
       font-weight: 600;
     }
 
-    @media (min-width: 768px) {
-      .hero-wrap { max-width: 600px; }
-      .exp-item { min-width: 360px; max-width: 360px; }
-      .look-pills { grid-template-columns: repeat(4, 1fr); }
+    /* ==========================================================
+       MEDIA QUERIES DESKTOP (> 1024px)
+       ========================================================== */
+    @media (min-width: 1024px) {
+      .container { width: 84%; }
+      header { padding: 1.5rem 8%; }
+      .desktop-nav { display: flex; }
+      .header-book-btn { display: inline-block; }
+      .nav-toggle { display: none; }
+
+      .hero {
+        height: 90vh;
+        min-height: 680px;
+        padding: 0 8% 5rem;
+      }
+      .hero-wrap { max-width: 720px; }
+
+      /* Split Salone */
+      .manifesto-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 5rem;
+      }
+
+      /* Split Servizi Lookbook */
+      .services-desktop-split {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 5rem;
+      }
+      .services-desktop-preview {
+        display: block;
+      }
+      .service-panel-img {
+        display: none; /* Su desktop usiamo la colonna sticky a destra */
+      }
+
+      /* Split Find Your Look */
+      .look-split {
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+      }
+      .look-pills { grid-template-columns: 1fr 1fr; }
+
+      /* Griglia Esperienza a 4 Colonne */
+      .exp-track {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        margin: 3rem 0 0;
+        padding: 0;
+      }
+      .exp-item {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      /* Doppia Colonna Prenotazione */
+      .book-card-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+      .dock { display: none; } /* Su desktop c'è già il tasto Prenota nell'header fisso */
+
+      /* Footer */
+      .footer-split {
+        grid-template-columns: 1.5fr 1fr 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER FISSO MINIMALE -->
+  <!-- HEADER DESKTOP / MOBILE -->
   <header>
     <a href="#" class="brand">
       Aria <small>Atelier Rho</small>
     </a>
-    <button class="nav-toggle" id="openMenuBtn" aria-label="Apri Menu">
-      Menu <div class="nav-toggle-bars"></div>
-    </button>
+
+    <!-- Navigazione Orizzontale Desktop -->
+    <ul class="desktop-nav">
+      <li><a href="#salone">Il Salone</a></li>
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#look">Find Your Look</a></li>
+      <li><a href="#esperienza">L'Esperienza</a></li>
+      <li><a href="#trasformazioni">Prima / Dopo</a></li>
+    </ul>
+
+    <div class="header-actions">
+      <a href="#prenota" class="header-book-btn">Prenota</a>
+      <button class="nav-toggle" id="openMenuBtn" aria-label="Apri Menu Mobile">
+        Menu <div class="nav-toggle-bars"></div>
+      </button>
+    </div>
   </header>
 
-  <!-- DRAWER FULLSCREEN -->
+  <!-- DRAWER MOBILE -->
   <div class="drawer" id="siteDrawer">
     <button class="drawer-close" id="closeMenuBtn">Chiudi ✕</button>
     <nav class="drawer-nav">
@@ -791,9 +960,9 @@
   </div>
 
   <main>
-    <!-- HERO CINEMATICA RESPONSIVE -->
+    <!-- HERO CINEMATICA -->
     <section class="hero">
-      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=85" alt="Aria Salon Atelier Rho" class="hero-img">
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1400&q=85" alt="Aria Salon Atelier Rho" class="hero-img">
       <div class="hero-wrap">
         <span class="hero-tag">Hair Salon — Rho Milano</span>
         <h1 class="hero-title">Your hair.<br>Your identity.</h1>
@@ -807,101 +976,115 @@
 
     <!-- 01 — IL SALONE -->
     <section id="salone" class="manifesto">
-      <div class="container">
-        <div class="eyebrow">01 — Il Salone</div>
-        <h2 class="manifesto-title">
-          Non cambiamo semplicemente i tuoi capelli. <em class="serif italic">Creiamo il modo in cui vuoi sentirti.</em>
-        </h2>
-        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80" alt="Atelier interno Aria Salon" class="manifesto-img">
-        <p class="manifesto-p">
-          Presente da oltre 20 anni a Rho, Aria Salon nasce dalla visione di <strong>Vincenzo Lombardo</strong>, stilista formatosi presso le più prestigiose accademie di Francia e Inghilterra.
-        </p>
-        <p class="manifesto-p">
-          Ogni taglio e sfumatura nasce dall'ascolto, valorizzando la tua fisionomia naturale attraverso prodotti ad alte performance e protocolli bio-botanici Alfaparf Milano.
-        </p>
+      <div class="container manifesto-grid">
+        <div>
+          <div class="eyebrow">01 — Il Salone</div>
+          <h2 class="manifesto-title">
+            Non cambiamo semplicemente i tuoi capelli. <em class="serif italic">Creiamo il modo in cui vuoi sentirti.</em>
+          </h2>
+          <p class="manifesto-p">
+            Presente da oltre 20 anni a Rho, Aria Salon nasce dalla visione di <strong>Vincenzo Lombardo</strong>, stilista con formazione internazionale presso le accademie di Francia e Inghilterra.
+          </p>
+          <p class="manifesto-p">
+            Ogni taglio e sfumatura nasce dall'ascolto per valorizzare la tua fisionomia naturale attraverso prodotti ad alte performance e protocolli bio-botanici Alfaparf Milano.
+          </p>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80" alt="Atelier interno Aria Salon" class="manifesto-img">
+        </div>
       </div>
     </section>
 
-    <!-- 02 — SERVIZI ACCORDION MOBILE -->
+    <!-- 02 — SERVIZI ACCORDION (DESKTOP LOOKBOOK SPLIT) -->
     <section id="servizi" class="services-sec">
       <div class="container">
         <div class="eyebrow">02 — Servizi</div>
         <h2 class="sec-title">Ogni servizio parte da te.</h2>
-        <p class="sec-desc">Prezzi chiari. Diagnosi visagistica inclusa prima di ogni seduta.</p>
+        <p class="sec-desc">Prezzi indicativi. Diagnosi visagistica inclusa prima di ogni seduta.</p>
 
-        <!-- TAGLIO -->
-        <div class="service-row open">
-          <div class="service-head">
-            <div class="service-head-left">
-              <span class="service-idx">01</span>
-              <span class="service-name">Taglio Sartoriale</span>
+        <div class="services-desktop-split">
+          <!-- Colonna Sinistra Accordion -->
+          <div class="services-accordion-col">
+            <!-- TAGLIO -->
+            <div class="service-row open" data-img="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1000&q=80">
+              <div class="service-head">
+                <div class="service-head-left">
+                  <span class="service-idx">01</span>
+                  <span class="service-name">Taglio Sartoriale</span>
+                </div>
+                <div class="service-arrow">↓</div>
+              </div>
+              <div class="service-panel">
+                <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=80" alt="Taglio Donna" class="service-panel-img">
+                <p class="service-panel-desc">Forma, proporzioni e rispetto dei volumi naturali per valorizzare il viso.</p>
+                <div class="service-panel-bar">
+                  <span>Da € 40 · 45 min</span>
+                  <a href="#prenota" onclick="setQuickService('Taglio Donna (40 €)')">Scegli per WhatsApp →</a>
+                </div>
+              </div>
             </div>
-            <div class="service-arrow">↓</div>
-          </div>
-          <div class="service-panel">
-            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=80" alt="Taglio Donna" class="service-panel-img">
-            <p class="service-panel-desc">Forma, proporzioni e rispetto dei volumi naturali per valorizzare il viso.</p>
-            <div class="service-panel-bar">
-              <span>Da € 40 · 45 min</span>
-              <a href="#prenota" onclick="setQuickService('Taglio Donna (40 €)')">Scegli per WhatsApp →</a>
-            </div>
-          </div>
-        </div>
 
-        <!-- COLORE & SCHIARITURE -->
-        <div class="service-row">
-          <div class="service-head">
-            <div class="service-head-left">
-              <span class="service-idx">02</span>
-              <span class="service-name">Air Touch & Colore</span>
+            <!-- AIR TOUCH -->
+            <div class="service-row" data-img="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80">
+              <div class="service-head">
+                <div class="service-head-left">
+                  <span class="service-idx">02</span>
+                  <span class="service-name">Air Touch & Colore</span>
+                </div>
+                <div class="service-arrow">↓</div>
+              </div>
+              <div class="service-panel">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80" alt="Air Touch e Schiariture" class="service-panel-img">
+                <p class="service-panel-desc">Sfumature graduate senza stacchi netti che ricrescono dolcemente nel tempo.</p>
+                <div class="service-panel-bar">
+                  <span>Da € 90 · 150 min</span>
+                  <a href="#prenota" onclick="setQuickService('Air Touch / Balayage (da 90 €)')">Scegli per WhatsApp →</a>
+                </div>
+              </div>
             </div>
-            <div class="service-arrow">↓</div>
-          </div>
-          <div class="service-panel">
-            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80" alt="Air Touch e Schiariture" class="service-panel-img">
-            <p class="service-panel-desc">Sfumature calibrate senza stacchi netti che ricrescono dolcemente nel tempo.</p>
-            <div class="service-panel-bar">
-              <span>Da € 90 · 150 min</span>
-              <a href="#prenota" onclick="setQuickService('Air Touch / Balayage (da 90 €)')">Scegli per WhatsApp →</a>
-            </div>
-          </div>
-        </div>
 
-        <!-- STYLING -->
-        <div class="service-row">
-          <div class="service-head">
-            <div class="service-head-left">
-              <span class="service-idx">03</span>
-              <span class="service-name">Styling & Piega</span>
+            <!-- STYLING -->
+            <div class="service-row" data-img="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1000&q=80">
+              <div class="service-head">
+                <div class="service-head-left">
+                  <span class="service-idx">03</span>
+                  <span class="service-name">Styling & Piega</span>
+                </div>
+                <div class="service-arrow">↓</div>
+              </div>
+              <div class="service-panel">
+                <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=900&q=80" alt="Styling e Piega" class="service-panel-img">
+                <p class="service-panel-desc">Definizione a lunga tenuta con termoprotettori vegetali e lucidatura a specchio.</p>
+                <div class="service-panel-bar">
+                  <span>Da € 25 · 35 min</span>
+                  <a href="#prenota" onclick="setQuickService('Piega & Styling (da 25 €)')">Scegli per WhatsApp →</a>
+                </div>
+              </div>
             </div>
-            <div class="service-arrow">↓</div>
-          </div>
-          <div class="service-panel">
-            <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=900&q=80" alt="Styling e Piega" class="service-panel-img">
-            <p class="service-panel-desc">Definizione a lunga tenuta con termoprotettori vegetali e lucidatura a specchio.</p>
-            <div class="service-panel-bar">
-              <span>Da € 25 · 35 min</span>
-              <a href="#prenota" onclick="setQuickService('Piega & Styling (da 25 €)')">Scegli per WhatsApp →</a>
-            </div>
-          </div>
-        </div>
 
-        <!-- TRATTAMENTI -->
-        <div class="service-row">
-          <div class="service-head">
-            <div class="service-head-left">
-              <span class="service-idx">04</span>
-              <span class="service-name">Ricostruzione Gold20</span>
+            <!-- TRATTAMENTI -->
+            <div class="service-row" data-img="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1000&q=80">
+              <div class="service-head">
+                <div class="service-head-left">
+                  <span class="service-idx">04</span>
+                  <span class="service-name">Ricostruzione Gold20</span>
+                </div>
+                <div class="service-arrow">↓</div>
+              </div>
+              <div class="service-panel">
+                <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=80" alt="Trattamento Capelli" class="service-panel-img">
+                <p class="service-panel-desc">Rigenerazione profonda della fibra per steli disidratati, spenti o decolorati.</p>
+                <div class="service-panel-bar">
+                  <span>Da € 40 · 40 min</span>
+                  <a href="#prenota" onclick="setQuickService('Ricostruzione Gold20 (40 €)')">Scegli per WhatsApp →</a>
+                </div>
+              </div>
             </div>
-            <div class="service-arrow">↓</div>
           </div>
-          <div class="service-panel">
-            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=80" alt="Trattamento Capelli" class="service-panel-img">
-            <p class="service-panel-desc">Rigenerazione profonda della fibra per steli disidratati, spenti o decolorati.</p>
-            <div class="service-panel-bar">
-              <span>Da € 40 · 40 min</span>
-              <a href="#prenota" onclick="setQuickService('Ricostruzione Gold20 (40 €)')">Scegli per WhatsApp →</a>
-            </div>
+
+          <!-- Colonna Destra Foto Desktop Sticky -->
+          <div class="services-desktop-preview">
+            <img id="desktopServiceImg" src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1000&q=80" alt="Anteprima Servizio">
           </div>
         </div>
       </div>
@@ -909,51 +1092,57 @@
 
     <!-- 03 — SPECCHIO QUOTE -->
     <section class="mirror-break">
-      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80" alt="Specchio Atelier" class="mirror-break-img">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1400&q=80" alt="Specchio Atelier" class="mirror-break-img">
       <div class="mirror-break-inner">
         <h2>Il tuo prossimo look<br><em class="serif italic">inizia prima dello specchio.</em></h2>
-        <p style="margin-top: 0.8rem; font-size: 0.85rem; opacity: 0.8;">Comincia da come vuoi sentirti.</p>
+        <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.85;">Comincia da come vuoi sentirti.</p>
       </div>
     </section>
 
-    <!-- 04 — FIND YOUR LOOK (INTERATTIVO LEGGERO) -->
+    <!-- 04 — FIND YOUR LOOK (SPLIT DESKTOP) -->
     <section id="look" class="look-sec">
-      <div class="container">
-        <div class="eyebrow" style="color: var(--text-light-muted);">03 — Signature Experience</div>
-        <h2 class="sec-title" style="color: #FFF;">Find your <em class="serif italic">look.</em></h2>
-        <p style="font-size: 0.85rem; color: var(--text-light-muted);">Scegli un'attitudine. Guarda cosa cambia.</p>
+      <div class="container look-split">
+        <div>
+          <div class="eyebrow" style="color: var(--text-light-muted);">03 — Signature Experience</div>
+          <h2 class="sec-title" style="color: #FFF;">Find your <em class="serif italic">look.</em></h2>
+          <p style="font-size: 0.92rem; color: var(--text-light-muted); line-height: 1.6;">
+            Scegli il mood che ti rappresenta. Nessun algoritmo: solo le tue sensazioni e una consulenza d'immagine su misura con i nostri stylist in atelier.
+          </p>
 
-        <div class="look-stage">
-          <img id="stageImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80" alt="Mood look" class="look-stage-img">
-          <div class="look-stage-meta">
-            <h3 id="stageTitle">Essential</h3>
-            <p id="stageDesc">Linee pure, equilibrio sartoriale, nessun eccesso.</p>
+          <div class="look-pills">
+            <button class="look-pill active" onclick="switchMood('Essential', 'Linee pure, equilibrio sartoriale, nessun eccesso.', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80', this)">
+              <span>Essential</span><span>01</span>
+            </button>
+            <button class="look-pill" onclick="switchMood('Bold', 'Contrasto deciso, carattere e luminosità forte.', 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80', this)">
+              <span>Bold</span><span>02</span>
+            </button>
+            <button class="look-pill" onclick="switchMood('Elegant', 'Lucentezza classica e morbidezza senza tempo.', 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80', this)">
+              <span>Elegant</span><span>03</span>
+            </button>
+            <button class="look-pill" onclick="switchMood('Natural', 'Movimento libero, sfumature baciate dal sole.', 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=1000&q=80', this)">
+              <span>Natural</span><span>04</span>
+            </button>
+          </div>
+
+          <a href="#prenota" id="moodActionBtn" class="look-cta">
+            <span>Richiedi questo Mood su WhatsApp</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <div>
+          <div class="look-stage">
+            <img id="stageImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80" alt="Mood look" class="look-stage-img">
+            <div class="look-stage-meta">
+              <h3 id="stageTitle">Essential</h3>
+              <p id="stageDesc">Linee pure, equilibrio sartoriale, nessun eccesso.</p>
+            </div>
           </div>
         </div>
-
-        <div class="look-pills">
-          <button class="look-pill active" onclick="switchMood('Essential', 'Linee pure, equilibrio sartoriale, nessun eccesso.', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80', this)">
-            <span>Essential</span><span>01</span>
-          </button>
-          <button class="look-pill" onclick="switchMood('Bold', 'Contrasto deciso, carattere e luminosità forte.', 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80', this)">
-            <span>Bold</span><span>02</span>
-          </button>
-          <button class="look-pill" onclick="switchMood('Elegant', 'Lucentezza classica e morbidezza senza tempo.', 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80', this)">
-            <span>Elegant</span><span>03</span>
-          </button>
-          <button class="look-pill" onclick="switchMood('Natural', 'Movimento libero, sfumature baciate dal sole.', 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=900&q=80', this)">
-            <span>Natural</span><span>04</span>
-          </button>
-        </div>
-
-        <a href="#prenota" id="moodActionBtn" class="look-cta">
-          <span>Continua con questo Mood</span>
-          <span>→</span>
-        </a>
       </div>
     </section>
 
-    <!-- 05 — L'ESPERIENZA CAROSELLO -->
+    <!-- 05 — L'ESPERIENZA (GRIGLIA DESKTOP) -->
     <section id="esperienza" class="exp-sec">
       <div class="container">
         <div class="eyebrow">04 — L'Esperienza</div>
@@ -997,11 +1186,11 @@
         <p class="sec-desc">Trascina per osservare il passaggio dal colore piatto a una schiaritura Air Touch fluida.</p>
 
         <div class="slider-box" id="touchSlider">
-          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=85" alt="Risultato finale">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1400&q=85" alt="Risultato finale">
           <span class="badge badge-a">Dopo</span>
 
           <div class="slider-mask" id="sliderMask">
-            <img id="sliderInnerImg" src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1200&q=85" alt="Base di partenza">
+            <img id="sliderInnerImg" src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1400&q=85" alt="Base di partenza">
             <span class="badge badge-b">Prima</span>
           </div>
 
@@ -1012,7 +1201,7 @@
       </div>
     </section>
 
-    <!-- 07 — PRENOTAZIONE GUIDATA ULTRA-SEMPLICE -->
+    <!-- 07 — PRENOTAZIONE GUIDATA -->
     <section id="prenota" class="quick-book-sec">
       <div class="container">
         <div class="eyebrow">06 — Prenota Subito</div>
@@ -1020,50 +1209,56 @@
         <p class="sec-desc">Scegli il servizio e invia direttamente la richiesta su WhatsApp con i dettagli già pronti.</p>
 
         <div class="book-card">
-          <span class="book-step-title">1. Servizio desiderato</span>
-          <div class="book-options-grid" id="serviceOptions">
-            <div class="book-opt selected" onclick="pickOpt(this, 'service', 'Consulenza Colore (Gratuita)')">
-              <strong>Consulenza Colore</strong>
-              <small>Gratuita · 15 min</small>
+          <div class="book-card-grid">
+            <div>
+              <span class="book-step-title">1. Servizio desiderato</span>
+              <div class="book-options-grid" id="serviceOptions">
+                <div class="book-opt selected" onclick="pickOpt(this, 'service', 'Consulenza Colore (Gratuita)')">
+                  <strong>Consulenza Colore</strong>
+                  <small>Gratuita · 15 min</small>
+                </div>
+                <div class="book-opt" onclick="pickOpt(this, 'service', 'Taglio Sartoriale (40 €)')">
+                  <strong>Taglio Sartoriale</strong>
+                  <small>Da € 40 · 45 min</small>
+                </div>
+                <div class="book-opt" onclick="pickOpt(this, 'service', 'Air Touch / Balayage (da 90 €)')">
+                  <strong>Air Touch / Balayage</strong>
+                  <small>Da € 90 · Schiariture</small>
+                </div>
+                <div class="book-opt" onclick="pickOpt(this, 'service', 'Ricostruzione Gold20 (40 €)')">
+                  <strong>Trattamento Gold20</strong>
+                  <small>€ 40 · Rigenerazione</small>
+                </div>
+              </div>
             </div>
-            <div class="book-opt" onclick="pickOpt(this, 'service', 'Taglio Sartoriale (40 €)')">
-              <strong>Taglio Sartoriale</strong>
-              <small>Da € 40 · 45 min</small>
-            </div>
-            <div class="book-opt" onclick="pickOpt(this, 'service', 'Air Touch / Balayage (da 90 €)')">
-              <strong>Air Touch / Balayage</strong>
-              <small>Da € 90 · Schiariture</small>
-            </div>
-            <div class="book-opt" onclick="pickOpt(this, 'service', 'Ricostruzione Gold20 (40 €)')">
-              <strong>Trattamento Gold20</strong>
-              <small>€ 40 · Rigenerazione</small>
+
+            <div>
+              <span class="book-step-title">2. Stylist di riferimento</span>
+              <div class="book-options-grid" id="stylistOptions">
+                <div class="book-opt selected" onclick="pickOpt(this, 'stylist', 'Primo Disponibile')">
+                  <strong>Primo Disponibile</strong>
+                  <small>Migliore orario per te</small>
+                </div>
+                <div class="book-opt" onclick="pickOpt(this, 'stylist', 'Vince Lombardo (Manager)')">
+                  <strong>Vince Lombardo</strong>
+                  <small>Manager & Stilista</small>
+                </div>
+                <div class="book-opt" onclick="pickOpt(this, 'stylist', 'Marcello (Colour Director)')">
+                  <strong>Marcello</strong>
+                  <small>Colour Director</small>
+                </div>
+                <div class="book-opt" onclick="pickOpt(this, 'stylist', 'Lisa (Stylist)')">
+                  <strong>Lisa</strong>
+                  <small>Stylist & Care</small>
+                </div>
+              </div>
+
+              <button class="book-submit-btn" onclick="launchWhatsApp()">
+                <span>Invia Richiesta su WhatsApp</span>
+                <span>→</span>
+              </button>
             </div>
           </div>
-
-          <span class="book-step-title">2. Stylist di riferimento</span>
-          <div class="book-options-grid" id="stylistOptions">
-            <div class="book-opt selected" onclick="pickOpt(this, 'stylist', 'Primo Disponibile')">
-              <strong>Primo Disponibile</strong>
-              <small>Migliore orario</small>
-            </div>
-            <div class="book-opt" onclick="pickOpt(this, 'stylist', 'Vince Lombardo (Manager)')">
-              <strong>Vince Lombardo</strong>
-              <small>Manager & Stilista</small>
-            </div>
-            <div class="book-opt" onclick="pickOpt(this, 'stylist', 'Marcello (Colour Director)')">
-              <strong>Marcello</strong>
-              <small>Colour Director</small>
-            </div>
-            <div class="book-opt" onclick="pickOpt(this, 'stylist', 'Lisa (Stylist)')">
-              <strong>Lisa</strong>
-              <small>Stylist</small>
-            </div>
-          </div>
-
-          <button class="book-submit-btn" onclick="launchWhatsApp()">
-            <span>Invia su WhatsApp</span>
-            <span>→</span>
-          </button>
         </div>
       </div>
     </section>
@@ -1071,15 +1266,34 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="container">
-      <strong>Aria Salon Rho</strong><br>
-      Corso Giuseppe Garibaldi 56 — 20017 Rho (MI)<br>
-      Tel: <a href="tel:+390299760547">02 99760547</a> · WhatsApp: <a href="https://wa.me/390299760547">+39 02 99760547</a><br>
-      Orari: Mar-Sab 09:30–18:00 (Giovedì serale fino alle 20:00)
+    <div class="container footer-split">
+      <div>
+        <strong>Aria Salon Rho</strong>
+        <p style="margin-top: 0.4rem;">
+          Corso Giuseppe Garibaldi 56 — 20017 Rho (MI)<br>
+          P.IVA 06220590969 · Partner Alfaparf Milano Professional
+        </p>
+      </div>
+      <div>
+        <strong>Orari Atelier</strong>
+        <p style="margin-top: 0.4rem;">
+          Mar - Sab: 09:30 – 18:00<br>
+          Giovedì: 11:00 – 20:00 (Serale)<br>
+          Domenica e Lunedì: Chiuso
+        </p>
+      </div>
+      <div>
+        <strong>Contatti Diretti</strong>
+        <p style="margin-top: 0.4rem;">
+          Tel: <a href="tel:+390299760547">02 99760547</a><br>
+          WhatsApp: <a href="https://wa.me/390299760547">+39 02 99760547</a><br>
+          Instagram: <a href="https://www.instagram.com/ariasalon.milano/" target="_blank">@ariasalon.milano ↗</a>
+        </p>
+      </div>
     </div>
   </footer>
 
-  <!-- PILLOLA FLOTTANTE FISSA -->
+  <!-- PILLOLA FLOTTANTE MOBILE -->
   <div class="dock">
     <a href="#prenota" class="dock-pill">
       <div class="dock-dot"></div>
@@ -1088,7 +1302,7 @@
   </div>
 
   <script>
-    // 1. DRAWER MENU
+    // 1. DRAWER MENU MOBILE
     const drawer = document.getElementById('siteDrawer');
     document.getElementById('openMenuBtn').onclick = () => drawer.classList.add('active');
     document.getElementById('closeMenuBtn').onclick = () => drawer.classList.remove('active');
@@ -1096,13 +1310,25 @@
       link.onclick = () => drawer.classList.remove('active');
     });
 
-    // 2. ACCORDION SERVIZI (Uno aperto per volta)
+    // 2. ACCORDION SERVIZI CON PREVIEW DESKTOP DINAMICA
     const rows = document.querySelectorAll('.service-row');
+    const desktopImg = document.getElementById('desktopServiceImg');
+
     rows.forEach(r => {
       r.querySelector('.service-head').onclick = () => {
         const isOpen = r.classList.contains('open');
         rows.forEach(x => x.classList.remove('open'));
-        if (!isOpen) r.classList.add('open');
+        if (!isOpen) {
+          r.classList.add('open');
+          const newImg = r.getAttribute('data-img');
+          if (newImg && desktopImg) {
+            desktopImg.style.opacity = '0.3';
+            setTimeout(() => {
+              desktopImg.src = newImg;
+              desktopImg.style.opacity = '1';
+            }, 150);
+          }
+        }
       };
     });
 
