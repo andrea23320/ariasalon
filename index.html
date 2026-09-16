@@ -6,6 +6,9 @@
   <title>Aria Salon | Atelier & Precision Hairdressing Rho</title>
   <meta name="description" content="Atelier di bellezza a Rho. Specialisti in Air Touch, Balayage sartoriale e cura del capello. Corso Garibaldi 56, Rho.">
 
+  <!-- FAVICON CON IL LOGO ORIGINALE -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 460 200'><path d='M5 130L125 10V130' stroke='%23000' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><path d='M165 130V10H205C235 10 255 28 255 52C255 75 235 90 205 90M205 90H165M205 90L250 130' stroke='%23000' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><path d='M295 10V130' stroke='%23000' stroke-width='6' stroke-linecap='round'/><path d='M330 130L450 10V130' stroke='%23000' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+
   <!-- FONTS EDITORIALI -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,7 +75,7 @@
     }
 
     /* ==========================================================
-       HEADER (DESKTOP HYBRID + MOBILE DRAWER)
+       HEADER CON IL LOGO ESATTO
        ========================================================== */
     header {
       position: fixed;
@@ -80,32 +83,25 @@
       left: 0;
       width: 100%;
       z-index: 100;
-      padding: 1.25rem 6%;
+      padding: 0.9rem 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(248, 246, 242, 0.92);
+      background: rgba(248, 246, 242, 0.94);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border-light);
-      transition: all 0.3s ease;
     }
-    .brand {
-      font-family: var(--font-serif);
-      font-size: 1.45rem;
-      letter-spacing: 0.04em;
+    .brand-logo-wrap {
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
       color: var(--text-dark);
-      display: flex;
-      align-items: baseline;
-      gap: 0.4rem;
     }
-    .brand small {
-      font-family: var(--font-sans);
-      font-size: 0.6rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      opacity: 0.7;
+    .aria-svg-logo {
+      height: 38px;
+      width: auto;
+      display: block;
     }
 
     .desktop-nav {
@@ -143,9 +139,7 @@
       text-decoration: none;
       transition: background 0.2s;
     }
-    .header-book-btn:hover {
-      background: #2a2a2a;
-    }
+    .header-book-btn:hover { background: #2a2a2a; }
 
     .nav-toggle {
       font-family: var(--font-sans);
@@ -284,13 +278,10 @@
       max-width: 320px;
       transition: transform 0.2s, background 0.2s;
     }
-    .hero-btn:hover {
-      background: #F4F1EA;
-      transform: translateY(-2px);
-    }
+    .hero-btn:hover { background: #F4F1EA; transform: translateY(-2px); }
 
     /* ==========================================================
-       01 — IL SALONE & MANIFESTO (DESKTOP ASIMMETRICO)
+       01 — IL SALONE
        ========================================================== */
     .manifesto {
       padding: 6.5rem 0;
@@ -324,7 +315,7 @@
     }
 
     /* ==========================================================
-       02 — SERVIZI ACCORDION (DESKTOP SPLIT LOOKBOOK)
+       02 — SERVIZI ACCORDION
        ========================================================== */
     .services-sec {
       padding: 6.5rem 0;
@@ -352,7 +343,6 @@
     .service-row {
       border-top: 1px solid var(--border-light);
       padding: 1.5rem 0;
-      transition: padding 0.25s;
     }
     .service-row:last-child { border-bottom: 1px solid var(--border-light); }
     .service-head {
@@ -431,7 +421,6 @@
       text-decoration: none;
     }
 
-    /* Anteprima fissa desktop */
     .services-desktop-preview {
       display: none;
       position: sticky;
@@ -482,7 +471,7 @@
     }
 
     /* ==========================================================
-       04 — FIND YOUR LOOK (SPLIT DESKTOP)
+       04 — FIND YOUR LOOK
        ========================================================== */
     .look-sec {
       background: var(--bg-dark);
@@ -578,7 +567,7 @@
     .look-cta:hover { transform: translateY(-2px); }
 
     /* ==========================================================
-       05 — L'ESPERIENZA (GRIGLIA 4 COLONNE SU DESKTOP)
+       05 — L'ESPERIENZA
        ========================================================== */
     .exp-sec {
       padding: 6.5rem 0;
@@ -630,7 +619,7 @@
     }
 
     /* ==========================================================
-       06 — PRIMA E DOPO SLIDER
+       06 — PRIMA E DOPO
        ========================================================== */
     .comp-sec {
       padding: 6.5rem 0;
@@ -707,7 +696,7 @@
     .badge-a { right: 1.25rem; background: rgba(255,255,255,0.85); color: #111; }
 
     /* ==========================================================
-       07 — PRENOTAZIONE (DOPPIA COLONNA SU DESKTOP)
+       07 — PRENOTAZIONE
        ========================================================== */
     .quick-book-sec {
       padding: 6.5rem 0;
@@ -783,12 +772,10 @@
       align-items: center;
       transition: background 0.2s;
     }
-    .book-submit-btn:hover {
-      background: #2a2a2a;
-    }
+    .book-submit-btn:hover { background: #2a2a2a; }
 
     /* ==========================================================
-       PILLOLA FLOTTANTE FISSA "• PRENOTA"
+       PILLOLA FLOTTANTE MOBILE
        ========================================================== */
     .dock {
       position: fixed;
@@ -827,7 +814,7 @@
     }
 
     /* ==========================================================
-       FOOTER
+       FOOTER CON IL LOGO VETTORIALE
        ========================================================== */
     footer {
       padding: 4.5rem 0 3rem;
@@ -847,49 +834,25 @@
       font-weight: 600;
     }
 
-    /* ==========================================================
-       MEDIA QUERIES DESKTOP (> 1024px)
-       ========================================================== */
+    /* MEDIA QUERIES DESKTOP */
     @media (min-width: 1024px) {
       .container { width: 84%; }
-      header { padding: 1.5rem 8%; }
+      header { padding: 1.1rem 8%; }
       .desktop-nav { display: flex; }
       .header-book-btn { display: inline-block; }
       .nav-toggle { display: none; }
 
-      .hero {
-        height: 90vh;
-        min-height: 680px;
-        padding: 0 8% 5rem;
-      }
+      .hero { height: 90vh; min-height: 680px; padding: 0 8% 5rem; }
       .hero-wrap { max-width: 720px; }
 
-      /* Split Salone */
-      .manifesto-grid {
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 5rem;
-      }
+      .manifesto-grid { grid-template-columns: 1.15fr 0.85fr; gap: 5rem; }
+      .services-desktop-split { grid-template-columns: 1.1fr 0.9fr; gap: 5rem; }
+      .services-desktop-preview { display: block; }
+      .service-panel-img { display: none; }
 
-      /* Split Servizi Lookbook */
-      .services-desktop-split {
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 5rem;
-      }
-      .services-desktop-preview {
-        display: block;
-      }
-      .service-panel-img {
-        display: none; /* Su desktop usiamo la colonna sticky a destra */
-      }
-
-      /* Split Find Your Look */
-      .look-split {
-        grid-template-columns: 1fr 1fr;
-        gap: 5rem;
-      }
+      .look-split { grid-template-columns: 1fr 1fr; gap: 5rem; }
       .look-pills { grid-template-columns: 1fr 1fr; }
 
-      /* Griglia Esperienza a 4 Colonne */
       .exp-track {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -897,34 +860,31 @@
         margin: 3rem 0 0;
         padding: 0;
       }
-      .exp-item {
-        min-width: 0;
-        max-width: 100%;
-      }
+      .exp-item { min-width: 0; max-width: 100%; }
 
-      /* Doppia Colonna Prenotazione */
-      .book-card-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-      }
-      .dock { display: none; } /* Su desktop c'è già il tasto Prenota nell'header fisso */
+      .book-card-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .dock { display: none; }
 
-      /* Footer */
-      .footer-split {
-        grid-template-columns: 1.5fr 1fr 1fr;
-      }
+      .footer-split { grid-template-columns: 1.5fr 1fr 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER DESKTOP / MOBILE -->
+  <!-- HEADER CON LOGO ESATTO -->
   <header>
-    <a href="#" class="brand">
-      Aria <small>Atelier Rho</small>
+    <a href="#" class="brand-logo-wrap" aria-label="Aria Salon Home">
+      <!-- VETTORE SVG UFFICIALE ARIA SALON -->
+      <svg class="aria-svg-logo" viewBox="0 0 460 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 130L125 10V130" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M165 130V10H205C235 10 255 28 255 52C255 75 235 90 205 90M205 90H165M205 90L250 130" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M295 10V130" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <path d="M330 130L450 10V130" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="230" y="188" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="34" font-weight="300" letter-spacing="10" fill="currentColor">salon</text>
+      </svg>
     </a>
 
-    <!-- Navigazione Orizzontale Desktop -->
+    <!-- Navigazione Desktop -->
     <ul class="desktop-nav">
       <li><a href="#salone">Il Salone</a></li>
       <li><a href="#servizi">Servizi</a></li>
@@ -995,7 +955,7 @@
       </div>
     </section>
 
-    <!-- 02 — SERVIZI ACCORDION (DESKTOP LOOKBOOK SPLIT) -->
+    <!-- 02 — SERVIZI ACCORDION (DESKTOP LOOKBOOK) -->
     <section id="servizi" class="services-sec">
       <div class="container">
         <div class="eyebrow">02 — Servizi</div>
@@ -1003,7 +963,6 @@
         <p class="sec-desc">Prezzi indicativi. Diagnosi visagistica inclusa prima di ogni seduta.</p>
 
         <div class="services-desktop-split">
-          <!-- Colonna Sinistra Accordion -->
           <div class="services-accordion-col">
             <!-- TAGLIO -->
             <div class="service-row open" data-img="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1000&q=80">
@@ -1082,7 +1041,6 @@
             </div>
           </div>
 
-          <!-- Colonna Destra Foto Desktop Sticky -->
           <div class="services-desktop-preview">
             <img id="desktopServiceImg" src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1000&q=80" alt="Anteprima Servizio">
           </div>
@@ -1099,7 +1057,7 @@
       </div>
     </section>
 
-    <!-- 04 — FIND YOUR LOOK (SPLIT DESKTOP) -->
+    <!-- 04 — FIND YOUR LOOK -->
     <section id="look" class="look-sec">
       <div class="container look-split">
         <div>
@@ -1142,7 +1100,7 @@
       </div>
     </section>
 
-    <!-- 05 — L'ESPERIENZA (GRIGLIA DESKTOP) -->
+    <!-- 05 — L'ESPERIENZA -->
     <section id="esperienza" class="exp-sec">
       <div class="container">
         <div class="eyebrow">04 — L'Esperienza</div>
@@ -1268,8 +1226,14 @@
   <footer>
     <div class="container footer-split">
       <div>
-        <strong>Aria Salon Rho</strong>
-        <p style="margin-top: 0.4rem;">
+        <svg class="aria-svg-logo" style="height: 32px; margin-bottom: 0.75rem;" viewBox="0 0 460 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 130L125 10V130" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M165 130V10H205C235 10 255 28 255 52C255 75 235 90 205 90M205 90H165M205 90L250 130" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M295 10V130" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+          <path d="M330 130L450 10V130" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="230" y="188" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="34" font-weight="300" letter-spacing="10" fill="currentColor">salon</text>
+        </svg>
+        <p>
           Corso Giuseppe Garibaldi 56 — 20017 Rho (MI)<br>
           P.IVA 06220590969 · Partner Alfaparf Milano Professional
         </p>
