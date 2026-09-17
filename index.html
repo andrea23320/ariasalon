@@ -4,15 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Aria Salon | Atelier & Precision Hairdressing Rho</title>
-  <meta name="description" content="Atelier di bellezza a Rho. Specialisti in Air Touch, Balayage sartoriale e cura del capello. Corso Garibaldi 56, Rho.">
+  <meta name="description" content="Atelier di bellezza a Rho. Specialisti in Air Touch, Balayage sartoriale e salute del capello. Corso Garibaldi 56, Rho.">
 
-  <!-- FAVICON CON IL LOGO ORIGINALE -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 460 200'><path d='M5 130L125 10V130' stroke='%23000' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><path d='M165 130V10H205C235 10 255 28 255 52C255 75 235 90 205 90M205 90H165M205 90L250 130' stroke='%23000' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><path d='M295 10V130' stroke='%23000' stroke-width='6' stroke-linecap='round'/><path d='M330 130L450 10V130' stroke='%23000' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/></svg>">
-
-  <!-- FONTS EDITORIALI -->
+  <link rel="dns-prefetch" href="https://wa.me">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <meta property="og:type" content="business.business">
+  <meta property="og:title" content="Aria Salon Rho | Atelier Capelli">
+  <meta property="og:description" content="Schiariture graduate Air Touch, taglio visagistico e cura del capello in centro a Rho.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:url" content="https://andrea23320.github.io/ariasalon/">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 460 200'><path d='M5 130L125 10V130' stroke='%23000' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/><path d='M165 130V10H205C235 10 255 28 255 52C255 75 235 90 205 90M205 90H165M205 90L250 130' stroke='%23000' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/><path d='M295 10V130' stroke='%23000' stroke-width='8' stroke-linecap='round'/><path d='M330 130L450 10V130' stroke='%23000' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 
   <style>
     :root {
@@ -74,16 +79,57 @@
       opacity: 0.6;
     }
 
-    /* ==========================================================
-       HEADER CON IL LOGO ESATTO
-       ========================================================== */
+    /* CURSORE PERSONALIZZATO (DESKTOP) */
+    .custom-cursor-dot, .custom-cursor-ring {
+      display: none;
+      position: fixed;
+      pointer-events: none;
+      border-radius: 50%;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
+    @media (pointer: fine) {
+      .custom-cursor-dot {
+        display: block;
+        width: 6px;
+        height: 6px;
+        background: var(--text-dark);
+      }
+      .custom-cursor-ring {
+        display: block;
+        width: 32px;
+        height: 32px;
+        border: 1px solid rgba(20, 20, 20, 0.35);
+        transition: width 0.2s, height 0.2s, border-color 0.2s, background-color 0.2s;
+      }
+      .custom-cursor-ring.cursor-hover {
+        width: 52px;
+        height: 52px;
+        border-color: var(--text-dark);
+        background-color: rgba(20, 20, 20, 0.04);
+      }
+    }
+
+    /* REVEAL ANIMATO */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* HEADER */
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       z-index: 100;
-      padding: 0.9rem 6%;
+      padding: 0.85rem 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -99,15 +145,39 @@
       color: var(--text-dark);
     }
     .aria-svg-logo {
-      height: 38px;
+      height: 36px;
       width: auto;
       display: block;
+    }
+
+    .salon-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(20, 20, 20, 0.04);
+      border: 1px solid var(--border-light);
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #888;
+    }
+    .status-dot.open {
+      background: #2E7D32;
+      box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
     }
 
     .desktop-nav {
       display: none;
       align-items: center;
-      gap: 2.2rem;
+      gap: 2rem;
       list-style: none;
     }
     .desktop-nav a {
@@ -124,7 +194,7 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 1.25rem;
+      gap: 1rem;
     }
     .header-book-btn {
       display: none;
@@ -207,9 +277,7 @@
       line-height: 1.6;
     }
 
-    /* ==========================================================
-       HERO CINEMATICA
-       ========================================================== */
+    /* HERO */
     .hero {
       position: relative;
       height: 94vh;
@@ -280,25 +348,27 @@
     }
     .hero-btn:hover { background: #F4F1EA; transform: translateY(-2px); }
 
-    /* ==========================================================
-       01 — IL SALONE
-       ========================================================== */
-    .manifesto {
-      padding: 6.5rem 0;
-      background: var(--bg-cream);
+    /* SEZIONI */
+    section { padding: 6rem 0; border-top: 1px solid var(--border-light); }
+    .sec-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      line-height: 1.05;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
     }
+    .sec-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+    }
+
+    /* MANIFESTO */
     .manifesto-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 3rem;
       align-items: center;
-    }
-    .manifesto-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
-      line-height: 1.08;
-      font-weight: 400;
-      margin: 0.5rem 0 2rem;
     }
     .manifesto-img {
       width: 100%;
@@ -314,26 +384,7 @@
       margin-bottom: 1.25rem;
     }
 
-    /* ==========================================================
-       02 — SERVIZI ACCORDION
-       ========================================================== */
-    .services-sec {
-      padding: 6.5rem 0;
-      background: var(--bg-cream);
-      border-top: 1px solid var(--border-light);
-    }
-    .sec-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-      line-height: 1.05;
-      font-weight: 400;
-      margin-bottom: 0.5rem;
-    }
-    .sec-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 3rem;
-    }
+    /* SERVIZI */
     .services-desktop-split {
       display: grid;
       grid-template-columns: 1fr;
@@ -342,7 +393,7 @@
     }
     .service-row {
       border-top: 1px solid var(--border-light);
-      padding: 1.5rem 0;
+      padding: 1.4rem 0;
     }
     .service-row:last-child { border-bottom: 1px solid var(--border-light); }
     .service-head {
@@ -390,9 +441,7 @@
       overflow: hidden;
       transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .service-row.open .service-panel {
-      max-height: 520px;
-    }
+    .service-row.open .service-panel { max-height: 520px; }
     .service-panel-img {
       width: 100%;
       height: 240px;
@@ -416,11 +465,7 @@
       text-transform: uppercase;
       font-weight: 600;
     }
-    .service-panel-bar a {
-      color: var(--text-dark);
-      text-decoration: none;
-    }
-
+    .service-panel-bar a { color: var(--text-dark); text-decoration: none; }
     .services-desktop-preview {
       display: none;
       position: sticky;
@@ -436,9 +481,7 @@
       transition: opacity 0.3s ease;
     }
 
-    /* ==========================================================
-       03 — SPECCHIO QUOTE
-       ========================================================== */
+    /* SPECCHIO */
     .mirror-break {
       position: relative;
       height: 75vh;
@@ -470,14 +513,8 @@
       font-weight: 300;
     }
 
-    /* ==========================================================
-       04 — FIND YOUR LOOK
-       ========================================================== */
-    .look-sec {
-      background: var(--bg-dark);
-      color: var(--text-light);
-      padding: 6.5rem 0;
-    }
+    /* FIND YOUR LOOK */
+    .look-sec { background: var(--bg-dark); color: var(--text-light); }
     .look-split {
       display: grid;
       grid-template-columns: 1fr;
@@ -511,10 +548,7 @@
       line-height: 1;
       margin-bottom: 0.35rem;
     }
-    .look-stage-meta p {
-      font-size: 0.88rem;
-      opacity: 0.8;
-    }
+    .look-stage-meta p { font-size: 0.88rem; opacity: 0.8; }
     .look-pills {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -566,14 +600,7 @@
     }
     .look-cta:hover { transform: translateY(-2px); }
 
-    /* ==========================================================
-       05 — L'ESPERIENZA
-       ========================================================== */
-    .exp-sec {
-      padding: 6.5rem 0;
-      background: var(--bg-cream);
-      border-top: 1px solid var(--border-light);
-    }
+    /* ESPERIENZA */
     .exp-track {
       display: flex;
       overflow-x: auto;
@@ -618,14 +645,7 @@
       line-height: 1.6;
     }
 
-    /* ==========================================================
-       06 — PRIMA E DOPO
-       ========================================================== */
-    .comp-sec {
-      padding: 6.5rem 0;
-      background: var(--bg-cream);
-      border-top: 1px solid var(--border-light);
-    }
+    /* PRIMA E DOPO SLIDER */
     .slider-box {
       position: relative;
       width: 100%;
@@ -695,14 +715,74 @@
     .badge-b { left: 1.25rem; background: rgba(0,0,0,0.65); color: #FFF; }
     .badge-a { right: 1.25rem; background: rgba(255,255,255,0.85); color: #111; }
 
-    /* ==========================================================
-       07 — PRENOTAZIONE
-       ========================================================== */
-    .quick-book-sec {
-      padding: 6.5rem 0;
-      background: var(--bg-cream);
-      border-top: 1px solid var(--border-light);
+    /* CARD PROTOCOLLO & GIFT */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
+    .feature-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      padding: 2.2rem;
+      border-radius: 2px;
+    }
+    .feature-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    /* FAQ MINIMAL */
+    .faq-mini-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 840px;
+    }
+    .faq-mini-item {
+      border: 1px solid var(--border-light);
+      background: #FFFFFF;
+      border-radius: 2px;
+    }
+    .faq-mini-q {
+      width: 100%;
+      padding: 1.25rem 1.4rem;
+      background: none;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      text-align: left;
+      cursor: pointer;
+    }
+    .faq-mini-a {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1.4rem;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .faq-mini-item.open .faq-mini-a {
+      max-height: 200px;
+      padding: 0 1.4rem 1.4rem;
+    }
+
+    /* PRENOTAZIONE */
     .book-card-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -727,10 +807,10 @@
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
     }
     .book-opt {
-      padding: 1rem 1.25rem;
+      padding: 0.95rem 1.2rem;
       background: var(--bg-cream);
       border: 1px solid var(--border-light);
       border-radius: 2px;
@@ -750,10 +830,33 @@
       font-size: 1.35rem;
       font-weight: 500;
     }
-    .book-opt small {
-      font-size: 0.78rem;
-      opacity: 0.8;
+    .book-opt small { font-size: 0.78rem; opacity: 0.8; }
+
+    /* PILOLE FASCE ORARIE */
+    .time-slot-pills {
+      display: flex;
+      gap: 0.65rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
     }
+    .time-pill {
+      background: var(--bg-cream);
+      border: 1px solid var(--border-light);
+      padding: 0.65rem 1.1rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .time-pill.selected {
+      background: var(--text-dark);
+      color: #FFF;
+      border-color: var(--text-dark);
+    }
+
     .book-submit-btn {
       width: 100%;
       background: var(--bg-dark);
@@ -774,9 +877,71 @@
     }
     .book-submit-btn:hover { background: #2a2a2a; }
 
-    /* ==========================================================
-       PILLOLA FLOTTANTE MOBILE
-       ========================================================== */
+    /* GUIDA COME RAGGIUNGERCI */
+    .logistics-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      padding: 2.2rem;
+      border-radius: 2px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .logistics-box h4 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      margin-bottom: 0.35rem;
+    }
+    .logistics-box p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* FLOATING BANNER DIAGNOSI RAPIDA */
+    .quick-diagnosis-bar {
+      position: fixed;
+      bottom: calc(5.2rem + env(safe-area-inset-bottom));
+      left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      background: #181818;
+      color: #FFF;
+      padding: 0.85rem 1.4rem;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      z-index: 85;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      width: 90%;
+      max-width: 520px;
+      justify-content: space-between;
+    }
+    .quick-diagnosis-bar.visible {
+      transform: translateX(-50%) translateY(0);
+    }
+    .quick-diagnosis-bar a {
+      color: #EFECE6;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: underline;
+      white-space: nowrap;
+    }
+    .quick-diagnosis-close {
+      background: none;
+      border: none;
+      color: #999;
+      cursor: pointer;
+      padding: 0 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    /* DOCK MOBILE */
     .dock {
       position: fixed;
       bottom: calc(1.5rem + env(safe-area-inset-bottom));
@@ -813,9 +978,7 @@
       border-radius: 50%;
     }
 
-    /* ==========================================================
-       FOOTER CON IL LOGO VETTORIALE
-       ========================================================== */
+    /* FOOTER */
     footer {
       padding: 4.5rem 0 3rem;
       border-top: 1px solid var(--border-light);
@@ -834,7 +997,7 @@
       font-weight: 600;
     }
 
-    /* MEDIA QUERIES DESKTOP */
+    /* MEDIA QUERIES DESKTOP (> 1024px) */
     @media (min-width: 1024px) {
       .container { width: 84%; }
       header { padding: 1.1rem 8%; }
@@ -862,6 +1025,8 @@
       }
       .exp-item { min-width: 0; max-width: 100%; }
 
+      .features-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .logistics-card { grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
       .book-card-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
       .dock { display: none; }
 
@@ -871,10 +1036,11 @@
 </head>
 <body>
 
-  <!-- HEADER CON LOGO ESATTO -->
+  <div class="custom-cursor-dot" id="cursorDot"></div>
+  <div class="custom-cursor-ring" id="cursorRing"></div>
+
   <header>
     <a href="#" class="brand-logo-wrap" aria-label="Aria Salon Home">
-      <!-- VETTORE SVG UFFICIALE ARIA SALON -->
       <svg class="aria-svg-logo" viewBox="0 0 460 200" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M5 130L125 10V130" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M165 130V10H205C235 10 255 28 255 52C255 75 235 90 205 90M205 90H165M205 90L250 130" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -884,16 +1050,20 @@
       </svg>
     </a>
 
-    <!-- Navigazione Desktop -->
     <ul class="desktop-nav">
       <li><a href="#salone">Il Salone</a></li>
       <li><a href="#servizi">Servizi</a></li>
       <li><a href="#look">Find Your Look</a></li>
       <li><a href="#esperienza">L'Esperienza</a></li>
-      <li><a href="#trasformazioni">Prima / Dopo</a></li>
+      <li><a href="#faq">FAQ</a></li>
     </ul>
 
     <div class="header-actions">
+      <div class="salon-status-badge" id="salonLiveBadge">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Verifica orario...</span>
+      </div>
+
       <a href="#prenota" class="header-book-btn">Prenota</a>
       <button class="nav-toggle" id="openMenuBtn" aria-label="Apri Menu Mobile">
         Menu <div class="nav-toggle-bars"></div>
@@ -901,7 +1071,6 @@
     </div>
   </header>
 
-  <!-- DRAWER MOBILE -->
   <div class="drawer" id="siteDrawer">
     <button class="drawer-close" id="closeMenuBtn">Chiudi ✕</button>
     <nav class="drawer-nav">
@@ -910,7 +1079,8 @@
       <a href="#look" class="drawer-link">03 — Find Your Look</a>
       <a href="#esperienza" class="drawer-link">04 — L'Esperienza</a>
       <a href="#trasformazioni" class="drawer-link">05 — Prima e Dopo</a>
-      <a href="#prenota" class="drawer-link">06 — Prenota su WhatsApp</a>
+      <a href="#cura" class="drawer-link">06 — Cura a Casa & Gift</a>
+      <a href="#prenota" class="drawer-link">07 — Prenota su WhatsApp</a>
     </nav>
     <div class="drawer-info">
       <strong>Aria Salon Rho</strong><br>
@@ -920,7 +1090,6 @@
   </div>
 
   <main>
-    <!-- HERO CINEMATICA -->
     <section class="hero">
       <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1400&q=85" alt="Aria Salon Atelier Rho" class="hero-img">
       <div class="hero-wrap">
@@ -934,8 +1103,7 @@
       </div>
     </section>
 
-    <!-- 01 — IL SALONE -->
-    <section id="salone" class="manifesto">
+    <section id="salone" class="manifesto reveal">
       <div class="container manifesto-grid">
         <div>
           <div class="eyebrow">01 — Il Salone</div>
@@ -943,20 +1111,19 @@
             Non cambiamo semplicemente i tuoi capelli. <em class="serif italic">Creiamo il modo in cui vuoi sentirti.</em>
           </h2>
           <p class="manifesto-p">
-            Presente da oltre 20 anni a Rho, Aria Salon nasce dalla visione di <strong>Vincenzo Lombardo</strong>, stilista con formazione internazionale presso le accademie di Francia e Inghilterra.
+            Presente da oltre 20 anni a Rho, Aria Salon nasce dalla visione di <strong>Vincenzo Lombardo</strong>, stilista con solida formazione internazionale presso le accademie di Francia e Inghilterra.
           </p>
           <p class="manifesto-p">
-            Ogni taglio e sfumatura nasce dall'ascolto per valorizzare la tua fisionomia naturale attraverso prodotti ad alte performance e protocolli bio-botanici Alfaparf Milano.
+            Nel 2015 con il progetto <strong>KAPERA</strong> è maturata una visione estesa della bellezza: non solo immagine, ma benessere autentico e cura etica con prodotti bio-botanici certificati Benvoleo di Alfaparf Milano.
           </p>
         </div>
         <div>
-          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80" alt="Atelier interno Aria Salon" class="manifesto-img">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80" alt="Atelier interno Aria Salon" class="manifesto-img" loading="lazy" decoding="async">
         </div>
       </div>
     </section>
 
-    <!-- 02 — SERVIZI ACCORDION (DESKTOP LOOKBOOK) -->
-    <section id="servizi" class="services-sec">
+    <section id="servizi" class="services-sec reveal">
       <div class="container">
         <div class="eyebrow">02 — Servizi</div>
         <h2 class="sec-title">Ogni servizio parte da te.</h2>
@@ -964,7 +1131,6 @@
 
         <div class="services-desktop-split">
           <div class="services-accordion-col">
-            <!-- TAGLIO -->
             <div class="service-row open" data-img="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1000&q=80">
               <div class="service-head">
                 <div class="service-head-left">
@@ -974,7 +1140,7 @@
                 <div class="service-arrow">↓</div>
               </div>
               <div class="service-panel">
-                <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=80" alt="Taglio Donna" class="service-panel-img">
+                <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=80" alt="Taglio Donna" class="service-panel-img" loading="lazy" decoding="async">
                 <p class="service-panel-desc">Forma, proporzioni e rispetto dei volumi naturali per valorizzare il viso.</p>
                 <div class="service-panel-bar">
                   <span>Da € 40 · 45 min</span>
@@ -983,7 +1149,6 @@
               </div>
             </div>
 
-            <!-- AIR TOUCH -->
             <div class="service-row" data-img="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80">
               <div class="service-head">
                 <div class="service-head-left">
@@ -993,7 +1158,7 @@
                 <div class="service-arrow">↓</div>
               </div>
               <div class="service-panel">
-                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80" alt="Air Touch e Schiariture" class="service-panel-img">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80" alt="Air Touch e Schiariture" class="service-panel-img" loading="lazy" decoding="async">
                 <p class="service-panel-desc">Sfumature graduate senza stacchi netti che ricrescono dolcemente nel tempo.</p>
                 <div class="service-panel-bar">
                   <span>Da € 90 · 150 min</span>
@@ -1002,380 +1167,10 @@
               </div>
             </div>
 
-            <!-- STYLING -->
             <div class="service-row" data-img="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1000&q=80">
               <div class="service-head">
                 <div class="service-head-left">
                   <span class="service-idx">03</span>
                   <span class="service-name">Styling & Piega</span>
                 </div>
-                <div class="service-arrow">↓</div>
-              </div>
-              <div class="service-panel">
-                <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=900&q=80" alt="Styling e Piega" class="service-panel-img">
-                <p class="service-panel-desc">Definizione a lunga tenuta con termoprotettori vegetali e lucidatura a specchio.</p>
-                <div class="service-panel-bar">
-                  <span>Da € 25 · 35 min</span>
-                  <a href="#prenota" onclick="setQuickService('Piega & Styling (da 25 €)')">Scegli per WhatsApp →</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- TRATTAMENTI -->
-            <div class="service-row" data-img="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1000&q=80">
-              <div class="service-head">
-                <div class="service-head-left">
-                  <span class="service-idx">04</span>
-                  <span class="service-name">Ricostruzione Gold20</span>
-                </div>
-                <div class="service-arrow">↓</div>
-              </div>
-              <div class="service-panel">
-                <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=80" alt="Trattamento Capelli" class="service-panel-img">
-                <p class="service-panel-desc">Rigenerazione profonda della fibra per steli disidratati, spenti o decolorati.</p>
-                <div class="service-panel-bar">
-                  <span>Da € 40 · 40 min</span>
-                  <a href="#prenota" onclick="setQuickService('Ricostruzione Gold20 (40 €)')">Scegli per WhatsApp →</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="services-desktop-preview">
-            <img id="desktopServiceImg" src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1000&q=80" alt="Anteprima Servizio">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 03 — SPECCHIO QUOTE -->
-    <section class="mirror-break">
-      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1400&q=80" alt="Specchio Atelier" class="mirror-break-img">
-      <div class="mirror-break-inner">
-        <h2>Il tuo prossimo look<br><em class="serif italic">inizia prima dello specchio.</em></h2>
-        <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.85;">Comincia da come vuoi sentirti.</p>
-      </div>
-    </section>
-
-    <!-- 04 — FIND YOUR LOOK -->
-    <section id="look" class="look-sec">
-      <div class="container look-split">
-        <div>
-          <div class="eyebrow" style="color: var(--text-light-muted);">03 — Signature Experience</div>
-          <h2 class="sec-title" style="color: #FFF;">Find your <em class="serif italic">look.</em></h2>
-          <p style="font-size: 0.92rem; color: var(--text-light-muted); line-height: 1.6;">
-            Scegli il mood che ti rappresenta. Nessun algoritmo: solo le tue sensazioni e una consulenza d'immagine su misura con i nostri stylist in atelier.
-          </p>
-
-          <div class="look-pills">
-            <button class="look-pill active" onclick="switchMood('Essential', 'Linee pure, equilibrio sartoriale, nessun eccesso.', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80', this)">
-              <span>Essential</span><span>01</span>
-            </button>
-            <button class="look-pill" onclick="switchMood('Bold', 'Contrasto deciso, carattere e luminosità forte.', 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80', this)">
-              <span>Bold</span><span>02</span>
-            </button>
-            <button class="look-pill" onclick="switchMood('Elegant', 'Lucentezza classica e morbidezza senza tempo.', 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80', this)">
-              <span>Elegant</span><span>03</span>
-            </button>
-            <button class="look-pill" onclick="switchMood('Natural', 'Movimento libero, sfumature baciate dal sole.', 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=1000&q=80', this)">
-              <span>Natural</span><span>04</span>
-            </button>
-          </div>
-
-          <a href="#prenota" id="moodActionBtn" class="look-cta">
-            <span>Richiedi questo Mood su WhatsApp</span>
-            <span>→</span>
-          </a>
-        </div>
-
-        <div>
-          <div class="look-stage">
-            <img id="stageImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80" alt="Mood look" class="look-stage-img">
-            <div class="look-stage-meta">
-              <h3 id="stageTitle">Essential</h3>
-              <p id="stageDesc">Linee pure, equilibrio sartoriale, nessun eccesso.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 05 — L'ESPERIENZA -->
-    <section id="esperienza" class="exp-sec">
-      <div class="container">
-        <div class="eyebrow">04 — L'Esperienza</div>
-        <h2 class="sec-title">Più di un <em class="serif italic">appuntamento.</em></h2>
-        <p class="sec-desc">Dal momento in cui entri in Corso Garibaldi 56, tutto è pensato per farti rallentare.</p>
-
-        <div class="exp-track">
-          <div class="exp-item">
-            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80" alt="Ingresso">
-            <span class="exp-item-num">01 — ACCOGLIENZA</span>
-            <h3>Ingresso</h3>
-            <p>Un momento per staccare dal ritmo quotidiano e respirare l'atmosfera del nostro atelier.</p>
-          </div>
-          <div class="exp-item">
-            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=800&q=80" alt="Consulenza">
-            <span class="exp-item-num">02 — DIAGNOSI</span>
-            <h3>Consulenza</h3>
-            <p>Prima delle forbici: diagnosi della struttura del capello e studio morfologico del viso.</p>
-          </div>
-          <div class="exp-item">
-            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80" alt="Hair Spa">
-            <span class="exp-item-num">03 — HAIR SPA</span>
-            <h3>Lavaggio & Cura</h3>
-            <p>Detersione botanica, trattamento protettivo Alfaparf e massaggio distensivo.</p>
-          </div>
-          <div class="exp-item">
-            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Risultato">
-            <span class="exp-item-num">04 — FINISH</span>
-            <h3>Risultato</h3>
-            <p>Asciugatura sartoriale e lucentezza naturale che senti subito tua.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 06 — PRIMA E DOPO SLIDER -->
-    <section id="trasformazioni" class="comp-sec">
-      <div class="container">
-        <div class="eyebrow">05 — Prima e Dopo</div>
-        <h2 class="sec-title">Il risultato parla da sé.</h2>
-        <p class="sec-desc">Trascina per osservare il passaggio dal colore piatto a una schiaritura Air Touch fluida.</p>
-
-        <div class="slider-box" id="touchSlider">
-          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1400&q=85" alt="Risultato finale">
-          <span class="badge badge-a">Dopo</span>
-
-          <div class="slider-mask" id="sliderMask">
-            <img id="sliderInnerImg" src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1400&q=85" alt="Base di partenza">
-            <span class="badge badge-b">Prima</span>
-          </div>
-
-          <div class="slider-bar" id="sliderBar">
-            <div class="slider-handle">↔</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 07 — PRENOTAZIONE GUIDATA -->
-    <section id="prenota" class="quick-book-sec">
-      <div class="container">
-        <div class="eyebrow">06 — Prenota Subito</div>
-        <h2 class="sec-title">Fissa la tua poltrona.</h2>
-        <p class="sec-desc">Scegli il servizio e invia direttamente la richiesta su WhatsApp con i dettagli già pronti.</p>
-
-        <div class="book-card">
-          <div class="book-card-grid">
-            <div>
-              <span class="book-step-title">1. Servizio desiderato</span>
-              <div class="book-options-grid" id="serviceOptions">
-                <div class="book-opt selected" onclick="pickOpt(this, 'service', 'Consulenza Colore (Gratuita)')">
-                  <strong>Consulenza Colore</strong>
-                  <small>Gratuita · 15 min</small>
-                </div>
-                <div class="book-opt" onclick="pickOpt(this, 'service', 'Taglio Sartoriale (40 €)')">
-                  <strong>Taglio Sartoriale</strong>
-                  <small>Da € 40 · 45 min</small>
-                </div>
-                <div class="book-opt" onclick="pickOpt(this, 'service', 'Air Touch / Balayage (da 90 €)')">
-                  <strong>Air Touch / Balayage</strong>
-                  <small>Da € 90 · Schiariture</small>
-                </div>
-                <div class="book-opt" onclick="pickOpt(this, 'service', 'Ricostruzione Gold20 (40 €)')">
-                  <strong>Trattamento Gold20</strong>
-                  <small>€ 40 · Rigenerazione</small>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <span class="book-step-title">2. Stylist di riferimento</span>
-              <div class="book-options-grid" id="stylistOptions">
-                <div class="book-opt selected" onclick="pickOpt(this, 'stylist', 'Primo Disponibile')">
-                  <strong>Primo Disponibile</strong>
-                  <small>Migliore orario per te</small>
-                </div>
-                <div class="book-opt" onclick="pickOpt(this, 'stylist', 'Vince Lombardo (Manager)')">
-                  <strong>Vince Lombardo</strong>
-                  <small>Manager & Stilista</small>
-                </div>
-                <div class="book-opt" onclick="pickOpt(this, 'stylist', 'Marcello (Colour Director)')">
-                  <strong>Marcello</strong>
-                  <small>Colour Director</small>
-                </div>
-                <div class="book-opt" onclick="pickOpt(this, 'stylist', 'Lisa (Stylist)')">
-                  <strong>Lisa</strong>
-                  <small>Stylist & Care</small>
-                </div>
-              </div>
-
-              <button class="book-submit-btn" onclick="launchWhatsApp()">
-                <span>Invia Richiesta su WhatsApp</span>
-                <span>→</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-split">
-      <div>
-        <svg class="aria-svg-logo" style="height: 32px; margin-bottom: 0.75rem;" viewBox="0 0 460 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 130L125 10V130" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M165 130V10H205C235 10 255 28 255 52C255 75 235 90 205 90M205 90H165M205 90L250 130" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M295 10V130" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-          <path d="M330 130L450 10V130" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          <text x="230" y="188" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="34" font-weight="300" letter-spacing="10" fill="currentColor">salon</text>
-        </svg>
-        <p>
-          Corso Giuseppe Garibaldi 56 — 20017 Rho (MI)<br>
-          P.IVA 06220590969 · Partner Alfaparf Milano Professional
-        </p>
-      </div>
-      <div>
-        <strong>Orari Atelier</strong>
-        <p style="margin-top: 0.4rem;">
-          Mar - Sab: 09:30 – 18:00<br>
-          Giovedì: 11:00 – 20:00 (Serale)<br>
-          Domenica e Lunedì: Chiuso
-        </p>
-      </div>
-      <div>
-        <strong>Contatti Diretti</strong>
-        <p style="margin-top: 0.4rem;">
-          Tel: <a href="tel:+390299760547">02 99760547</a><br>
-          WhatsApp: <a href="https://wa.me/390299760547">+39 02 99760547</a><br>
-          Instagram: <a href="https://www.instagram.com/ariasalon.milano/" target="_blank">@ariasalon.milano ↗</a>
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- PILLOLA FLOTTANTE MOBILE -->
-  <div class="dock">
-    <a href="#prenota" class="dock-pill">
-      <div class="dock-dot"></div>
-      <span>Prenota</span>
-    </a>
-  </div>
-
-  <script>
-    // 1. DRAWER MENU MOBILE
-    const drawer = document.getElementById('siteDrawer');
-    document.getElementById('openMenuBtn').onclick = () => drawer.classList.add('active');
-    document.getElementById('closeMenuBtn').onclick = () => drawer.classList.remove('active');
-    document.querySelectorAll('.drawer-link').forEach(link => {
-      link.onclick = () => drawer.classList.remove('active');
-    });
-
-    // 2. ACCORDION SERVIZI CON PREVIEW DESKTOP DINAMICA
-    const rows = document.querySelectorAll('.service-row');
-    const desktopImg = document.getElementById('desktopServiceImg');
-
-    rows.forEach(r => {
-      r.querySelector('.service-head').onclick = () => {
-        const isOpen = r.classList.contains('open');
-        rows.forEach(x => x.classList.remove('open'));
-        if (!isOpen) {
-          r.classList.add('open');
-          const newImg = r.getAttribute('data-img');
-          if (newImg && desktopImg) {
-            desktopImg.style.opacity = '0.3';
-            setTimeout(() => {
-              desktopImg.src = newImg;
-              desktopImg.style.opacity = '1';
-            }, 150);
-          }
-        }
-      };
-    });
-
-    // 3. MOOD FINDER
-    let currentMood = 'Essential';
-    function switchMood(name, desc, img, btn) {
-      document.querySelectorAll('.look-pill').forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-
-      const el = document.getElementById('stageImg');
-      el.style.opacity = '0.3';
-      setTimeout(() => {
-        el.src = img;
-        document.getElementById('stageTitle').innerText = name;
-        document.getElementById('stageDesc').innerText = desc;
-        el.style.opacity = '1';
-      }, 150);
-
-      currentMood = name;
-    }
-
-    // 4. TOUCH SLIDER PRIMA E DOPO
-    (function initSlider() {
-      const box = document.getElementById('touchSlider');
-      const mask = document.getElementById('sliderMask');
-      const img = document.getElementById('sliderInnerImg');
-      const bar = document.getElementById('sliderBar');
-
-      function update(clientX) {
-        const rect = box.getBoundingClientRect();
-        let x = clientX - rect.left;
-        if (x < 0) x = 0;
-        if (x > rect.width) x = rect.width;
-        const pct = (x / rect.width) * 100;
-        mask.style.width = pct + '%';
-        bar.style.left = pct + '%';
-      }
-
-      function resize() {
-        img.style.width = box.offsetWidth + 'px';
-      }
-
-      let isDown = false;
-      box.addEventListener('pointerdown', (e) => { isDown = true; update(e.clientX); });
-      window.addEventListener('pointermove', (e) => { if (isDown) update(e.clientX); });
-      window.addEventListener('pointerup', () => { isDown = false; });
-      window.addEventListener('resize', resize);
-      resize();
-    })();
-
-    // 5. SELEZIONE PRENOTAZIONE RAPIDA
-    let chosenService = 'Consulenza Colore (Gratuita)';
-    let chosenStylist = 'Primo Disponibile';
-
-    function pickOpt(el, type, val) {
-      const parent = el.parentElement;
-      parent.querySelectorAll('.book-opt').forEach(opt => opt.classList.remove('selected'));
-      el.classList.add('selected');
-      if (type === 'service') chosenService = val;
-      if (type === 'stylist') chosenStylist = val;
-    }
-
-    function setQuickService(serviceName) {
-      chosenService = serviceName;
-      document.querySelectorAll('#serviceOptions .book-opt').forEach(opt => {
-        if (opt.innerText.includes(serviceName.split(' ')[0])) {
-          opt.classList.add('selected');
-        } else {
-          opt.classList.remove('selected');
-        }
-      });
-    }
-
-    function launchWhatsApp() {
-      let text = `Ciao Aria Salon! Vorrei verificare disponibilità per un appuntamento:\n\n`;
-      text += `• Servizio: ${chosenService}\n`;
-      text += `• Stylist: ${chosenStylist}\n`;
-      if (currentMood) text += `• Mood d'ispirazione: ${currentMood}\n`;
-      text += `\nQuali date/orari avete liberi nei prossimi giorni?`;
-
-      window.open(`https://wa.me/390299760547?text=${encodeURIComponent(text)}`, '_blank');
-    }
-  </script>
-
-</body>
-</html>
+                <div class
