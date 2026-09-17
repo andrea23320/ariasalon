@@ -6,20 +6,17 @@
   <title>Aria Salon | Atelier & Precision Hairdressing Rho</title>
   <meta name="description" content="Atelier di bellezza a Rho. Specialisti in Air Touch, Balayage sartoriale e salute del capello. Corso Garibaldi 56, Rho.">
 
-  <!-- PERFORMANCE & DNS PREFETCH -->
   <link rel="dns-prefetch" href="https://wa.me">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- SOCIAL / OPEN GRAPH -->
   <meta property="og:type" content="business.business">
   <meta property="og:title" content="Aria Salon Rho | Atelier Capelli">
   <meta property="og:description" content="Schiariture graduate Air Touch, taglio visagistico e cura del capello in centro a Rho.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80">
   <meta property="og:url" content="https://andrea23320.github.io/ariasalon/">
 
-  <!-- FAVICON VETTORIALE -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 460 200'><path d='M5 130L125 10V130' stroke='%23000' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/><path d='M165 130V10H205C235 10 255 28 255 52C255 75 235 90 205 90M205 90H165M205 90L250 130' stroke='%23000' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/><path d='M295 10V130' stroke='%23000' stroke-width='8' stroke-linecap='round'/><path d='M330 130L450 10V130' stroke='%23000' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 
   <style>
@@ -35,7 +32,7 @@
       --border-dark: rgba(248, 246, 242, 0.12);
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
-      --header-height: 64px;
+      --header-h: 60px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -83,21 +80,23 @@
       opacity: 0.6;
     }
 
-    /* HEADER */
+    /* ==========================================================
+       HEADER MOBILE DEFINITIVO (PULITO, ZERO COLLISIONI)
+       ========================================================== */
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: var(--header-height);
-      z-index: 100;
+      height: var(--header-h);
+      z-index: 1000;
       padding: 0 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: rgba(248, 246, 242, 0.96);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-light);
     }
     .brand-logo-wrap {
@@ -105,38 +104,16 @@
       align-items: center;
       text-decoration: none;
       color: var(--text-dark);
-      flex-shrink: 0;
     }
     .aria-svg-logo {
-      height: 28px;
+      height: 26px;
       width: auto;
       display: block;
     }
 
+    /* BADGE ORARI: SU MOBILE NON COMPARE NELL'HEADER */
     .salon-status-badge {
       display: none;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 600;
-      padding: 0.35rem 0.75rem;
-      border-radius: 999px;
-      background: rgba(20, 20, 20, 0.04);
-      border: 1px solid var(--border-light);
-      white-space: nowrap;
-    }
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #888;
-      flex-shrink: 0;
-    }
-    .status-dot.open {
-      background: #2E7D32;
-      box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
     }
 
     .desktop-nav {
@@ -169,14 +146,14 @@
       font-weight: 600;
       color: #FFF;
       background: var(--text-dark);
-      padding: 0.65rem 1.4rem;
+      padding: 0.6rem 1.3rem;
       border-radius: 2px;
       text-decoration: none;
     }
 
     .nav-toggle {
       font-family: var(--font-sans);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       background: none;
@@ -185,7 +162,7 @@
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
       padding: 0.5rem 0.2rem;
       font-weight: 600;
     }
@@ -211,14 +188,14 @@
       inset: 0;
       background: var(--bg-dark);
       color: var(--text-light);
-      z-index: 200;
+      z-index: 2000;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 5.5rem 8% calc(3rem + env(safe-area-inset-bottom));
+      padding: 5rem 8% calc(2.5rem + env(safe-area-inset-bottom));
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.25s ease;
     }
     .drawer.active { opacity: 1; pointer-events: auto; }
     .drawer-close {
@@ -228,41 +205,43 @@
       background: none;
       border: none;
       color: var(--text-light);
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       padding: 0.5rem;
       cursor: pointer;
     }
-    .drawer-nav { display: flex; flex-direction: column; gap: 1.2rem; }
+    .drawer-nav { display: flex; flex-direction: column; gap: 1.1rem; }
     .drawer-nav a {
       font-family: var(--font-serif);
-      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      font-size: clamp(1.8rem, 6vw, 2.3rem);
       color: var(--text-light);
       text-decoration: none;
       line-height: 1.15;
     }
     .drawer-info {
       border-top: 1px solid var(--border-dark);
-      padding-top: 1.5rem;
-      font-size: 0.78rem;
+      padding-top: 1.25rem;
+      font-size: 0.75rem;
       color: var(--text-light-muted);
       line-height: 1.6;
     }
 
-    /* HERO */
+    /* ==========================================================
+       HERO: DISTANZIATA CORRETTAMENTE SOTTO L'HEADER
+       ========================================================== */
     .hero {
       position: relative;
-      min-height: calc(100vh - var(--header-height));
+      min-height: calc(100svh - var(--header-h));
       width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 6rem 6% 3.5rem;
+      padding: 3rem 6% 3.5rem;
       color: #FFF;
       background: #000;
       overflow: hidden;
-      margin-top: var(--header-height);
+      margin-top: var(--header-h);
     }
     .hero-img {
       position: absolute;
@@ -270,8 +249,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 20%;
-      filter: brightness(60%) contrast(105%);
+      object-position: center 25%;
+      filter: brightness(58%) contrast(105%);
     }
     .hero-wrap {
       position: relative;
@@ -279,28 +258,28 @@
       max-width: 680px;
     }
     .hero-tag {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.6rem;
       display: block;
       opacity: 0.9;
     }
     .hero-title {
       font-family: var(--font-serif);
-      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-size: clamp(2.3rem, 7.5vw, 4.8rem);
       line-height: 1.02;
       font-weight: 300;
       letter-spacing: -0.02em;
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
     }
     .hero-desc {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 300;
-      line-height: 1.55;
+      line-height: 1.5;
       color: rgba(255, 255, 255, 0.9);
       margin-bottom: 1.75rem;
-      max-width: 460px;
+      max-width: 440px;
     }
     .hero-btn {
       display: flex;
@@ -308,7 +287,7 @@
       justify-content: space-between;
       background: #FFFFFF;
       color: var(--text-dark);
-      padding: 1.1rem 1.4rem;
+      padding: 1rem 1.35rem;
       border-radius: 2px;
       font-size: 0.72rem;
       letter-spacing: 0.16em;
@@ -316,30 +295,30 @@
       font-weight: 700;
       text-decoration: none;
       width: 100%;
-      max-width: 320px;
+      max-width: 300px;
     }
 
     /* SEZIONI */
     section { padding: 4.5rem 0; border-top: 1px solid var(--border-light); }
     .sec-title {
       font-family: var(--font-serif);
-      font-size: clamp(2.1rem, 5vw, 3.2rem);
+      font-size: clamp(2rem, 5vw, 3.2rem);
       line-height: 1.05;
       font-weight: 400;
       margin-bottom: 0.5rem;
     }
     .sec-desc {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
       margin-bottom: 2rem;
       line-height: 1.5;
     }
 
-    /* MANIFESTO */
+    /* 01 — MANIFESTO */
     .manifesto-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2.5rem;
+      gap: 2.2rem;
       align-items: center;
     }
     .manifesto-img {
@@ -350,21 +329,19 @@
       border-radius: 2px;
     }
     .manifesto-p {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 1.25rem;
+      line-height: 1.65;
+      margin-bottom: 1rem;
     }
 
-    /* ==========================================================
-       CALCOLATORE SEDUTA (DURATA & INVESTIMENTO)
-       ========================================================== */
+    /* 02 — CALCOLATORE STIMA */
     .estimator-box {
       background: #FFFFFF;
       border: 1px solid var(--border-light);
       border-radius: 4px;
-      padding: 2rem;
-      margin-bottom: 3.5rem;
+      padding: 1.6rem;
+      margin-bottom: 2.8rem;
     }
     .estimator-grid {
       display: grid;
@@ -382,13 +359,13 @@
     .estimator-options {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.45rem;
     }
     .est-btn {
       background: var(--bg-cream);
       border: 1px solid var(--border-light);
-      padding: 0.65rem 1rem;
-      font-size: 0.75rem;
+      padding: 0.6rem 0.9rem;
+      font-size: 0.72rem;
       font-weight: 600;
       border-radius: 2px;
       cursor: pointer;
@@ -402,46 +379,46 @@
     .estimator-result {
       background: var(--bg-card);
       border-radius: 2px;
-      padding: 1.4rem;
+      padding: 1.25rem;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      margin-top: 1.5rem;
+      gap: 0.85rem;
+      margin-top: 1rem;
     }
     .est-metric-row {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       border-bottom: 1px solid rgba(20, 20, 20, 0.08);
-      padding-bottom: 0.6rem;
+      padding-bottom: 0.5rem;
     }
     .est-metric-row:last-of-type {
       border-bottom: none;
       padding-bottom: 0;
     }
     .est-metric-label {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--text-muted);
     }
     .est-metric-val {
       font-family: var(--font-serif);
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 600;
       color: var(--text-dark);
     }
 
-    /* SERVIZI */
+    /* 02 — SERVIZI ACCORDION */
     .services-desktop-split {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: 2.5rem;
       align-items: start;
     }
     .service-row {
       border-top: 1px solid var(--border-light);
-      padding: 1.2rem 0;
+      padding: 1.15rem 0;
     }
     .service-row:last-child { border-bottom: 1px solid var(--border-light); }
     .service-head {
@@ -453,7 +430,7 @@
     .service-head-left {
       display: flex;
       align-items: baseline;
-      gap: 1rem;
+      gap: 0.9rem;
     }
     .service-idx {
       font-size: 0.7rem;
@@ -463,13 +440,13 @@
     }
     .service-name {
       font-family: var(--font-serif);
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       font-style: italic;
       font-weight: 400;
     }
     .service-arrow {
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       border: 1px solid var(--border-light);
       display: flex;
@@ -491,40 +468,40 @@
     .service-row.open .service-panel { max-height: 520px; }
     .service-panel-img {
       width: 100%;
-      height: 220px;
+      height: 200px;
       object-fit: cover;
-      margin: 1rem 0;
+      margin: 0.85rem 0;
       border-radius: 2px;
       display: block;
     }
     .service-panel-desc {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 0.85rem;
+      line-height: 1.55;
+      margin-bottom: 0.8rem;
     }
     .service-panel-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 600;
-      padding-top: 0.4rem;
+      padding-top: 0.35rem;
     }
     .service-panel-bar a { color: var(--text-dark); text-decoration: none; }
     .services-desktop-preview { display: none; }
 
-    /* SPECCHIO */
+    /* 03 — SPECCHIO BREAK */
     .mirror-break {
       position: relative;
-      height: 65vh;
-      min-height: 440px;
+      height: 60vh;
+      min-height: 400px;
       background: #000;
       display: flex;
       align-items: flex-end;
-      padding: 0 6% 3.5rem;
+      padding: 0 6% 3rem;
       color: #FFF;
       overflow: hidden;
     }
@@ -543,17 +520,17 @@
     }
     .mirror-break-inner h2 {
       font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-size: clamp(2rem, 5.5vw, 3.6rem);
       line-height: 1.1;
       font-weight: 300;
     }
 
-    /* FIND YOUR LOOK */
+    /* 04 — FIND YOUR LOOK */
     .look-sec { background: var(--bg-dark); color: var(--text-light); }
     .look-split {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2.5rem;
+      gap: 2.2rem;
       align-items: center;
     }
     .look-stage {
@@ -578,23 +555,23 @@
     }
     .look-stage-meta h3 {
       font-family: var(--font-serif);
-      font-size: 2rem;
+      font-size: 1.9rem;
       font-style: italic;
       line-height: 1;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.25rem;
     }
-    .look-stage-meta p { font-size: 0.85rem; opacity: 0.85; }
+    .look-stage-meta p { font-size: 0.82rem; opacity: 0.85; }
     .look-pills {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-      margin: 1.75rem 0;
+      gap: 0.65rem;
+      margin: 1.5rem 0;
     }
     .look-pill {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
       color: var(--text-light-muted);
-      padding: 0.85rem 1rem;
+      padding: 0.8rem 0.9rem;
       text-align: left;
       cursor: pointer;
       display: flex;
@@ -609,7 +586,7 @@
     }
     .look-pill span:first-child {
       font-family: var(--font-serif);
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-style: italic;
     }
     .look-pill span:last-child {
@@ -623,7 +600,7 @@
       align-items: center;
       background: var(--bg-cream);
       color: var(--text-dark);
-      padding: 1.1rem 1.4rem;
+      padding: 1rem 1.35rem;
       font-size: 0.72rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -632,21 +609,21 @@
       border-radius: 2px;
     }
 
-    /* ESPERIENZA */
+    /* 05 — ESPERIENZA */
     .exp-track {
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      gap: 1.15rem;
-      margin: 2rem -5% 0;
+      gap: 1rem;
+      margin: 1.8rem -5% 0;
       padding: 0 5% 1rem;
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
     }
     .exp-track::-webkit-scrollbar { display: none; }
     .exp-item {
-      min-width: 82vw;
-      max-width: 82vw;
+      min-width: 80vw;
+      max-width: 80vw;
       scroll-snap-align: center;
       flex-shrink: 0;
     }
@@ -655,35 +632,35 @@
       aspect-ratio: 4 / 4.8;
       object-fit: cover;
       display: block;
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
       border-radius: 2px;
     }
     .exp-item-num {
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       letter-spacing: 0.16em;
       color: var(--text-muted);
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.25rem;
       display: block;
     }
     .exp-item h3 {
       font-family: var(--font-serif);
-      font-size: 1.6rem;
+      font-size: 1.55rem;
       font-weight: 500;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.25rem;
     }
     .exp-item p {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
-    /* PRIMA E DOPO SLIDER */
+    /* 06 — PRIMA E DOPO SLIDER */
     .slider-box {
       position: relative;
       width: 100%;
-      height: 420px;
+      height: 400px;
       overflow: hidden;
-      margin-top: 1.5rem;
+      margin-top: 1.25rem;
       border-radius: 2px;
       background: #111;
       cursor: ew-resize;
@@ -722,8 +699,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       background: rgba(18, 18, 18, 0.85);
       border: 1px solid rgba(255, 255, 255, 0.6);
@@ -735,48 +712,48 @@
     }
     .badge {
       position: absolute;
-      top: 1rem;
-      padding: 0.35rem 0.65rem;
+      top: 0.85rem;
+      padding: 0.3rem 0.6rem;
       font-size: 0.65rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       font-weight: 600;
       z-index: 5;
     }
-    .badge-b { left: 1rem; background: rgba(0,0,0,0.65); color: #FFF; }
-    .badge-a { right: 1rem; background: rgba(255,255,255,0.85); color: #111; }
+    .badge-b { left: 0.85rem; background: rgba(0,0,0,0.65); color: #FFF; }
+    .badge-a { right: 0.85rem; background: rgba(255,255,255,0.85); color: #111; }
 
-    /* CARD PROTOCOLLO */
+    /* 07 — CARD PROTOCOLLO */
     .features-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
     }
     .feature-card {
       background: #FFFFFF;
       border: 1px solid var(--border-light);
-      padding: 1.8rem;
+      padding: 1.6rem;
       border-radius: 2px;
     }
     .feature-card h3 {
       font-family: var(--font-serif);
-      font-size: 1.6rem;
+      font-size: 1.55rem;
       font-weight: 500;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.5rem;
     }
     .feature-card p {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 1.25rem;
+      line-height: 1.55;
+      margin-bottom: 1rem;
     }
 
-    /* FAQ */
+    /* 08 — FAQ */
     .faq-mini-list {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.65rem;
     }
     .faq-mini-item {
       border: 1px solid var(--border-light);
@@ -785,7 +762,7 @@
     }
     .faq-mini-q {
       width: 100%;
-      padding: 1.15rem 1.25rem;
+      padding: 1.1rem 1.2rem;
       background: none;
       border: none;
       display: flex;
@@ -801,23 +778,23 @@
     .faq-mini-a {
       max-height: 0;
       overflow: hidden;
-      padding: 0 1.25rem;
+      padding: 0 1.2rem;
       transition: max-height 0.3s ease, padding 0.3s ease;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
-      line-height: 1.6;
+      line-height: 1.55;
     }
     .faq-mini-item.open .faq-mini-a {
       max-height: 220px;
-      padding: 0 1.25rem 1.25rem;
+      padding: 0 1.2rem 1.1rem;
     }
 
-    /* PRENOTAZIONE */
+    /* 09 — PRENOTAZIONE */
     .book-card {
       background: #FFFFFF;
       border: 1px solid var(--border-light);
       border-radius: 4px;
-      padding: 1.75rem 1.4rem;
+      padding: 1.6rem 1.35rem;
     }
     .book-step-title {
       font-size: 0.7rem;
@@ -825,17 +802,17 @@
       text-transform: uppercase;
       font-weight: 600;
       color: var(--text-muted);
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.75rem;
       display: block;
     }
     .book-options-grid {
       display: flex;
       flex-direction: column;
-      gap: 0.65rem;
-      margin-bottom: 1.5rem;
+      gap: 0.6rem;
+      margin-bottom: 1.4rem;
     }
     .book-opt {
-      padding: 0.85rem 1.1rem;
+      padding: 0.8rem 1rem;
       background: var(--bg-cream);
       border: 1px solid var(--border-light);
       border-radius: 2px;
@@ -851,22 +828,22 @@
     }
     .book-opt strong {
       font-family: var(--font-serif);
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 500;
     }
-    .book-opt small { font-size: 0.75rem; opacity: 0.8; }
+    .book-opt small { font-size: 0.72rem; opacity: 0.8; }
 
     .time-slot-pills {
       display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1.75rem;
+      gap: 0.45rem;
+      margin-bottom: 1.6rem;
       flex-wrap: wrap;
     }
     .time-pill {
       background: var(--bg-cream);
       border: 1px solid var(--border-light);
-      padding: 0.6rem 0.95rem;
-      font-size: 0.7rem;
+      padding: 0.55rem 0.85rem;
+      font-size: 0.68rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 600;
@@ -883,7 +860,7 @@
       width: 100%;
       background: var(--bg-dark);
       color: #FFF;
-      padding: 1.15rem;
+      padding: 1.1rem;
       border: none;
       border-radius: 2px;
       font-family: var(--font-sans);
@@ -897,102 +874,55 @@
       align-items: center;
     }
 
-    /* LOGISTICA E VCARD ACTION */
+    /* LOGISTICA */
     .logistics-card {
       background: #FFFFFF;
       border: 1px solid var(--border-light);
-      padding: 1.8rem;
+      padding: 1.6rem;
       border-radius: 2px;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1.5rem;
-      margin-top: 1.75rem;
+      gap: 1.35rem;
+      margin-top: 1.6rem;
     }
     .logistics-box h4 {
       font-family: var(--font-serif);
-      font-size: 1.35rem;
-      margin-bottom: 0.35rem;
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
     }
     .logistics-box p {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
-      line-height: 1.55;
+      line-height: 1.5;
     }
     .vcard-download-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
       background: var(--bg-cream);
       color: var(--text-dark);
       border: 1px solid var(--border-light);
-      padding: 0.75rem 1.2rem;
+      padding: 0.65rem 1rem;
       border-radius: 2px;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 600;
       cursor: pointer;
-      margin-top: 0.75rem;
-      transition: all 0.2s;
-    }
-    .vcard-download-btn:hover {
-      background: var(--text-dark);
-      color: #FFF;
+      margin-top: 0.65rem;
     }
 
-    /* FLOATING BANNER DIAGNOSI */
-    .quick-diagnosis-bar {
-      position: fixed;
-      top: calc(var(--header-height) + 10px);
-      left: 5%;
-      right: 5%;
-      background: rgba(18, 18, 18, 0.95);
-      backdrop-filter: blur(8px);
-      color: #FFF;
-      padding: 0.75rem 1.1rem;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      z-index: 95;
-      font-size: 0.75rem;
-      transform: translateY(-150%);
-      opacity: 0;
-      transition: transform 0.4s ease, opacity 0.4s ease;
-    }
-    .quick-diagnosis-bar.visible {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    .quick-diagnosis-bar a {
-      color: #EFECE6;
-      font-weight: 700;
-      text-transform: uppercase;
-      text-decoration: underline;
-      white-space: nowrap;
-    }
-    .quick-diagnosis-close {
-      background: none;
-      border: none;
-      color: #BBB;
-      cursor: pointer;
-      padding: 0.2rem;
-      font-size: 0.9rem;
-      line-height: 1;
-    }
-
-    /* DOCK MOBILE BOTTOM */
+    /* ==========================================================
+       DOCK MOBILE BOTTOM: L'UNICO ELEMENTO FLUTTUANTE IN BASSO
+       ========================================================== */
     .dock {
       position: fixed;
-      bottom: calc(1.2rem + env(safe-area-inset-bottom));
+      bottom: calc(1.1rem + env(safe-area-inset-bottom));
       left: 0;
       width: 100%;
       display: flex;
       justify-content: center;
-      z-index: 90;
+      z-index: 900;
       pointer-events: none;
     }
     .dock-pill {
@@ -1000,17 +930,17 @@
       background: #111111;
       color: #FFFFFF;
       text-decoration: none;
-      padding: 0.85rem 2rem;
+      padding: 0.85rem 2.2rem;
       border-radius: 999px;
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       font-weight: 700;
       display: flex;
       align-items: center;
       gap: 0.65rem;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
     .dock-dot {
       width: 6px;
@@ -1021,7 +951,7 @@
 
     /* FOOTER */
     footer {
-      padding: 3.5rem 0 2rem;
+      padding: 3rem 0 2rem;
       border-top: 1px solid var(--border-light);
       font-size: 0.78rem;
       color: var(--text-muted);
@@ -1034,14 +964,18 @@
     }
     footer a { color: var(--text-dark); text-decoration: none; font-weight: 600; }
 
-    /* MEDIA QUERIES DESKTOP (> 1024px) */
+    /* ==========================================================
+       MEDIA QUERIES DESKTOP (> 1024px)
+       ========================================================== */
     @media (min-width: 1024px) {
-      :root { --header-height: 76px; }
+      :root { --header-h: 76px; }
       body { padding-bottom: 0; }
       .container { width: 84%; }
       header { padding: 0 8%; }
       .aria-svg-logo { height: 34px; }
-      .salon-status-badge { display: inline-flex; }
+      .salon-status-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; padding: 0.35rem 0.75rem; border-radius: 999px; background: rgba(20, 20, 20, 0.04); border: 1px solid var(--border-light); }
+      .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #888; }
+      .status-dot.open { background: #2E7D32; box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2); }
       .desktop-nav { display: flex; }
       .header-book-btn { display: inline-block; }
       .nav-toggle { display: none; }
@@ -1050,6 +984,7 @@
         min-height: 680px;
         height: 90vh;
         padding: 0 8% 5rem;
+        margin-top: 0;
       }
       .manifesto-grid { grid-template-columns: 1.15fr 0.85fr; gap: 5rem; }
       .estimator-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
@@ -1080,25 +1015,12 @@
       .book-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
       .dock { display: none; }
 
-      .quick-diagnosis-bar {
-        top: auto;
-        bottom: 2rem;
-        left: auto;
-        right: 2.5rem;
-        width: 420px;
-        transform: translateY(120%);
-        border-radius: 999px;
-        padding: 0.85rem 1.4rem;
-      }
-      .quick-diagnosis-bar.visible { transform: translateY(0); }
-
       .footer-split { grid-template-columns: 1.5fr 1fr 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <a href="#" class="brand-logo-wrap" aria-label="Aria Salon Home">
       <svg class="aria-svg-logo" viewBox="0 0 460 200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1110,7 +1032,6 @@
       </svg>
     </a>
 
-    <!-- Navigazione Desktop -->
     <ul class="desktop-nav">
       <li><a href="#salone">Il Salone</a></li>
       <li><a href="#servizi">Servizi & Stima</a></li>
@@ -1120,7 +1041,6 @@
     </ul>
 
     <div class="header-actions">
-      <!-- BADGE DESKTOP -->
       <div class="salon-status-badge" id="salonLiveBadge">
         <span class="status-dot" id="statusDot"></span>
         <span id="statusText">Orari Atelier</span>
@@ -1134,7 +1054,6 @@
     </div>
   </header>
 
-  <!-- DRAWER MOBILE -->
   <div class="drawer" id="siteDrawer">
     <button class="drawer-close" id="closeMenuBtn">Chiudi ✕</button>
     <nav class="drawer-nav">
@@ -1158,7 +1077,6 @@
   </div>
 
   <main>
-    <!-- HERO CINEMATICA -->
     <section class="hero">
       <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1400&q=85" alt="Aria Salon Atelier Rho" class="hero-img">
       <div class="hero-wrap">
@@ -1172,7 +1090,6 @@
       </div>
     </section>
 
-    <!-- 01 — IL SALONE -->
     <section id="salone" class="manifesto">
       <div class="container manifesto-grid">
         <div>
@@ -1193,14 +1110,12 @@
       </div>
     </section>
 
-    <!-- 02 — CALCOLATORE STIMA SEDUTA & SERVIZI ACCORDION -->
-    <section id="servizi" class="services-sec">
+    <section id="servizi">
       <div class="container">
         <div class="eyebrow">02 — Servizi & Trasparenza</div>
         <h2 class="sec-title">Ogni servizio parte da te.</h2>
         <p class="sec-desc">Stima in tempo reale tempi in poltrona e fascia di prezzo prima di iniziare.</p>
 
-        <!-- PLUS 2: CALCOLATORE / STIMA SEDUTA -->
         <div class="estimator-box">
           <div class="estimator-grid">
             <div class="estimator-col">
@@ -1244,7 +1159,6 @@
 
         <div class="services-desktop-split">
           <div class="services-accordion-col">
-            <!-- TAGLIO -->
             <div class="service-row open" data-img="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1000&q=80">
               <div class="service-head">
                 <div class="service-head-left">
@@ -1263,7 +1177,6 @@
               </div>
             </div>
 
-            <!-- AIR TOUCH -->
             <div class="service-row" data-img="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80">
               <div class="service-head">
                 <div class="service-head-left">
@@ -1282,7 +1195,6 @@
               </div>
             </div>
 
-            <!-- STYLING -->
             <div class="service-row" data-img="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1000&q=80">
               <div class="service-head">
                 <div class="service-head-left">
@@ -1301,7 +1213,6 @@
               </div>
             </div>
 
-            <!-- TRATTAMENTI -->
             <div class="service-row" data-img="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1000&q=80">
               <div class="service-head">
                 <div class="service-head-left">
@@ -1328,7 +1239,6 @@
       </div>
     </section>
 
-    <!-- 03 — SPECCHIO QUOTE -->
     <section class="mirror-break">
       <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1400&q=80" alt="Specchio Atelier" class="mirror-break-img" loading="lazy" decoding="async">
       <div class="mirror-break-inner">
@@ -1337,7 +1247,6 @@
       </div>
     </section>
 
-    <!-- 04 — FIND YOUR LOOK -->
     <section id="look" class="look-sec">
       <div class="container look-split">
         <div>
@@ -1380,8 +1289,7 @@
       </div>
     </section>
 
-    <!-- 05 — L'ESPERIENZA -->
-    <section id="esperienza" class="exp-sec">
+    <section id="esperienza">
       <div class="container">
         <div class="eyebrow">04 — L'Esperienza</div>
         <h2 class="sec-title">Più di un <em class="serif italic">appuntamento.</em></h2>
@@ -1416,8 +1324,7 @@
       </div>
     </section>
 
-    <!-- 06 — PRIMA E DOPO SLIDER -->
-    <section id="trasformazioni" class="comp-sec">
+    <section id="trasformazioni">
       <div class="container">
         <div class="eyebrow">05 — Prima e Dopo</div>
         <h2 class="sec-title">Il risultato parla da sé.</h2>
@@ -1439,7 +1346,6 @@
       </div>
     </section>
 
-    <!-- 07 — CURA A CASA & GIFT VOUCHER -->
     <section id="cura">
       <div class="container">
         <div class="eyebrow">06 — Filosofia & Regali</div>
@@ -1464,7 +1370,6 @@
       </div>
     </section>
 
-    <!-- 08 — FAQ MINIMAL ACCORDION -->
     <section id="faq">
       <div class="container">
         <div class="eyebrow">07 — Domande Frequenti</div>
@@ -1505,8 +1410,7 @@
       </div>
     </section>
 
-    <!-- 09 — PRENOTAZIONE GUIDATA -->
-    <section id="prenota" class="quick-book-sec">
+    <section id="prenota">
       <div class="container">
         <div class="eyebrow">08 — Prenota Subito</div>
         <h2 class="sec-title">Fissa la tua poltrona.</h2>
@@ -1572,13 +1476,11 @@
           </div>
         </div>
 
-        <!-- SCHEDA COME RAGGIUNGERCI E PARCHEGGI + PLUS 1: VCARD -->
         <div class="logistics-card">
           <div class="logistics-box">
             <span class="eyebrow">Posizione</span>
             <h4>In Pieno Centro a Rho</h4>
             <p>Corso Giuseppe Garibaldi 56, nel cuore del centro storico, a fianco delle principali attività cittadine.</p>
-            <!-- PLUS 1: TASTO SALVA CONTATTO -->
             <button class="vcard-download-btn" onclick="downloadVCard()">
               <span>Salva in Rubrica</span>
               <span>↓</span>
@@ -1600,16 +1502,6 @@
     </section>
   </main>
 
-  <!-- FLOATING BANNER DIAGNOSI RAPIDA -->
-  <div class="quick-diagnosis-bar" id="quickDiagnosisBar">
-    <span>Dubbio sulla tecnica ideale? Inviaci una foto.</span>
-    <div style="display: flex; align-items: center; gap: 0.65rem;">
-      <a href="https://wa.me/390299760547?text=Ciao%20Aria%20Salon,%20vorrei%20inviarvi%20una%20foto%20per%20un%20consiglio%20rapido%20sul%20mio%20prossimo%20colore." target="_blank">Foto ↗</a>
-      <button class="quick-diagnosis-close" onclick="closeDiagnosisBar()" aria-label="Chiudi banner">✕</button>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
   <footer>
     <div class="container footer-split">
       <div>
@@ -1644,7 +1536,6 @@
     </div>
   </footer>
 
-  <!-- DOCK MOBILE BOTTOM -->
   <div class="dock">
     <a href="#prenota" class="dock-pill">
       <div class="dock-dot"></div>
@@ -1783,7 +1674,7 @@
       };
     });
 
-    // 7. CALCOLATORE STIMA SEDUTA (TEMPO & PREZZO)
+    // 7. CALCOLATORE STIMA SEDUTA
     let currentEstLength = 'corti';
     let currentEstService = 'airtouch';
 
@@ -1841,7 +1732,7 @@
       window.open(`https://wa.me/390299760547?text=${encodeURIComponent(text)}`, '_blank');
     }
 
-    // 8. PLUS 1: DOWNLOAD VCARD DIRETTO
+    // 8. VCARD DOWNLOAD
     function downloadVCard() {
       const vcardContent = [
         'BEGIN:VCARD',
@@ -1864,7 +1755,7 @@
       document.body.removeChild(link);
     }
 
-    // 9. SELETTORE PRENOTAZIONE & WHATSAPP
+    // 9. PRENOTAZIONE GUIDATA
     let chosenService = 'Prima Volta in Atelier (Diagnosi Visagistica Gratuita)';
     let chosenStylist = 'Primo Disponibile';
     let chosenTimeSlot = 'Mattina (09:30 - 13:00)';
@@ -1903,22 +1794,6 @@
       text += `\nQuali giorni avete disponibili nei prossimi orari?`;
 
       window.open(`https://wa.me/390299760547?text=${encodeURIComponent(text)}`, '_blank');
-    }
-
-    // 10. BANNER DIAGNOSI RAPIDA TEMPORIZZATO
-    setTimeout(() => {
-      const bar = document.getElementById('quickDiagnosisBar');
-      if (bar && !sessionStorage.getItem('diagnosis_bar_closed')) {
-        bar.classList.add('visible');
-      }
-    }, 10000);
-
-    function closeDiagnosisBar() {
-      const bar = document.getElementById('quickDiagnosisBar');
-      if (bar) {
-        bar.classList.remove('visible');
-        sessionStorage.setItem('diagnosis_bar_closed', '1');
-      }
     }
   </script>
 
