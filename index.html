@@ -6,17 +6,20 @@
   <title>Aria Salon | Atelier & Precision Hairdressing Rho</title>
   <meta name="description" content="Atelier di bellezza a Rho. Specialisti in Air Touch, Balayage sartoriale e salute del capello. Corso Garibaldi 56, Rho.">
 
+  <!-- PERFORMANCE & DNS PREFETCH -->
   <link rel="dns-prefetch" href="https://wa.me">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- SOCIAL / OPEN GRAPH -->
   <meta property="og:type" content="business.business">
   <meta property="og:title" content="Aria Salon Rho | Atelier Capelli">
   <meta property="og:description" content="Schiariture graduate Air Touch, taglio visagistico e cura del capello in centro a Rho.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80">
   <meta property="og:url" content="https://andrea23320.github.io/ariasalon/">
 
+  <!-- FAVICON VETTORIALE -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 460 200'><path d='M5 130L125 10V130' stroke='%23000' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/><path d='M165 130V10H205C235 10 255 28 255 52C255 75 235 90 205 90M205 90H165M205 90L250 130' stroke='%23000' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/><path d='M295 10V130' stroke='%23000' stroke-width='8' stroke-linecap='round'/><path d='M330 130L450 10V130' stroke='%23000' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 
   <style>
@@ -80,9 +83,7 @@
       opacity: 0.6;
     }
 
-    /* ==========================================================
-       HEADER MOBILE DEFINITIVO (PULITO, ZERO COLLISIONI)
-       ========================================================== */
+    /* HEADER */
     header {
       position: fixed;
       top: 0;
@@ -104,6 +105,7 @@
       align-items: center;
       text-decoration: none;
       color: var(--text-dark);
+      flex-shrink: 0;
     }
     .aria-svg-logo {
       height: 26px;
@@ -111,10 +113,7 @@
       display: block;
     }
 
-    /* BADGE ORARI: SU MOBILE NON COMPARE NELL'HEADER */
-    .salon-status-badge {
-      display: none;
-    }
+    .salon-status-badge { display: none; }
 
     .desktop-nav {
       display: none;
@@ -228,7 +227,7 @@
     }
 
     /* ==========================================================
-       HERO: DISTANZIATA CORRETTAMENTE SOTTO L'HEADER
+       HERO: LOGO 3D A TUTTO SCHERMO SENZA SCATOLE
        ========================================================== */
     .hero {
       position: relative;
@@ -237,9 +236,9 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 3rem 6% 3.5rem;
+      padding: 2.5rem 6% 3.5rem;
       color: #FFF;
-      background: #000;
+      background: #0d0c0a;
       overflow: hidden;
       margin-top: var(--header-h);
     }
@@ -250,12 +249,30 @@
       height: 100%;
       object-fit: cover;
       object-position: center 25%;
-      filter: brightness(58%) contrast(105%);
+      filter: brightness(28%) contrast(110%);
     }
+
+    /* CANVAS 3D CHE COPRE L'INTERA HERO */
+    .hero-3d-stage {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+    .hero-3d-stage iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      background: transparent !important;
+    }
+
     .hero-wrap {
       position: relative;
-      z-index: 2;
+      z-index: 3;
       max-width: 680px;
+      pointer-events: none; /* Lascia ruotare il 3D anche se il cursore passa sopra */
     }
     .hero-tag {
       font-size: 0.68rem;
@@ -282,6 +299,7 @@
       max-width: 440px;
     }
     .hero-btn {
+      pointer-events: auto; /* Rende cliccabile solo il bottone */
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -296,6 +314,11 @@
       text-decoration: none;
       width: 100%;
       max-width: 300px;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .hero-btn:hover {
+      background: #F4F1EA;
+      transform: translateY(-2px);
     }
 
     /* SEZIONI */
@@ -912,9 +935,7 @@
       margin-top: 0.65rem;
     }
 
-    /* ==========================================================
-       DOCK MOBILE BOTTOM: L'UNICO ELEMENTO FLUTTUANTE IN BASSO
-       ========================================================== */
+    /* DOCK MOBILE BOTTOM */
     .dock {
       position: fixed;
       bottom: calc(1.1rem + env(safe-area-inset-bottom));
@@ -964,9 +985,7 @@
     }
     footer a { color: var(--text-dark); text-decoration: none; font-weight: 600; }
 
-    /* ==========================================================
-       MEDIA QUERIES DESKTOP (> 1024px)
-       ========================================================== */
+    /* MEDIA QUERIES DESKTOP (> 1024px) */
     @media (min-width: 1024px) {
       :root { --header-h: 76px; }
       body { padding-bottom: 0; }
@@ -1021,6 +1040,7 @@
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
     <a href="#" class="brand-logo-wrap" aria-label="Aria Salon Home">
       <svg class="aria-svg-logo" viewBox="0 0 460 200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1054,6 +1074,7 @@
     </div>
   </header>
 
+  <!-- DRAWER MOBILE -->
   <div class="drawer" id="siteDrawer">
     <button class="drawer-close" id="closeMenuBtn">Chiudi ✕</button>
     <nav class="drawer-nav">
@@ -1077,8 +1098,15 @@
   </div>
 
   <main>
+    <!-- HERO CINEMATICA CON LOGO 3D A SCHERMO INTERO -->
     <section class="hero">
       <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1400&q=85" alt="Aria Salon Atelier Rho" class="hero-img">
+      
+      <!-- STAGE 3D FULLSCREEN SENZA CORNICI -->
+      <div class="hero-3d-stage">
+        <iframe src="aria-logo-3d.html?sfondo=trasparente&controlli=no" title="Aria Salon 3D Logo"></iframe>
+      </div>
+
       <div class="hero-wrap">
         <span class="hero-tag">Hair Salon — Rho Milano</span>
         <h1 class="hero-title">Your hair.<br>Your identity.</h1>
@@ -1090,6 +1118,7 @@
       </div>
     </section>
 
+    <!-- 01 — IL SALONE -->
     <section id="salone" class="manifesto">
       <div class="container manifesto-grid">
         <div>
@@ -1110,12 +1139,14 @@
       </div>
     </section>
 
+    <!-- 02 — CALCOLATORE STIMA SEDUTA & SERVIZI ACCORDION -->
     <section id="servizi">
       <div class="container">
         <div class="eyebrow">02 — Servizi & Trasparenza</div>
         <h2 class="sec-title">Ogni servizio parte da te.</h2>
         <p class="sec-desc">Stima in tempo reale tempi in poltrona e fascia di prezzo prima di iniziare.</p>
 
+        <!-- CALCOLATORE STIMA SEDUTA -->
         <div class="estimator-box">
           <div class="estimator-grid">
             <div class="estimator-col">
@@ -1159,6 +1190,7 @@
 
         <div class="services-desktop-split">
           <div class="services-accordion-col">
+            <!-- TAGLIO -->
             <div class="service-row open" data-img="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1000&q=80">
               <div class="service-head">
                 <div class="service-head-left">
@@ -1177,6 +1209,7 @@
               </div>
             </div>
 
+            <!-- AIR TOUCH -->
             <div class="service-row" data-img="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80">
               <div class="service-head">
                 <div class="service-head-left">
@@ -1195,6 +1228,7 @@
               </div>
             </div>
 
+            <!-- STYLING -->
             <div class="service-row" data-img="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1000&q=80">
               <div class="service-head">
                 <div class="service-head-left">
@@ -1213,6 +1247,7 @@
               </div>
             </div>
 
+            <!-- TRATTAMENTI -->
             <div class="service-row" data-img="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1000&q=80">
               <div class="service-head">
                 <div class="service-head-left">
@@ -1239,6 +1274,7 @@
       </div>
     </section>
 
+    <!-- 03 — SPECCHIO QUOTE -->
     <section class="mirror-break">
       <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1400&q=80" alt="Specchio Atelier" class="mirror-break-img" loading="lazy" decoding="async">
       <div class="mirror-break-inner">
@@ -1247,6 +1283,7 @@
       </div>
     </section>
 
+    <!-- 04 — FIND YOUR LOOK -->
     <section id="look" class="look-sec">
       <div class="container look-split">
         <div>
@@ -1289,6 +1326,7 @@
       </div>
     </section>
 
+    <!-- 05 — L'ESPERIENZA -->
     <section id="esperienza">
       <div class="container">
         <div class="eyebrow">04 — L'Esperienza</div>
@@ -1324,6 +1362,7 @@
       </div>
     </section>
 
+    <!-- 06 — PRIMA E DOPO SLIDER -->
     <section id="trasformazioni">
       <div class="container">
         <div class="eyebrow">05 — Prima e Dopo</div>
@@ -1346,6 +1385,7 @@
       </div>
     </section>
 
+    <!-- 07 — CURA A CASA & GIFT VOUCHER -->
     <section id="cura">
       <div class="container">
         <div class="eyebrow">06 — Filosofia & Regali</div>
@@ -1370,6 +1410,7 @@
       </div>
     </section>
 
+    <!-- 08 — FAQ MINIMAL ACCORDION -->
     <section id="faq">
       <div class="container">
         <div class="eyebrow">07 — Domande Frequenti</div>
@@ -1410,6 +1451,7 @@
       </div>
     </section>
 
+    <!-- 09 — PRENOTAZIONE GUIDATA -->
     <section id="prenota">
       <div class="container">
         <div class="eyebrow">08 — Prenota Subito</div>
@@ -1476,6 +1518,7 @@
           </div>
         </div>
 
+        <!-- LOGISTICA & VCARD -->
         <div class="logistics-card">
           <div class="logistics-box">
             <span class="eyebrow">Posizione</span>
@@ -1502,6 +1545,7 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container footer-split">
       <div>
@@ -1536,6 +1580,7 @@
     </div>
   </footer>
 
+  <!-- DOCK MOBILE BOTTOM -->
   <div class="dock">
     <a href="#prenota" class="dock-pill">
       <div class="dock-dot"></div>
