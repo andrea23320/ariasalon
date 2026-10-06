@@ -2,20 +2,46 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Aria Salon | Atelier & Precision Hairdressing Rho</title>
   <meta name="description" content="Atelier di bellezza a Rho. Specialisti in Air Touch, Balayage sartoriale e salute del capello. Corso Garibaldi 56, Rho.">
+
+  <!-- SEO & Social -->
+  <link rel="canonical" href="https://andrea23320.github.io/ariasalon/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Aria Salon Rho">
+  <meta name="geo.region" content="IT-MI">
+  <meta name="geo.placename" content="Rho">
+  <meta name="geo.position" content="45.529;9.040">
+  <meta name="ICBM" content="45.529, 9.040">
+
+  <!-- Mobile / PWA -->
+  <meta name="theme-color" content="#111111">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Aria Salon">
 
   <link rel="dns-prefetch" href="https://wa.me">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Open Graph -->
   <meta property="og:type" content="business.business">
   <meta property="og:title" content="Aria Salon Rho | Atelier Capelli">
   <meta property="og:description" content="Schiariture graduate Air Touch, taglio visagistico e cura del capello in centro a Rho.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://andrea23320.github.io/ariasalon/">
+  <meta property="og:site_name" content="Aria Salon Rho">
+  <meta property="og:locale" content="it_IT">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aria Salon Rho | Atelier Capelli">
+  <meta name="twitter:description" content="Schiariture graduate Air Touch, taglio visagistico e cura del capello in centro a Rho.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80">
 
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='240 215 360 165'><g fill='%23C5A059'><path d='M 254.89 321.33 L 250.37 321.33 L 342.62 224.57 L 346.01 224.57 L 346.01 321.61 L 342.91 321.61 L 342.91 230.01 Z'/><path d='M 416.08 296.16 L 415.8 296.16 C 414.1 296.43 412.39 296.72 410.64 297.04 C 408.9 297.36 407.13 297.52 405.35 297.52 L 405.35 294.25 C 411.28 293.89 416.67 292.44 421.52 289.9 C 426.37 287.36 430.3 284.04 433.32 279.96 C 436.33 275.88 438.24 271.23 439.04 266.01 C 439.84 260.79 439.2 255.37 437.13 249.75 C 435.25 244.94 432.31 240.74 428.3 237.16 C 424.3 233.57 419.76 231.1 414.67 229.74 L 378.64 228.65 L 378.64 321.33 L 374.97 321.33 L 374.97 225.11 L 407.04 225.11 C 410.71 225.11 414.36 225.77 417.99 227.08 C 421.61 228.4 424.84 230.1 427.66 232.19 C 431.9 235.18 435.27 238.83 437.77 243.14 C 440.26 247.45 441.82 251.99 442.43 256.75 C 443.04 261.52 442.69 266.3 441.37 271.11 C 440.05 275.92 437.7 280.28 434.3 284.18 C 432.33 286.54 430.12 288.56 427.66 290.24 C 425.21 291.92 422.58 293.44 419.76 294.8 L 419.76 295.07 L 440.24 321.33 L 436 321.33 Z'/><path d='M 473.44 321.34 L 470.05 321.34 L 470.05 224.3 L 473.44 224.3 Z'/><path d='M 500.28 321.33 L 495.76 321.33 L 588.01 224.57 L 591.4 224.57 L 591.4 321.61 L 588.29 321.61 L 588.29 230.01 Z'/></g></svg>">
 
@@ -309,9 +335,6 @@
       animation: ringPulse 5s ease-out 1.5s infinite;
     }
 
-    /* ============================================== */
-    /* STAGE LOGO 3D ARIA                             */
-    /* ============================================== */
     .hero-3d-stage {
       position: relative;
       z-index: 3;
@@ -618,6 +641,94 @@
     .footer-col a { color: #EFECE6; text-decoration: none; font-weight: 500; transition: color 0.2s; }
     .footer-col a:hover { color: #F2BBAE; text-decoration: underline; }
     .footer-bottom-bar { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.06); display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.72rem; color: #7A766F; }
+    .footer-legal-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .footer-legal-links a { color: #9E9B95; text-decoration: none; transition: color 0.2s; }
+    .footer-legal-links a:hover { color: #C5A059; text-decoration: underline; }
+
+    /* ===== Skip link ===== */
+    .skip-link { position: absolute; top: -100px; left: 1rem; background: #111; color: #FFF; padding: 0.75rem 1.25rem; z-index: 9999; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; border-radius: 2px; transition: top 0.2s ease; }
+    .skip-link:focus { top: 1rem; }
+
+    /* ===== Cookie banner ===== */
+    .cookie-banner {
+      position: fixed; bottom: 0; left: 0; width: 100%;
+      background: #111; color: #F8F6F2;
+      padding: 1.2rem 5% calc(1.2rem + env(safe-area-inset-bottom));
+      z-index: 3000;
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      border-top: 1px solid rgba(197, 160, 89, 0.3);
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
+    }
+    .cookie-banner.show { transform: translateY(0); }
+    .cookie-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 1rem;
+      align-items: flex-start;
+    }
+    .cookie-text { font-size: 0.8rem; line-height: 1.55; color: #D5D1C9; margin: 0; }
+    .cookie-text a { color: #C5A059; text-decoration: underline; }
+    .cookie-actions { display: flex; gap: 0.6rem; width: 100%; flex-wrap: wrap; }
+    .cookie-btn {
+      flex: 1; min-width: 140px;
+      padding: 0.75rem 1.25rem;
+      border-radius: 2px; font-family: inherit;
+      font-size: 0.72rem; letter-spacing: 0.14em;
+      text-transform: uppercase; font-weight: 700;
+      cursor: pointer; transition: all 0.2s ease;
+    }
+    .cookie-btn.ghost { background: transparent; color: #F8F6F2; border: 1px solid rgba(248, 246, 242, 0.3); }
+    .cookie-btn.ghost:hover { background: rgba(248, 246, 242, 0.08); }
+    .cookie-btn.solid { background: #C5A059; color: #111; border: 1px solid #C5A059; }
+    .cookie-btn.solid:hover { background: #D8BA75; }
+
+    /* ===== Policy modal ===== */
+    .policy-modal {
+      position: fixed; inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 4000;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 4rem 5% 2rem;
+      overflow-y: auto;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .policy-modal.active { display: flex; opacity: 1; }
+    .policy-content {
+      background: #F8F6F2; color: #141414;
+      max-width: 780px; width: 100%;
+      padding: 2.5rem clamp(1.25rem, 4vw, 3rem);
+      border-radius: 4px;
+      position: relative;
+      animation: heroFadeUp 0.4s ease;
+    }
+    .policy-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: none; border: none;
+      font-size: 1.2rem; cursor: pointer;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      color: #141414;
+      transition: background 0.2s;
+    }
+    .policy-close:hover { background: rgba(0,0,0,0.06); }
+    .policy-content h2 {
+      font-family: var(--font-serif);
+      font-size: 2rem; font-weight: 500;
+      margin-bottom: 1.25rem;
+      color: #141414;
+    }
+    .policy-body { font-size: 0.88rem; line-height: 1.7; color: #3A3733; }
+    .policy-body h3 { font-family: var(--font-serif); font-size: 1.25rem; margin: 1.5rem 0 0.5rem; color: #141414; }
+    .policy-body h3:first-child { margin-top: 0; }
+    .policy-body p, .policy-body ul { margin-bottom: 0.85rem; }
+    .policy-body ul { padding-left: 1.25rem; }
+    .policy-body a { color: #A87932; }
+    .policy-body code { background: rgba(20,20,20,0.06); padding: 0.1em 0.35em; border-radius: 2px; font-size: 0.85em; }
 
     @media (prefers-reduced-motion: reduce) {
       .hero-particles span, .hero-ring, .hero-scroll-line::after,
@@ -634,6 +745,9 @@
       .logistics-card { grid-template-columns: 1fr 1fr; gap: 1.75rem; }
       .book-card { padding: 2rem 1.8rem; }
       .hero-3d-stage { height: clamp(340px, 38vw, 460px); }
+      .cookie-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+      .cookie-actions { width: auto; flex-wrap: nowrap; }
+      .cookie-btn { flex: 0 0 auto; min-width: 160px; }
     }
 
     @media (min-width: 1024px) {
@@ -680,8 +794,90 @@
       .hero-3d-stage { height: clamp(240px, 60vw, 320px); }
     }
   </style>
+
+  <!-- ===================== JSON-LD STRUTTURATI ===================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "Aria Salon",
+    "description": "Atelier di bellezza a Rho. Specialisti in Air Touch, Balayage sartoriale e salute del capello.",
+    "image": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80",
+    "url": "https://andrea23320.github.io/ariasalon/",
+    "telephone": "+39-02-99760547",
+    "priceRange": "€€",
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Contanti, Carta di Credito, Bancomat",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Corso Giuseppe Garibaldi 56",
+      "addressLocality": "Rho",
+      "addressRegion": "MI",
+      "postalCode": "20017",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 45.529,
+      "longitude": 9.040
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Wednesday", "Friday", "Saturday"],
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Thursday",
+        "opens": "11:00",
+        "closes": "20:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/ariasalon.milano/"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servizi Aria Salon",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Taglio Sartoriale" }, "price": "40", "priceCurrency": "EUR" },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Air Touch / Balayage" }, "price": "90", "priceCurrency": "EUR" },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Styling & Piega" }, "price": "25", "priceCurrency": "EUR" },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ricostruzione Gold20" }, "price": "40", "priceCurrency": "EUR" }
+      ]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ogni quanto tempo va ritoccato l'Air Touch o il Balayage?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La sfumatura micrometrica cresce senza creare stacchi orizzontali evidenti. In media il ritocco completo si effettua ogni 4–6 mesi, con un semplice Gloss intermedio ogni 8–10 settimane." }
+      },
+      {
+        "@type": "Question",
+        "name": "Dove posso parcheggiare nei pressi del salone a Rho?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Lungo Corso Garibaldi e nelle vicine Via Meda e Piazza Visconti sono disponibili numerosi posti auto gratuiti e a disco orario. La stazione FS di Rho dista 5 minuti a piedi." }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso inviare una foto dei miei capelli prima di prenotare?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sì. Puoi scriverci su WhatsApp inviando una foto alla luce naturale dei capelli attuali e una del risultato desiderato: forniremo tempi esatti e preventivo preliminare." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+
+  <a href="#main-content" class="skip-link">Salta al contenuto principale</a>
 
   <header>
     <a href="#" class="brand-logo-wrap" aria-label="Aria Salon Home">
@@ -722,14 +918,14 @@
         <span id="statusText">Orari Atelier</span>
       </div>
       <a href="#prenota" class="header-book-btn">Prenota</a>
-      <button class="nav-toggle" id="openMenuBtn" aria-label="Apri Menu Mobile" type="button">
+      <button class="nav-toggle" id="openMenuBtn" aria-label="Apri Menu Mobile" aria-expanded="false" aria-controls="siteDrawer" type="button">
         <span>Menu</span>
         <div class="nav-toggle-bars"></div>
       </button>
     </div>
   </header>
 
-  <div class="drawer" id="siteDrawer">
+  <div class="drawer" id="siteDrawer" role="dialog" aria-modal="true" aria-label="Menu di navigazione">
     <button class="drawer-close" id="closeMenuBtn" type="button">Chiudi ✕</button>
     <nav class="drawer-nav">
       <a href="#salone" class="drawer-link">01 — Il Salone</a>
@@ -751,10 +947,7 @@
     </div>
   </div>
 
-  <main>
-    <!-- ============================================== -->
-    <!-- HERO CON LOGO 3D ORO                           -->
-    <!-- ============================================== -->
+  <main id="main-content">
     <section class="hero" id="heroSection">
 
       <div class="hero-particles" aria-hidden="true">
@@ -772,7 +965,6 @@
 
       <div class="hero-ring" aria-hidden="true"></div>
 
-      <!-- STAGE LOGO 3D ARIA -->
       <div class="hero-3d-stage" id="aria-logo-3d" role="img" aria-label="Aria salon">
         <div class="stage"></div>
         <svg class="fallback" viewBox="240 215 360 165" role="img" aria-label="Aria salon">
@@ -811,7 +1003,6 @@
       </a>
     </section>
 
-    <!-- 01 — IL SALONE -->
     <section id="salone" class="manifesto">
       <div class="container manifesto-grid">
         <div>
@@ -832,7 +1023,6 @@
       </div>
     </section>
 
-    <!-- 02 — SERVIZI -->
     <section id="servizi">
       <div class="container">
         <div class="eyebrow">02 — Servizi & Trasparenza</div>
@@ -944,7 +1134,6 @@
       </div>
     </section>
 
-    <!-- 03 — SPECCHIO -->
     <section class="mirror-break">
       <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1400&q=80" alt="Specchio Atelier" class="mirror-break-img" loading="lazy" decoding="async">
       <div class="mirror-break-inner">
@@ -953,7 +1142,6 @@
       </div>
     </section>
 
-    <!-- 04 — FIND YOUR LOOK -->
     <section id="look" class="look-sec">
       <div class="container look-split">
         <div>
@@ -982,7 +1170,6 @@
       </div>
     </section>
 
-    <!-- 05 — ESPERIENZA -->
     <section id="esperienza">
       <div class="container">
         <div class="eyebrow">04 — L'Esperienza</div>
@@ -1017,7 +1204,6 @@
       </div>
     </section>
 
-    <!-- 06 — PRIMA E DOPO -->
     <section id="trasformazioni">
       <div class="container">
         <div class="eyebrow">05 — Prima e Dopo</div>
@@ -1037,7 +1223,6 @@
       </div>
     </section>
 
-    <!-- 07 — CURA A CASA -->
     <section id="cura">
       <div class="container">
         <div class="eyebrow">06 — Filosofia & Regali</div>
@@ -1060,7 +1245,6 @@
       </div>
     </section>
 
-    <!-- 08 — FAQ -->
     <section id="faq">
       <div class="container">
         <div class="eyebrow">07 — Domande Frequenti</div>
@@ -1083,7 +1267,6 @@
       </div>
     </section>
 
-    <!-- 09 — PRENOTAZIONE -->
     <section id="prenota">
       <div class="container">
         <div class="eyebrow">08 — Prenota Subito</div>
@@ -1164,7 +1347,7 @@
     <div class="container">
       <div class="footer-split">
         <div class="footer-col">
-          <svg class="footer-svg-logo" viewBox="240 215 360 165" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="footer-svg-logo" viewBox="240 215 360 165" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Aria Salon">
             <defs>
               <linearGradient id="auFoot" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0" stop-color="#F2BBAE"/>
@@ -1198,6 +1381,11 @@
       </div>
       <div class="footer-bottom-bar">
         <span>© 2026 Aria Salon Milano. Tutti i diritti riservati.</span>
+        <span class="footer-legal-links">
+          <a href="#privacy" onclick="openPolicy('privacy'); return false;">Privacy Policy</a>
+          <a href="#cookie" onclick="openPolicy('cookie'); return false;">Cookie Policy</a>
+          <a href="#gestisci-cookie" onclick="resetCookies(); return false;">Gestisci cookie</a>
+        </span>
         <span>Partner Ufficiale Alfaparf Milano Professional</span>
       </div>
     </div>
@@ -1209,6 +1397,38 @@
       <span>Prenota</span>
     </a>
   </div>
+
+  <!-- ===================== COOKIE BANNER ===================== -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Informativa cookie">
+    <div class="cookie-inner">
+      <p class="cookie-text">
+        Questo sito utilizza cookie tecnici necessari al funzionamento e cookie di terze parti (Google Fonts, Unsplash) per migliorare l'esperienza. Puoi accettare tutti i cookie o solo quelli necessari.
+        <a href="#privacy" onclick="openPolicy('privacy'); return false;">Privacy Policy</a> ·
+        <a href="#cookie" onclick="openPolicy('cookie'); return false;">Cookie Policy</a>
+      </p>
+      <div class="cookie-actions">
+        <button type="button" class="cookie-btn ghost" onclick="cookieChoice('necessary')">Solo necessari</button>
+        <button type="button" class="cookie-btn solid" onclick="cookieChoice('all')">Accetta tutti</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== MODALE POLICY ===================== -->
+  <div class="policy-modal" id="policyModal" role="dialog" aria-modal="true" aria-labelledby="policyTitle">
+    <div class="policy-content">
+      <button class="policy-close" type="button" onclick="closePolicy()" aria-label="Chiudi">✕</button>
+      <h2 id="policyTitle" class="serif">Privacy Policy</h2>
+      <div id="policyBody" class="policy-body"></div>
+    </div>
+  </div>
+
+  <noscript>
+    <div style="background:#111;color:#FFF;padding:1rem;text-align:center;font-size:0.85rem;">
+      Per la migliore esperienza abilita JavaScript. Puoi comunque contattarci su
+      <a href="https://wa.me/390299760547" style="color:#C5A059;">WhatsApp</a>
+      o al <a href="tel:+390299760547" style="color:#C5A059;">02 99760547</a>.
+    </div>
+  </noscript>
 
   <script>
     (function updateSalonStatus() {
@@ -1235,10 +1455,20 @@
     const drawer = document.getElementById('siteDrawer');
     const openBtn = document.getElementById('openMenuBtn');
     const closeBtn = document.getElementById('closeMenuBtn');
-    if (openBtn) openBtn.addEventListener('click', () => drawer.classList.add('active'));
-    if (closeBtn) closeBtn.addEventListener('click', () => drawer.classList.remove('active'));
+
+    function openDrawer() {
+      drawer.classList.add('active');
+      if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
+    }
+    function closeDrawer() {
+      drawer.classList.remove('active');
+      if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openDrawer);
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
     document.querySelectorAll('.drawer-link').forEach(link => {
-      link.addEventListener('click', () => drawer.classList.remove('active'));
+      link.addEventListener('click', closeDrawer);
     });
 
     const rows = document.querySelectorAll('.service-row');
@@ -1373,9 +1603,98 @@
     };
   </script>
 
-  <!-- ============================================================ -->
-  <!-- CARICAMENTO LOGO 3D ARIA (versione ORO)                      -->
-  <!-- ============================================================ -->
+  <script>
+    /* ==================== COOKIE CONSENT ==================== */
+    (function initCookies() {
+      var banner = document.getElementById('cookieBanner');
+      if (!banner) return;
+      var consent = null;
+      try { consent = localStorage.getItem('aria_cookie_consent'); } catch(e) {}
+      if (!consent) {
+        setTimeout(function(){ banner.classList.add('show'); }, 800);
+      }
+    })();
+
+    window.cookieChoice = function(level) {
+      try { localStorage.setItem('aria_cookie_consent', level); } catch(e) {}
+      try { localStorage.setItem('aria_cookie_date', new Date().toISOString()); } catch(e) {}
+      var banner = document.getElementById('cookieBanner');
+      if (banner) banner.classList.remove('show');
+    };
+
+    window.resetCookies = function() {
+      try {
+        localStorage.removeItem('aria_cookie_consent');
+        localStorage.removeItem('aria_cookie_date');
+      } catch(e) {}
+      var banner = document.getElementById('cookieBanner');
+      if (banner) banner.classList.add('show');
+    };
+
+    /* ==================== POLICY MODAL ==================== */
+    var POLICY_TEXT = {
+      privacy: [
+        '<h3>1. Titolare del trattamento</h3>',
+        '<p>Aria Salon di Vincenzo Lombardo — Corso Giuseppe Garibaldi 56, 20017 Rho (MI) — P.IVA 06220590969. Email di contatto: info@ariasalon.it (da personalizzare).</p>',
+        '<h3>2. Tipologie di dati raccolti</h3>',
+        '<p>Il sito non raccoglie dati personali tramite form automatici. I dati vengono trattati solo se l\'utente ci contatta volontariamente tramite telefono, WhatsApp, Instagram o email.</p>',
+        '<ul><li>Dati di contatto (nome, telefono, email) forniti volontariamente.</li><li>Dati di navigazione anonimi (log del server, indirizzo IP).</li></ul>',
+        '<h3>3. Finalità del trattamento</h3>',
+        '<p>I dati sono trattati esclusivamente per: rispondere alle richieste di informazioni, gestire appuntamenti, adempiere a obblighi di legge.</p>',
+        '<h3>4. Base giuridica</h3>',
+        '<p>Consenso dell\'interessato (Art. 6 GDPR) e interesse legittimo per la gestione delle richieste.</p>',
+        '<h3>5. Conservazione dei dati</h3>',
+        '<p>I dati di contatto sono conservati per il tempo necessario alla gestione della richiesta e comunque non oltre 24 mesi.</p>',
+        '<h3>6. Diritti dell\'interessato</h3>',
+        '<p>In ogni momento è possibile richiedere accesso, rettifica, cancellazione, limitazione o portabilità dei dati scrivendo ai contatti del Titolare (Artt. 15-22 GDPR). È inoltre possibile proporre reclamo al Garante Privacy.</p>',
+        '<h3>7. Trasferimento a terzi</h3>',
+        '<p>I dati non vengono ceduti a terzi. Il sito si appoggia a servizi di hosting (GitHub Pages) e CDN (Google Fonts, Unsplash) che applicano le proprie informative.</p>'
+      ],
+      cookie: [
+        '<h3>1. Cosa sono i cookie</h3>',
+        '<p>I cookie sono piccoli file di testo che i siti visitati inviano al browser dell\'utente, dove vengono memorizzati per essere poi ritrasmessi al sito alla visita successiva.</p>',
+        '<h3>2. Cookie utilizzati</h3>',
+        '<p><strong>Cookie tecnici necessari:</strong></p>',
+        '<ul><li><code>aria_cookie_consent</code> — memorizza la tua scelta sul banner cookie (durata: 12 mesi).</li><li><code>aria_cookie_date</code> — data del consenso.</li></ul>',
+        '<p><strong>Cookie di terze parti (solo previo consenso):</strong></p>',
+        '<ul><li>Google Fonts — per il caricamento dei font tipografici.</li><li>Unsplash — per il caricamento delle immagini.</li></ul>',
+        '<h3>3. Gestione dei cookie</h3>',
+        '<p>Puoi modificare la tua scelta in qualsiasi momento cliccando su "Gestisci cookie" nel footer, oppure dalle impostazioni del tuo browser.</p>',
+        '<h3>4. Disabilitazione cookie</h3>',
+        '<p>La disabilitazione dei cookie tecnici può compromettere alcune funzionalità del sito. I cookie di terze parti possono essere bloccati senza impatti significativi.</p>',
+        '<h3>5. Riferimenti normativi</h3>',
+        '<p>Provvedimento Garante Privacy n. 231 del 10 giugno 2021 e Regolamento UE 2016/679 (GDPR).</p>'
+      ]
+    };
+
+    window.openPolicy = function(type) {
+      var modal = document.getElementById('policyModal');
+      var title = document.getElementById('policyTitle');
+      var body = document.getElementById('policyBody');
+      if (!modal || !body) return;
+      title.textContent = type === 'privacy' ? 'Privacy Policy' : 'Cookie Policy';
+      body.innerHTML = (POLICY_TEXT[type] || []).join('');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    window.closePolicy = function() {
+      var modal = document.getElementById('policyModal');
+      if (modal) modal.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') closePolicy();
+    });
+    var modalEl = document.getElementById('policyModal');
+    if (modalEl) {
+      modalEl.addEventListener('click', function(e){
+        if (e.target === modalEl) closePolicy();
+      });
+    }
+  </script>
+
   <script>
     (function(){
       function hasWebGL(){
