@@ -1,0 +1,44 @@
+{
+  "name": "Aria Salon Rho — Atelier Capelli",
+  "short_name": "Aria Salon",
+  "description": "Atelier di bellezza a Rho. Specialisti in Air Touch, Balayage sartoriale e salute del capello.",
+  "start_url": "/ariasalon/?utm_source=pwa",
+  "scope": "/ariasalon/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#050505",
+  "theme_color": "#111111",
+  "lang": "it",
+  "dir": "ltr",
+  "categories": ["beauty", "lifestyle", "business"],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Prenota su WhatsApp",
+      "short_name": "Prenota",
+      "description": "Apri WhatsApp per prenotare un appuntamento",
+      "url": "/ariasalon/#prenota",
+      "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+    },
+    {
+      "name": "Servizi & Listino",
+      "short_name": "Servizi",
+      "description": "Scopri i servizi e le stime",
+      "url": "/ariasalon/#servizi",
+      "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+    }
+  ]
+}
