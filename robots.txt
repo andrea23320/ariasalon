@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://andrea23320.github.io/ariasalon/sitemap.xml
