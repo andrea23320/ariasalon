@@ -868,7 +868,187 @@
     .policy-body ul { padding-left: 1.25rem; }
     .policy-body a { color: #A87932; }
     .policy-body code { background: rgba(20,20,20,0.06); padding: 0.1em 0.35em; border-radius: 2px; font-size: 0.85em; }
+    /* ============================================== */
+    /* GALLERY LAVORI                                 */
+    /* ============================================== */
+    .gallery-sec { background: var(--bg-cream); }
 
+    .gallery-intro {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border-radius: 2px;
+      background: #EEE;
+      cursor: pointer;
+      padding: 0;
+      border: none;
+      font-family: inherit;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(0,0,0,0.55) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .gallery-item:hover::after { opacity: 1; }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0.85rem;
+      left: 0.95rem;
+      right: 0.95rem;
+      color: #FFF;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 2;
+    }
+
+    .gallery-item:hover .gallery-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 2.5rem;
+    }
+
+    .gallery-ig-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: var(--text-dark);
+      color: #FFF;
+      text-decoration: none;
+      padding: 0.9rem 1.5rem;
+      border-radius: 2px;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .gallery-ig-btn:hover { background: #000; transform: translateY(-2px); }
+    .gallery-ig-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .gallery-ig-btn span:last-child { transition: transform 0.25s ease; display: inline-block; }
+    .gallery-ig-btn:hover span:last-child { transform: translateX(4px); }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.94);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 5000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 5% 2.5rem;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .lightbox.active { display: flex; opacity: 1; }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 2px;
+      animation: heroFadeUp 0.4s ease;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFF;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 1.05rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+
+    .lightbox-close:hover { background: rgba(255, 255, 255, 0.2); }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFF;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+
+    .lightbox-nav:hover { background: rgba(255, 255, 255, 0.2); }
+    .lightbox-prev { left: 1rem; }
+    .lightbox-next { right: 1rem; }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
     @media (prefers-reduced-motion: reduce) {
       .hero-particles span, .hero-ring, .hero-scroll-line::after,
       .hero-desc, .hero-btn, .hero-scroll, .hero-divider, .hero-3d-stage {
@@ -889,6 +1069,7 @@
       .cookie-btn { flex: 0 0 auto; min-width: 160px; }
       .review-card { min-width: 42vw; max-width: 42vw; }
       .reviews-header { flex-direction: row; justify-content: space-between; align-items: flex-end; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
     }
 
     @media (min-width: 1024px) {
@@ -928,6 +1109,9 @@
 
       .footer-split { grid-template-columns: 1.4fr 1fr 1fr; gap: 4.5rem; align-items: start; }
       .footer-bottom-bar { flex-direction: row; justify-content: space-between; align-items: center; }
+      .gallery-grid { gap: 1.25rem; }
+      .lightbox-prev { left: 2rem; }
+      .lightbox-next { right: 2rem; }
     }
 
     @media (max-width: 380px) {
@@ -1051,6 +1235,7 @@
       <li><a href="#servizi">Servizi</a></li>
       <li><a href="#look">Look</a></li>
       <li><a href="#esperienza">Esperienza</a></li>
+      <li><a href="#lavori">Lavori</a></li>
       <li><a href="#recensioni">Recensioni</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
@@ -1076,9 +1261,10 @@
       <a href="#look" class="drawer-link">03 — Find Your Look</a>
       <a href="#esperienza" class="drawer-link">04 — L'Esperienza</a>
       <a href="#trasformazioni" class="drawer-link">05 — Prima e Dopo</a>
-      <a href="#recensioni" class="drawer-link">06 — Recensioni</a>
-      <a href="#cura" class="drawer-link">07 — Cura a Casa & Gift</a>
-      <a href="#prenota" class="drawer-link">08 — Prenota su WhatsApp</a>
+      <a href="#lavori" class="drawer-link">06 — I Nostri Lavori</a>
+      <a href="#recensioni" class="drawer-link">07 — Recensioni</a>
+      <a href="#cura" class="drawer-link">08 — Cura a Casa & Gift</a>
+      <a href="#prenota" class="drawer-link">09 — Prenota su WhatsApp</a>
     </nav>
     <div class="drawer-info">
       <div style="margin-bottom: 0.75rem; font-weight: 600; color: #FFF; display: flex; align-items: center; gap: 0.5rem;">
@@ -1366,13 +1552,84 @@
         </div>
       </div>
     </section>
+    <!-- 06 — GALLERY LAVORI -->
+    <section id="lavori" class="gallery-sec">
+      <div class="container">
+        <div class="gallery-intro">
+          <div>
+            <div class="eyebrow">06 — I Nostri Lavori</div>
+            <h2 class="sec-title" style="margin-bottom: 0.75rem;">Ogni cliente, <em class="serif italic">un'opera.</em></h2>
+            <p class="sec-desc" style="margin-bottom: 0;">Una selezione di tagli, colori e trattamenti realizzati nel nostro atelier a Rho.</p>
+          </div>
+        </div>
 
+        <div class="gallery-grid" id="galleryGrid">
+          <button class="gallery-item" type="button" aria-label="Apri foto">
+            <img src="gallery/gallery-01.jpg" alt="Schiaritura biondo platino su caschetto mosso" loading="lazy" decoding="async">
+            <span class="gallery-caption">Biondo platino · Caschetto</span>
+          </button>
+          <button class="gallery-item" type="button" aria-label="Apri foto">
+            <img src="gallery/gallery-02.jpg" alt="Riccio castano naturale definito" loading="lazy" decoding="async">
+            <span class="gallery-caption">Riccio naturale · Definizione</span>
+          </button>
+          <button class="gallery-item" type="button" aria-label="Apri foto">
+            <img src="gallery/gallery-03.jpg" alt="Capelli lunghi biondo ghiaccio" loading="lazy" decoding="async">
+            <span class="gallery-caption">Biondo ghiaccio · Lungo</span>
+          </button>
+          <button class="gallery-item" type="button" aria-label="Apri foto">
+            <img src="gallery/gallery-04.jpg" alt="Castano lungo con frangia piena" loading="lazy" decoding="async">
+            <span class="gallery-caption">Castano · Frangia piena</span>
+          </button>
+          <button class="gallery-item" type="button" aria-label="Apri foto">
+            <img src="gallery/gallery-05.jpg" alt="Biondo dorato con texture mossa" loading="lazy" decoding="async">
+            <span class="gallery-caption">Biondo dorato · Texture</span>
+          </button>
+          <button class="gallery-item" type="button" aria-label="Apri foto">
+            <img src="gallery/gallery-06.jpg" alt="Biondo miele con onde morbide" loading="lazy" decoding="async">
+            <span class="gallery-caption">Biondo miele · Onde</span>
+          </button>
+          <button class="gallery-item" type="button" aria-label="Apri foto">
+            <img src="gallery/gallery-07.jpg" alt="Rame brillante con bob e frangia" loading="lazy" decoding="async">
+            <span class="gallery-caption">Rame brillante · Bob</span>
+          </button>
+          <button class="gallery-item" type="button" aria-label="Apri foto">
+            <img src="gallery/gallery-08.jpg" alt="Biondo caldo con onde naturali" loading="lazy" decoding="async">
+            <span class="gallery-caption">Biondo caldo · Onde</span>
+          </button>
+          <button class="gallery-item" type="button" aria-label="Apri foto">
+            <img src="gallery/gallery-09.jpg" alt="Bob castano scuro sartoriale" loading="lazy" decoding="async">
+            <span class="gallery-caption">Bob sartoriale · Castano</span>
+          </button>
+        </div>
+
+        <div class="gallery-footer">
+          <a href="https://www.instagram.com/ariasalon.milano/" target="_blank" rel="noopener" class="gallery-ig-btn">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+            </svg>
+            <span>Seguici su Instagram</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizza foto">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Chiudi">✕</button>
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Precedente">‹</button>
+      <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Successiva">›</button>
+      <img id="lightboxImg" src="" alt="">
+      <div class="lightbox-counter" id="lightboxCounter">1 / 9</div>
+    </div>
     <!-- 06 — TESTIMONIANZE GOOGLE -->
     <section id="recensioni" class="reviews-sec">
       <div class="container">
         <div class="reviews-header">
           <div>
-            <div class="eyebrow">06 — Dicono di noi</div>
+            <div class="eyebrow">07 — Dicono di noi</div>
             <h2 class="sec-title" style="margin-bottom: 0.75rem;">Le voci dei nostri <em class="serif italic">clienti.</em></h2>
             <p class="sec-desc" style="margin-bottom: 0;">Recensioni verificate direttamente dal profilo Google di Aria Salon Rho.</p>
           </div>
@@ -1493,7 +1750,7 @@
 
     <section id="cura">
       <div class="container">
-        <div class="eyebrow">07 — Filosofia & Regali</div>
+        <div class="eyebrow">08 — Filosofia & Regali</div>
         <h2 class="sec-title">La bellezza continua dopo il salone.</h2>
         <p class="sec-desc">I nostri consigli per mantenere la lucentezza nel tempo e l'opzione regalo su misura.</p>
         <div class="features-grid">
@@ -1521,7 +1778,7 @@
 
     <section id="faq">
       <div class="container">
-        <div class="eyebrow">08 — Domande Frequenti</div>
+        <div class="eyebrow">09 — Domande Frequenti</div>
         <h2 class="sec-title">Dettagli Utili</h2>
         <p class="sec-desc">Tutto quello che è utile sapere prima di accomodarti in salone.</p>
         <div class="faq-mini-list">
@@ -1543,7 +1800,7 @@
 
     <section id="prenota">
       <div class="container">
-        <div class="eyebrow">09 — Prenota Subito</div>
+        <div class="eyebrow">10 — Prenota Subito</div>
         <h2 class="sec-title">Fissa la tua poltrona.</h2>
         <p class="sec-desc">Scegli il servizio e componi la richiesta direttamente per WhatsApp.</p>
         <div class="book-card">
@@ -1978,6 +2235,60 @@
         if (e.target === modalEl) closePolicy();
       });
     }
+  </script>
+  <script>
+    /* ============================================================
+       LIGHTBOX GALLERY
+       ============================================================ */
+    (function initLightbox() {
+      var gallery = document.getElementById('galleryGrid');
+      if (!gallery) return;
+
+      var items = gallery.querySelectorAll('.gallery-item');
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightboxImg');
+      var counter = document.getElementById('lightboxCounter');
+      var currentIndex = 0;
+
+      function open(index) {
+        currentIndex = index;
+        var img = items[index].querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        counter.textContent = (index + 1) + ' / ' + items.length;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function navigate(delta) {
+        currentIndex = (currentIndex + delta + items.length) % items.length;
+        open(currentIndex);
+      }
+
+      items.forEach(function(item, i) {
+        item.addEventListener('click', function() { open(i); });
+      });
+
+      document.getElementById('lightboxClose').addEventListener('click', close);
+      document.getElementById('lightboxPrev').addEventListener('click', function() { navigate(-1); });
+      document.getElementById('lightboxNext').addEventListener('click', function() { navigate(1); });
+
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) close();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') navigate(-1);
+        if (e.key === 'ArrowRight') navigate(1);
+      });
+    })();
   </script>
 
   <script>
