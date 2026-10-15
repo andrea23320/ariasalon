@@ -139,8 +139,20 @@
       100% { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
     }
     @keyframes logoBreath {
-      0%, 100% { filter: drop-shadow(0 4px 24px rgba(197, 160, 89, 0.25)); transform: scale(1); }
-      50%      { filter: drop-shadow(0 8px 36px rgba(197, 160, 89, 0.45)); transform: scale(1.015); }
+      0%, 100% { filter: drop-shadow(0 4px 24px rgba(197, 160, 89, 0.25)); }
+      50%      { filter: drop-shadow(0 10px 38px rgba(197, 160, 89, 0.5)); }
+    }
+    @keyframes logoShineSweep {
+      0%   { left: -60%; opacity: 0; }
+      8%   { opacity: 1; }
+      45%  { left: 120%; opacity: 0; }
+      100% { left: 120%; opacity: 0; }
+    }
+    @keyframes logoFloat3D {
+      0%, 100% { transform: rotateX(0deg) rotateY(0deg) translateZ(0); }
+      25%      { transform: rotateX(2.5deg) rotateY(-5deg) translateZ(8px); }
+      50%      { transform: rotateX(0deg) rotateY(0deg) translateZ(0); }
+      75%      { transform: rotateX(-2.5deg) rotateY(5deg) translateZ(8px); }
     }
 
     header {
@@ -342,7 +354,9 @@
       animation: ringPulse 5s ease-out 1.5s infinite;
     }
 
-    /* LOGO HERO */
+    /* ============================================== */
+    /* LOGO HERO — 3D Parallax + Shine                */
+    /* ============================================== */
     .hero-logo-stage {
       position: relative;
       z-index: 3;
@@ -351,15 +365,66 @@
       margin: 0 auto clamp(1.5rem, 3.5vw, 2rem);
       opacity: 0;
       animation: heroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
-      pointer-events: none;
       user-select: none;
+      perspective: 1200px;
     }
-    .hero-logo-stage img {
+
+    .hero-logo-wrap {
+      position: relative;
+      display: block;
+      width: 100%;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      transform-style: preserve-3d;
+      transform:
+        rotateX(var(--logo-rx, 0deg))
+        rotateY(var(--logo-ry, 0deg));
+      will-change: transform;
+    }
+
+    .hero-logo-wrap img {
       display: block;
       width: 100%;
       height: auto;
       animation: logoBreath 5s ease-in-out infinite;
+      backface-visibility: hidden;
+      pointer-events: none;
     }
+
+    .hero-logo-shine {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+    .hero-logo-shine::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -60%;
+      width: 40%;
+      height: 140%;
+      background: linear-gradient(
+        100deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 245, 200, 0.6) 50%,
+        rgba(255, 255, 255, 0) 70%,
+        transparent 100%
+      );
+      transform: skewX(-18deg);
+      filter: blur(8px);
+      mix-blend-mode: screen;
+      animation: logoShineSweep 6s ease-in-out 2.5s infinite;
+      opacity: 0;
+    }
+
+    @media (hover: none) {
+      .hero-logo-wrap {
+        animation: logoFloat3D 9s ease-in-out infinite;
+      }
+    }
+
     @media (min-width: 768px) {
       .hero-logo-stage { max-width: min(620px, 55vw); }
     }
@@ -1049,7 +1114,9 @@
         animation: none !important;
         opacity: 1 !important;
       }
-      .hero-logo-stage img { animation: none !important; }
+      .hero-logo-wrap img { animation: none !important; }
+      .hero-logo-wrap { animation: none !important; transform: none !important; }
+      .hero-logo-shine::before { animation: none !important; }
     }
 
     @media (min-width: 768px) {
@@ -1287,8 +1354,11 @@
 
       <div class="hero-ring" aria-hidden="true"></div>
 
-      <div class="hero-logo-stage">
-        <img src="logo-aria.svg" alt="Aria Salon — logo" loading="eager" decoding="async">
+      <div class="hero-logo-stage" id="logoStage">
+        <div class="hero-logo-wrap" id="logoWrap">
+          <img src="logo-aria.svg" alt="Aria Salon — logo" loading="eager" decoding="async">
+          <span class="hero-logo-shine" aria-hidden="true"></span>
+        </div>
       </div>
 
       <div class="hero-divider">
@@ -2213,6 +2283,55 @@
         if (e.target === modalEl) closePolicy();
       });
     }
+  </script>
+
+  <script>
+    /* ============================================================
+       LOGO 3D PARALLAX — segue il cursore su desktop
+       ============================================================ */
+    (function initLogo3D() {
+      var stage = document.getElementById('logoStage');
+      var wrap = document.getElementById('logoWrap');
+      if (!stage || !wrap) return;
+
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var isTouch = window.matchMedia('(hover: none)').matches;
+      if (prefersReduced || isTouch) return;
+
+      var MAX = 8;
+      var targetRx = 0, targetRy = 0;
+      var currentRx = 0, currentRy = 0;
+      var rafId = null;
+
+      function onMove(e) {
+        var rect = stage.getBoundingClientRect();
+        var cx = rect.left + rect.width / 2;
+        var cy = rect.top + rect.height / 2;
+        var dx = (e.clientX - cx) / (rect.width / 2);
+        var dy = (e.clientY - cy) / (rect.height / 2);
+        if (dx > 1) dx = 1; if (dx < -1) dx = -1;
+        if (dy > 1) dy = 1; if (dy < -1) dy = -1;
+        targetRy = dx * MAX;
+        targetRx = -dy * MAX;
+      }
+
+      function onLeave() {
+        targetRx = 0;
+        targetRy = 0;
+      }
+
+      function tick() {
+        currentRx += (targetRx - currentRx) * 0.08;
+        currentRy += (targetRy - currentRy) * 0.08;
+        wrap.style.setProperty('--logo-rx', currentRx.toFixed(2) + 'deg');
+        wrap.style.setProperty('--logo-ry', currentRy.toFixed(2) + 'deg');
+        rafId = requestAnimationFrame(tick);
+      }
+
+      stage.addEventListener('pointermove', onMove);
+      stage.addEventListener('pointerleave', onLeave);
+      tick();
+    })();
   </script>
 
   <script>
