@@ -1207,6 +1207,7 @@
       <li><a href="#salone">Salone</a></li>
       <li><a href="#team">Team</a></li>
       <li><a href="servizi.html">Servizi</a></li>
+      <li><a href="blog.html">Journal</a></li>
       <li><a href="#lavori">Lavori</a></li>
       <li><a href="#recensioni">Recensioni</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -1232,13 +1233,14 @@
       <a href="#team" class="drawer-link">02 — Il Team</a>
       <a href="servizi.html" class="drawer-link">03 — Servizi & Listino</a>
       <a href="#look" class="drawer-link">04 — Find Your Look</a>
-      <a href="#esperienza" class="drawer-link">05 — L'Esperienza</a>
-      <a href="#trasformazioni" class="drawer-link">06 — Prima e Dopo</a>
-      <a href="#lavori" class="drawer-link">07 — I Nostri Lavori</a>
-      <a href="#recensioni" class="drawer-link">08 — Recensioni</a>
-      <a href="#cura" class="drawer-link">09 — Cura a Casa & Gift</a>
-      <a href="#faq" class="drawer-link">10 — FAQ</a>
-      <a href="#prenota" class="drawer-link">11 — Prenota su WhatsApp</a>
+      <a href="blog.html" class="drawer-link">05 — Journal</a>
+      <a href="#esperienza" class="drawer-link">06 — L'Esperienza</a>
+      <a href="#trasformazioni" class="drawer-link">07 — Prima e Dopo</a>
+      <a href="#lavori" class="drawer-link">08 — I Nostri Lavori</a>
+      <a href="#recensioni" class="drawer-link">09 — Recensioni</a>
+      <a href="#cura" class="drawer-link">10 — Cura a Casa & Gift</a>
+      <a href="#faq" class="drawer-link">11 — FAQ</a>
+      <a href="#prenota" class="drawer-link">12 — Prenota su WhatsApp</a>
     </nav>
     <div class="drawer-info">
       <div style="margin-bottom: 0.75rem; font-weight: 600; color: #FFF; display: flex; align-items: center; gap: 0.5rem;">
@@ -2031,11 +2033,14 @@
 
   <script>
     window.goWhatsApp = function(text, label) {
+      try {
+        var log = JSON.parse(localStorage.getItem('aria_wa_clicks') || '[]');
+        log.push({ ts: Date.now(), label: label || 'whatsapp', msg: text.substring(0, 100) });
+        if (log.length > 200) log = log.slice(-200);
+        localStorage.setItem('aria_wa_clicks', JSON.stringify(log));
+      } catch(e) {}
       var waUrl = 'https://wa.me/390299760547?text=' + encodeURIComponent(text);
-      var params = 'to=' + encodeURIComponent(waUrl)
-                 + '&label=' + encodeURIComponent(label || 'whatsapp')
-                 + '&msg=' + encodeURIComponent(text.substring(0, 100));
-      window.location.href = 'grazie.html?' + params;
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
     };
 
     (function updateSalonStatus() {

@@ -910,11 +910,14 @@
       var text = 'Ciao Aria Salon! Vorrei informazioni e disponibilità per:\n\n';
       text += '• Servizio: ' + servizio + '\n';
       text += '\nPotete indicarmi le prime date disponibili?';
+      try {
+        var log = JSON.parse(localStorage.getItem('aria_wa_clicks') || '[]');
+        log.push({ ts: Date.now(), label: label || 'servizio', msg: text.substring(0, 100) });
+        if (log.length > 200) log = log.slice(-200);
+        localStorage.setItem('aria_wa_clicks', JSON.stringify(log));
+      } catch(e) {}
       var waUrl = 'https://wa.me/390299760547?text=' + encodeURIComponent(text);
-      var params = 'to=' + encodeURIComponent(waUrl)
-                 + '&label=' + encodeURIComponent(label || 'servizio')
-                 + '&msg=' + encodeURIComponent(text.substring(0, 100));
-      window.location.href = 'grazie.html?' + params;
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
     }
 
     var drawer = document.getElementById('siteDrawer');

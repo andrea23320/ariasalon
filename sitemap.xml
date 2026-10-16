@@ -96,5 +96,28 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
+  <url>
+    <loc>https://andrea23320.github.io/ariasalon/blog.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://andrea23320.github.io/ariasalon/blog/mantenere-biondo.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://andrea23320.github.io/ariasalon/blog/capelli-ricci-guida.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://andrea23320.github.io/ariasalon/blog/air-touch-vs-balayage.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
