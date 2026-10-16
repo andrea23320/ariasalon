@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /grazie.html
 
 Sitemap: https://andrea23320.github.io/ariasalon/sitemap.xml

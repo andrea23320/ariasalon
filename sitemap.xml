@@ -1,29 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
   <url>
     <loc>https://andrea23320.github.io/ariasalon/</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://andrea23320.github.io/ariasalon/gallery/gallery-01.jpg</image:loc>
+      <image:title>Schiaritura biondo platino su caschetto</image:title>
+      <image:caption>Schiaritura biondo platino realizzata da Aria Salon Rho</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://andrea23320.github.io/ariasalon/gallery/gallery-02.jpg</image:loc>
+      <image:title>Riccio castano naturale definito</image:title>
+      <image:caption>Definizione riccio naturale - Aria Salon Rho</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://andrea23320.github.io/ariasalon/gallery/gallery-03.jpg</image:loc>
+      <image:title>Capelli lunghi biondo ghiaccio</image:title>
+      <image:caption>Schiaritura biondo ghiaccio su capelli lunghi</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://andrea23320.github.io/ariasalon/gallery/gallery-04.jpg</image:loc>
+      <image:title>Castano lungo con frangia piena</image:title>
+      <image:caption>Taglio sartoriale castano con frangia piena</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://andrea23320.github.io/ariasalon/gallery/gallery-05.jpg</image:loc>
+      <image:title>Biondo dorato con texture mossa</image:title>
+      <image:caption>Biondo dorato con texture mossa - Air Touch</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://andrea23320.github.io/ariasalon/gallery/gallery-06.jpg</image:loc>
+      <image:title>Biondo miele con onde morbide</image:title>
+      <image:caption>Colore biondo miele con onde morbide</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://andrea23320.github.io/ariasalon/gallery/gallery-07.jpg</image:loc>
+      <image:title>Rame brillante con bob e frangia</image:title>
+      <image:caption>Colorazione rame brillante con taglio bob</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://andrea23320.github.io/ariasalon/gallery/gallery-08.jpg</image:loc>
+      <image:title>Biondo caldo con onde naturali</image:title>
+      <image:caption>Biondo caldo con onde naturali - Aria Salon</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://andrea23320.github.io/ariasalon/gallery/gallery-09.jpg</image:loc>
+      <image:title>Bob castano scuro sartoriale</image:title>
+      <image:caption>Bob sartoriale castano scuro</image:caption>
+    </image:image>
   </url>
+
   <url>
     <loc>https://andrea23320.github.io/ariasalon/#servizi</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <url>
+    <loc>https://andrea23320.github.io/ariasalon/#team</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <url>
     <loc>https://andrea23320.github.io/ariasalon/#prenota</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+
   <url>
-    <loc>https://andrea23320.github.io/ariasalon/#look</loc>
+    <loc>https://andrea23320.github.io/ariasalon/#lavori</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://andrea23320.github.io/ariasalon/#faq</loc>
+    <loc>https://andrea23320.github.io/ariasalon/#recensioni</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <url>
+    <loc>https://andrea23320.github.io/ariasalon/#faq</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
