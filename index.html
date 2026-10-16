@@ -1106,6 +1106,133 @@
       .look-pills { grid-template-columns: 1fr; }
       .service-panel-bar { font-size: 0.66rem; }
     }
+    
+    /* ============================================== */
+    /* INTRO / SPLASH SCREEN                          */
+    /* ============================================== */
+    .intro-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #0A0A0A;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5%;
+      cursor: pointer;
+      transition: opacity 0.9s ease, visibility 0.9s ease;
+      overflow: hidden;
+    }
+    .intro-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .intro-screen::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(900px, 120vw);
+      height: min(900px, 120vw);
+      background: radial-gradient(circle, rgba(197, 160, 89, 0.18) 0%, rgba(197, 160, 89, 0.05) 35%, transparent 65%);
+      pointer-events: none;
+      animation: introGlow 5s ease-in-out infinite;
+    }
+    @keyframes introGlow {
+      0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+      50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.1); }
+    }
+
+    .intro-logo-wrap {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: min(460px, 78vw);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: introFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+    }
+    .intro-logo-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 8px 40px rgba(197, 160, 89, 0.45));
+      animation: introBreath 4.5s ease-in-out infinite;
+    }
+    @keyframes introFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes introBreath {
+      0%, 100% { filter: drop-shadow(0 8px 40px rgba(197, 160, 89, 0.35)); }
+      50%      { filter: drop-shadow(0 12px 55px rgba(197, 160, 89, 0.6)); }
+    }
+
+    .intro-tagline {
+      position: relative;
+      z-index: 2;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(0.95rem, 2.3vw, 1.15rem);
+      color: rgba(197, 160, 89, 0.85);
+      letter-spacing: 0.05em;
+      margin-bottom: 3.5rem;
+      opacity: 0;
+      animation: introFadeIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
+    }
+
+    .intro-enter {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #F8F6F2;
+      opacity: 0;
+      animation: introFadeIn 1s cubic-bezier(0.22, 1, 0.36, 1) 1.1s forwards;
+    }
+    .intro-enter-line {
+      width: 32px;
+      height: 1px;
+      background: rgba(197, 160, 89, 0.6);
+    }
+    .intro-enter-text {
+      animation: introPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes introPulse {
+      0%, 100% { opacity: 0.6; }
+      50%      { opacity: 1; }
+    }
+
+    .intro-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      font-size: 0.6rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(168, 121, 50, 0.7);
+      font-weight: 600;
+      opacity: 0;
+      animation: introFadeIn 1s ease 1.6s forwards, introPulse 2.5s ease-in-out 2.6s infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .intro-screen::before,
+      .intro-logo-wrap img,
+      .intro-enter-text,
+      .intro-hint { animation: none !important; opacity: 1 !important; }
+    }
+
   </style>
 
   <script type="application/ld+json">
@@ -1180,6 +1307,20 @@
   </script>
 </head>
 <body>
+  <!-- INTRO / SPLASH SCREEN -->
+  <div class="intro-screen" id="introScreen" role="button" tabindex="0" aria-label="Tocca per entrare nel sito">
+    <div class="intro-logo-wrap">
+      <img src="logo-aria.svg" alt="Aria Salon" loading="eager" decoding="async">
+    </div>
+    <p class="intro-tagline">Hair Atelier · Rho Milano</p>
+    <div class="intro-enter">
+      <span class="intro-enter-line"></span>
+      <span class="intro-enter-text">Entra nell'atelier</span>
+      <span class="intro-enter-line"></span>
+    </div>
+    <span class="intro-hint">Tocca per entrare</span>
+  </div>
+
 
   <a href="#main-content" class="skip-link">Salta al contenuto principale</a>
 
@@ -2496,6 +2637,40 @@
 
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
+    })();
+  </script>
+
+  <script>
+    (function initIntroScreen() {
+      var intro = document.getElementById('introScreen');
+      if (!intro) return;
+
+      var KEY = 'aria_intro_seen';
+      var seen = false;
+      try { seen = sessionStorage.getItem(KEY) === '1'; } catch(e) {}
+
+      if (seen) {
+        intro.classList.add('hidden');
+        return;
+      }
+
+      document.body.style.overflow = 'hidden';
+
+      function enter() {
+        if (intro.classList.contains('hidden')) return;
+        intro.classList.add('hidden');
+        try { sessionStorage.setItem(KEY, '1'); } catch(e) {}
+        setTimeout(function(){ document.body.style.overflow = ''; }, 900);
+      }
+
+      intro.addEventListener('click', enter);
+      intro.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); enter(); }
+      });
+
+      setTimeout(function() {
+        if (!intro.classList.contains('hidden')) enter();
+      }, 8000);
     })();
   </script>
 
