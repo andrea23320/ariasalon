@@ -2272,6 +2272,9 @@
       const mask = document.getElementById('sliderMask');
       const img = document.getElementById('sliderInnerImg');
       const bar = document.getElementById('sliderBar');
+      
+      let isDown = false;
+
       function update(clientX) {
         const rect = box.getBoundingClientRect();
         let x = clientX - rect.left;
@@ -2281,14 +2284,47 @@
         mask.style.width = pct + '%';
         bar.style.left = pct + '%';
       }
+      
       function resize() { img.style.width = box.offsetWidth + 'px'; }
-      let isDown = false;
+      
       box.addEventListener('pointerdown', (e) => { isDown = true; update(e.clientX); });
       window.addEventListener('pointermove', (e) => { if (isDown) update(e.clientX); });
       window.addEventListener('pointerup', () => { isDown = false; });
       window.addEventListener('pointercancel', () => { isDown = false; });
       window.addEventListener('resize', resize);
       resize();
+
+      // --- NUOVO: Animazione automatica di "indizio" ---
+      let hinted = false;
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !hinted) {
+              hinted = true;
+              let start = performance.now();
+              let duration = 2500; // 2.5 secondi di animazione
+              
+              function animateHint(now) {
+                if (isDown) return; // Se l'utente tocca, ferma l'animazione
+                let progress = (now - start) / duration;
+                if (progress > 1) progress = 1;
+                
+                // Movimento a "onda" che si smorza
+                let offset = Math.sin(progress * Math.PI * 3) * 25; 
+                let pct = 50 + offset * (1 - progress);
+                
+                mask.style.width = pct + '%';
+                bar.style.left = pct + '%';
+                
+                if (progress < 1) requestAnimationFrame(animateHint);
+              }
+              requestAnimationFrame(animateHint);
+              observer.disconnect();
+            }
+          });
+        }, { threshold: 0.6 }); // Parte quando lo slider è visibile al 60%
+        observer.observe(box);
+      }
     })();
 
     document.querySelectorAll('.faq-mini-q').forEach(btn => {
@@ -2367,7 +2403,31 @@
         document.getElementById('clientName').focus();
         return; // Blocca l'invio se il nome è vuoto
       }
+    window.launchWhatsApp = function() {
+      let clientName = document.getElementById('clientName').value.trim();
+      if (!clientName) {
+        alert("Per favore, inserisci il tuo nome prima di inviare la richiesta.");
+        document.getElementById('clientName').focus();
+        return;
+      }
 
+      // --- NUOVO: Prendiamo data e ora attuale ---
+      const now = new Date();
+      const giorni = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'];
+      const dataStr = giorni[now.getDay()] + ' ' + now.getDate() + '/' + (now.getMonth() + 1);
+      const oraStr = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+      // --------------------------------------------
+
+      let text = 'Ciao Aria Salon! Sono ' + clientName + ' e vorrei verificare disponibilità per un appuntamento:\n\n';
+      text += '• Servizio: ' + chosenService + '\n• Stylist preferito: ' + chosenStylist + '\n• Fascia oraria: ' + chosenTimeSlot + '\n';
+      if (currentMood) text += '• Mood d\'ispirazione: ' + currentMood + '\n';
+      text += '\nQuali giorni avete disponibili nei prossimi orari?';
+      
+      // --- NUOVO: Aggiungiamo la data e ora in fondo ---
+      text += '\n\n(Richiesta inviata ' + dataStr + ' alle ' + oraStr + ')';
+      
+      goWhatsApp(text, 'booking-' + chosenService.substring(0, 20));
+    };
       // 2. Componiamo il messaggio includendo il nome
       let text = 'Ciao Aria Salon! Sono ' + clientName + ' e vorrei verificare disponibilità per un appuntamento:\n\n';
       text += '• Servizio: ' + chosenService + '\n• Stylist preferito: ' + chosenStylist + '\n• Fascia oraria: ' + chosenTimeSlot + '\n';
