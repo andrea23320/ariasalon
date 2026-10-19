@@ -2040,6 +2040,8 @@
                 <div class="time-pill selected" onclick="pickTimeSlot(this, 'Mattina (09:30 - 13:00)')">Mattina</div>
                 <div class="time-pill" onclick="pickTimeSlot(this, 'Pomeriggio (14:00 - 18:00)')">Pomeriggio</div>
                 <div class="time-pill" onclick="pickTimeSlot(this, 'Serale Giovedì (fino alle 20:00)')">Serale Giovedì</div>
+                              <span class="book-step-title">4. Il tuo Nome</span>
+              <input type="text" id="clientName" placeholder="Es. Maria Rossi" style="width: 100%; padding: 0.8rem 1rem; background: var(--bg-cream); border: 1px solid var(--border-light); border-radius: 2px; font-family: inherit; font-size: 0.85rem; margin-bottom: 1.6rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--text-dark)'" onblur="this.style.borderColor='var(--border-light)'">
               </div>
               <button class="book-submit-btn" type="button" onclick="launchWhatsApp()">
                 <span>Invia Richiesta su WhatsApp</span><span>→</span>
@@ -2345,17 +2347,29 @@
       document.querySelectorAll('#timeSlotPills .time-pill').forEach(p => p.classList.remove('selected'));
       el.classList.add('selected'); chosenTimeSlot = val;
     };
-    window.setQuickService = function(serviceName) {
+        window.setQuickService = function(serviceName) {
       chosenService = serviceName;
       document.querySelectorAll('#serviceOptions .book-opt').forEach(opt => {
-        const strong = opt.querySelector('strong');
-        const txt = strong ? strong.innerText : '';
-        if (serviceName.toLowerCase().includes(txt.toLowerCase().split(' ')[0])) opt.classList.add('selected');
-        else opt.classList.remove('selected');
+        // Questo metodo è molto più preciso: legge esattamente cosa c'è scritto nell'HTML
+        var clickAttr = opt.getAttribute('onclick');
+        if (clickAttr && clickAttr.includes(serviceName)) {
+          opt.classList.add('selected');
+        } else {
+          opt.classList.remove('selected');
+        }
       });
     };
-    window.launchWhatsApp = function() {
-      let text = 'Ciao Aria Salon! Vorrei verificare disponibilità per un appuntamento:\n\n';
+       window.launchWhatsApp = function() {
+      // 1. Controlliamo che il cliente abbia inserito il nome
+      let clientName = document.getElementById('clientName').value.trim();
+      if (!clientName) {
+        alert("Per favore, inserisci il tuo nome prima di inviare la richiesta.");
+        document.getElementById('clientName').focus();
+        return; // Blocca l'invio se il nome è vuoto
+      }
+
+      // 2. Componiamo il messaggio includendo il nome
+      let text = 'Ciao Aria Salon! Sono ' + clientName + ' e vorrei verificare disponibilità per un appuntamento:\n\n';
       text += '• Servizio: ' + chosenService + '\n• Stylist preferito: ' + chosenStylist + '\n• Fascia oraria: ' + chosenTimeSlot + '\n';
       if (currentMood) text += '• Mood d\'ispirazione: ' + currentMood + '\n';
       text += '\nQuali giorni avete disponibili nei prossimi orari?';
