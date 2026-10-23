@@ -2512,7 +2512,7 @@
   </script>
 
   <script>
-(function initLogo3D() {
+    (function initLogo3D() {
       var elements = [
         { stage: document.getElementById('logoStage'), wrap: document.getElementById('logoWrap') },
         { stage: document.getElementById('introLogoStage'), wrap: document.getElementById('introLogoWrap') }
@@ -2747,7 +2747,7 @@
   </script>
 
   <script>
-(function initIntroScreen() {
+    (function initIntroScreen() {
       var intro = document.getElementById('introScreen');
       if (!intro) return;
 
@@ -2773,10 +2773,7 @@
       intro.addEventListener('keydown', function(e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); enter(); }
       });
-
-      // IL TIMEOUT DI 8 SECONDI È STATO RIMOSSO!
     })();
-
   </script>
 </body>
 </html>
