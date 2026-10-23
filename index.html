@@ -1110,11 +1110,11 @@
     /* ============================================== */
     /* INTRO / SPLASH SCREEN                          */
     /* ============================================== */
-        .intro-screen {
+    .intro-screen {
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background: var(--bg-cream); /* Sfondo chiaro come la landing */
+      background: var(--bg-cream);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1141,8 +1141,6 @@
       pointer-events: none;
       animation: introGlow 5s ease-in-out infinite;
     }
-
-    /* Nuovo stage per il 3D */
     .intro-logo-stage {
       position: relative;
       z-index: 2;
@@ -1153,7 +1151,6 @@
       animation: introFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
       perspective: 1200px;
     }
-
     .intro-logo-wrap {
       position: relative;
       display: block;
@@ -1163,7 +1160,6 @@
       transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: transform;
     }
-    
     .intro-logo-wrap img {
       display: block;
       width: 100%;
@@ -1171,20 +1167,18 @@
       filter: drop-shadow(0 8px 40px rgba(197, 160, 89, 0.35));
       animation: introBreath 4.5s ease-in-out infinite;
     }
-
     .intro-tagline {
       position: relative;
       z-index: 2;
       font-family: var(--font-serif);
       font-style: italic;
       font-size: clamp(0.95rem, 2.3vw, 1.15rem);
-      color: #A87932; /* Oro più scuro per contrasto su chiaro */
+      color: #A87932;
       letter-spacing: 0.05em;
       margin-bottom: 3.5rem;
       opacity: 0;
       animation: introFadeIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
     }
-
     .intro-enter {
       position: relative;
       z-index: 2;
@@ -1195,14 +1189,17 @@
       letter-spacing: 0.28em;
       text-transform: uppercase;
       font-weight: 600;
-      color: var(--text-dark); /* Testo scuro */
+      color: var(--text-dark);
       opacity: 0;
       animation: introFadeIn 1s cubic-bezier(0.22, 1, 0.36, 1) 1.1s forwards;
     }
     .intro-enter-line {
       width: 32px;
       height: 1px;
-      background: rgba(168, 121, 50, 0.5); /* Linea oro scuro */
+      background: rgba(168, 121, 50, 0.5);
+    }
+    .intro-enter-text {
+      animation: introPulse 2.2s ease-in-out infinite;
     }
     .intro-hint {
       position: absolute;
@@ -1218,26 +1215,10 @@
       opacity: 0;
       animation: introFadeIn 1s ease 1.6s forwards, introPulse 2.5s ease-in-out 2.6s infinite;
     }
+
     @keyframes introGlow {
       0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
       50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.1); }
-    }
-
-    .intro-logo-wrap {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: min(460px, 78vw);
-      margin-bottom: 2.5rem;
-      opacity: 0;
-      animation: introFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
-    }
-    .intro-logo-wrap img {
-      display: block;
-      width: 100%;
-      height: auto;
-      filter: drop-shadow(0 8px 40px rgba(197, 160, 89, 0.45));
-      animation: introBreath 4.5s ease-in-out infinite;
     }
     @keyframes introFadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -1247,60 +1228,9 @@
       0%, 100% { filter: drop-shadow(0 8px 40px rgba(197, 160, 89, 0.35)); }
       50%      { filter: drop-shadow(0 12px 55px rgba(197, 160, 89, 0.6)); }
     }
-
-    .intro-tagline {
-      position: relative;
-      z-index: 2;
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: clamp(0.95rem, 2.3vw, 1.15rem);
-      color: rgba(197, 160, 89, 0.85);
-      letter-spacing: 0.05em;
-      margin-bottom: 3.5rem;
-      opacity: 0;
-      animation: introFadeIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
-    }
-
-    .intro-enter {
-      position: relative;
-      z-index: 2;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.68rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: #F8F6F2;
-      opacity: 0;
-      animation: introFadeIn 1s cubic-bezier(0.22, 1, 0.36, 1) 1.1s forwards;
-    }
-    .intro-enter-line {
-      width: 32px;
-      height: 1px;
-      background: rgba(197, 160, 89, 0.6);
-    }
-    .intro-enter-text {
-      animation: introPulse 2.2s ease-in-out infinite;
-    }
     @keyframes introPulse {
       0%, 100% { opacity: 0.6; }
       50%      { opacity: 1; }
-    }
-
-    .intro-hint {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      font-size: 0.6rem;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: rgba(168, 121, 50, 0.7);
-      font-weight: 600;
-      opacity: 0;
-      animation: introFadeIn 1s ease 1.6s forwards, introPulse 2.5s ease-in-out 2.6s infinite;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1385,14 +1315,12 @@
 </head>
 <body>
   <!-- INTRO / SPLASH SCREEN -->
-   <div class="intro-screen" id="introScreen" role="button" tabindex="0" aria-label="Tocca per entrare nel sito">
-    
+  <div class="intro-screen" id="introScreen" role="button" tabindex="0" aria-label="Tocca per entrare nel sito">
     <div class="intro-logo-stage" id="introLogoStage">
       <div class="intro-logo-wrap" id="introLogoWrap">
         <img src="logo-aria.svg" alt="Aria Salon" loading="eager" decoding="async">
       </div>
     </div>
-
     <p class="intro-tagline">Hair Atelier · Rho Milano</p>
     <div class="intro-enter">
       <span class="intro-enter-line"></span>
@@ -1401,8 +1329,6 @@
     </div>
     <span class="intro-hint">Tocca per entrare</span>
   </div>
-  </div>
-
 
   <a href="#main-content" class="skip-link">Salta al contenuto principale</a>
 
@@ -2122,9 +2048,11 @@
                 <div class="time-pill selected" onclick="pickTimeSlot(this, 'Mattina (09:30 - 13:00)')">Mattina</div>
                 <div class="time-pill" onclick="pickTimeSlot(this, 'Pomeriggio (14:00 - 18:00)')">Pomeriggio</div>
                 <div class="time-pill" onclick="pickTimeSlot(this, 'Serale Giovedì (fino alle 20:00)')">Serale Giovedì</div>
-                              <span class="book-step-title">4. Il tuo Nome</span>
-              <input type="text" id="clientName" placeholder="Es. Maria Rossi" style="width: 100%; padding: 0.8rem 1rem; background: var(--bg-cream); border: 1px solid var(--border-light); border-radius: 2px; font-family: inherit; font-size: 0.85rem; margin-bottom: 1.6rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--text-dark)'" onblur="this.style.borderColor='var(--border-light)'">
               </div>
+              
+              <span class="book-step-title">4. Il tuo Nome</span>
+              <input type="text" id="clientName" placeholder="Es. Maria Rossi" style="width: 100%; padding: 0.8rem 1rem; background: var(--bg-cream); border: 1px solid var(--border-light); border-radius: 2px; font-family: inherit; font-size: 0.85rem; margin-bottom: 1.6rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--text-dark)'" onblur="this.style.borderColor='var(--border-light)'">
+
               <button class="book-submit-btn" type="button" onclick="launchWhatsApp()">
                 <span>Invia Richiesta su WhatsApp</span><span>→</span>
               </button>
@@ -2465,10 +2393,10 @@
       document.querySelectorAll('#timeSlotPills .time-pill').forEach(p => p.classList.remove('selected'));
       el.classList.add('selected'); chosenTimeSlot = val;
     };
-        window.setQuickService = function(serviceName) {
+    
+    window.setQuickService = function(serviceName) {
       chosenService = serviceName;
       document.querySelectorAll('#serviceOptions .book-opt').forEach(opt => {
-        // Questo metodo è molto più preciso: legge esattamente cosa c'è scritto nell'HTML
         var clickAttr = opt.getAttribute('onclick');
         if (clickAttr && clickAttr.includes(serviceName)) {
           opt.classList.add('selected');
@@ -2477,44 +2405,30 @@
         }
       });
     };
-       window.launchWhatsApp = function() {
-      // 1. Controlliamo che il cliente abbia inserito il nome
-      let clientName = document.getElementById('clientName').value.trim();
-      if (!clientName) {
-        alert("Per favore, inserisci il tuo nome prima di inviare la richiesta.");
-        document.getElementById('clientName').focus();
-        return; // Blocca l'invio se il nome è vuoto
-      }
+
     window.launchWhatsApp = function() {
+      // 1. Controlliamo il nome
       let clientName = document.getElementById('clientName').value.trim();
       if (!clientName) {
         alert("Per favore, inserisci il tuo nome prima di inviare la richiesta.");
         document.getElementById('clientName').focus();
-        return;
+        return; 
       }
 
-      // --- NUOVO: Prendiamo data e ora attuale ---
+      // 2. Data e ora
       const now = new Date();
       const giorni = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'];
       const dataStr = giorni[now.getDay()] + ' ' + now.getDate() + '/' + (now.getMonth() + 1);
       const oraStr = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
-      // --------------------------------------------
 
+      // 3. Componiamo il messaggio
       let text = 'Ciao Aria Salon! Sono ' + clientName + ' e vorrei verificare disponibilità per un appuntamento:\n\n';
       text += '• Servizio: ' + chosenService + '\n• Stylist preferito: ' + chosenStylist + '\n• Fascia oraria: ' + chosenTimeSlot + '\n';
       if (currentMood) text += '• Mood d\'ispirazione: ' + currentMood + '\n';
       text += '\nQuali giorni avete disponibili nei prossimi orari?';
-      
-      // --- NUOVO: Aggiungiamo la data e ora in fondo ---
       text += '\n\n(Richiesta inviata ' + dataStr + ' alle ' + oraStr + ')';
       
-      goWhatsApp(text, 'booking-' + chosenService.substring(0, 20));
-    };
-      // 2. Componiamo il messaggio includendo il nome
-      let text = 'Ciao Aria Salon! Sono ' + clientName + ' e vorrei verificare disponibilità per un appuntamento:\n\n';
-      text += '• Servizio: ' + chosenService + '\n• Stylist preferito: ' + chosenStylist + '\n• Fascia oraria: ' + chosenTimeSlot + '\n';
-      if (currentMood) text += '• Mood d\'ispirazione: ' + currentMood + '\n';
-      text += '\nQuali giorni avete disponibili nei prossimi orari?';
+      // 4. Invio
       goWhatsApp(text, 'booking-' + chosenService.substring(0, 20));
     };
   </script>
