@@ -146,12 +146,6 @@
       45%  { left: 120%; opacity: 0; }
       100% { left: 120%; opacity: 0; }
     }
-    @keyframes logoFloat3D {
-      0%, 100% { transform: rotateX(0deg) rotateY(0deg) translateZ(0); }
-      25%      { transform: rotateX(2.5deg) rotateY(-5deg) translateZ(8px); }
-      50%      { transform: rotateX(0deg) rotateY(0deg) translateZ(0); }
-      75%      { transform: rotateX(-2.5deg) rotateY(5deg) translateZ(8px); }
-    }
     @keyframes statusPulse {
       0%, 100% { box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2); }
       50%      { box-shadow: 0 0 0 5px rgba(46, 125, 50, 0.08); }
@@ -414,6 +408,7 @@
       animation: logoShineSweep 6s ease-in-out 2.5s infinite;
       opacity: 0;
     }
+
     @media (min-width: 768px) {
       .hero-logo-stage { max-width: min(620px, 55vw); }
     }
@@ -2517,7 +2512,7 @@
   </script>
 
   <script>
-        (function initLogo3D() {
+    (function initLogo3D() {
       var elements = [
         { stage: document.getElementById('logoStage'), wrap: document.getElementById('logoWrap') },
         { stage: document.getElementById('introLogoStage'), wrap: document.getElementById('introLogoWrap') }
@@ -2526,8 +2521,8 @@
       var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (prefersReduced) return;
 
-      var MAX = 8;
-      var isTouch = window.matchMedia('(hover: none)').matches;
+      var MAX = 15;
+      var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || window.matchMedia('(hover: none)').matches;
 
       elements.forEach(function(el) {
         if (!el.stage || !el.wrap) return;
@@ -2535,7 +2530,7 @@
         var targetRx = 0, targetRy = 0;
         var currentRx = 0, currentRy = 0;
 
-        // --- LOGICA PER COMPUTER (Mouse) ---
+        // 1. LOGICA PER COMPUTER (Mouse)
         if (!isTouch) {
           el.stage.addEventListener('pointermove', function(e) {
             var rect = el.stage.getBoundingClientRect();
@@ -2553,23 +2548,20 @@
             targetRx = 0;
             targetRy = 0;
           });
-        }
-
-        // --- LOGICA PER MOBILE (Giroscopio) ---
-        if (isTouch) {
+        } else {
+          // 2. LOGICA PER MOBILE (Giroscopio)
           window.addEventListener('deviceorientation', function(e) {
             if (e.gamma !== null && e.beta !== null) {
-              // gamma: inclinazione sinistra/destra
-              // beta: inclinazione avanti/indietro (sottraiamo 45 perché teniamo il telefono inclinato)
-              var gyroY = Math.max(-30, Math.min(30, e.gamma)); 
-              var gyroX = Math.max(-30, Math.min(30, e.beta - 45)); 
+              var gyroY = Math.max(-45, Math.min(45, e.gamma)); 
+              var gyroX = Math.max(-45, Math.min(45, e.beta - 45)); 
               
-              targetRy = (gyroY / 30) * MAX;
-              targetRx = -(gyroX / 30) * MAX;
+              targetRy = (gyroY / 45) * MAX;
+              targetRx = -(gyroX / 45) * MAX;
             }
-          });
+          }, true);
         }
 
+        // 3. Animazione fluida
         function tick() {
           currentRx += (targetRx - currentRx) * 0.08;
           currentRy += (targetRy - currentRy) * 0.08;
@@ -2581,8 +2573,6 @@
       });
 
       // --- RICHIESTA PERMESSO PER IOS ---
-      // Apple richiede che l'utente clicchi qualcosa per attivare i sensori.
-      // Sfruttiamo il click sulla schermata intro per chiedere il permesso.
       function requestGyroPermission() {
         if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
           DeviceOrientationEvent.requestPermission()
