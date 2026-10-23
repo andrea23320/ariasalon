@@ -414,13 +414,6 @@
       animation: logoShineSweep 6s ease-in-out 2.5s infinite;
       opacity: 0;
     }
-
-    @media (hover: none) {
-      .hero-logo-wrap {
-        animation: logoFloat3D 9s ease-in-out infinite;
-      }
-    }
-
     @media (min-width: 768px) {
       .hero-logo-stage { max-width: min(620px, 55vw); }
     }
@@ -2524,18 +2517,17 @@
   </script>
 
   <script>
-    (function initLogo3D() {
-      // Gestiamo entrambi gli stage (Hero e Intro)
+        (function initLogo3D() {
       var elements = [
         { stage: document.getElementById('logoStage'), wrap: document.getElementById('logoWrap') },
         { stage: document.getElementById('introLogoStage'), wrap: document.getElementById('introLogoWrap') }
       ];
       
       var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var isTouch = window.matchMedia('(hover: none)').matches;
-      if (prefersReduced || isTouch) return;
+      if (prefersReduced) return;
 
       var MAX = 8;
+      var isTouch = window.matchMedia('(hover: none)').matches;
 
       elements.forEach(function(el) {
         if (!el.stage || !el.wrap) return;
@@ -2543,21 +2535,39 @@
         var targetRx = 0, targetRy = 0;
         var currentRx = 0, currentRy = 0;
 
-        function onMove(e) {
-          var rect = el.stage.getBoundingClientRect();
-          var cx = rect.left + rect.width / 2;
-          var cy = rect.top + rect.height / 2;
-          var dx = (e.clientX - cx) / (rect.width / 2);
-          var dy = (e.clientY - cy) / (rect.height / 2);
-          if (dx > 1) dx = 1; if (dx < -1) dx = -1;
-          if (dy > 1) dy = 1; if (dy < -1) dy = -1;
-          targetRy = dx * MAX;
-          targetRx = -dy * MAX;
+        // --- LOGICA PER COMPUTER (Mouse) ---
+        if (!isTouch) {
+          el.stage.addEventListener('pointermove', function(e) {
+            var rect = el.stage.getBoundingClientRect();
+            var cx = rect.left + rect.width / 2;
+            var cy = rect.top + rect.height / 2;
+            var dx = (e.clientX - cx) / (rect.width / 2);
+            var dy = (e.clientY - cy) / (rect.height / 2);
+            if (dx > 1) dx = 1; if (dx < -1) dx = -1;
+            if (dy > 1) dy = 1; if (dy < -1) dy = -1;
+            targetRy = dx * MAX;
+            targetRx = -dy * MAX;
+          });
+
+          el.stage.addEventListener('pointerleave', function() {
+            targetRx = 0;
+            targetRy = 0;
+          });
         }
 
-        function onLeave() {
-          targetRx = 0;
-          targetRy = 0;
+        // --- LOGICA PER MOBILE (Giroscopio) ---
+        if (isTouch) {
+          window.addEventListener('deviceorientation', function(e) {
+            if (e.gamma !== null && e.beta !== null) {
+              // gamma: inclinazione sinistra/destra
+              // beta: inclinazione avanti/indietro (sottraiamo 45 perché teniamo il telefono inclinato)
+              var gyroY = Math.max(-30, Math.min(30, e.gamma)); 
+              var gyroX = Math.max(-30, Math.min(30, e.beta - 45)); 
+              
+              targetRy = (gyroY / 30) * MAX;
+              targetRx = -(gyroX / 30) * MAX;
+            }
+          });
         }
 
         function tick() {
@@ -2567,11 +2577,30 @@
           el.wrap.style.setProperty('--logo-ry', currentRy.toFixed(2) + 'deg');
           requestAnimationFrame(tick);
         }
-
-        el.stage.addEventListener('pointermove', onMove);
-        el.stage.addEventListener('pointerleave', onLeave);
         tick();
       });
+
+      // --- RICHIESTA PERMESSO PER IOS ---
+      // Apple richiede che l'utente clicchi qualcosa per attivare i sensori.
+      // Sfruttiamo il click sulla schermata intro per chiedere il permesso.
+      function requestGyroPermission() {
+        if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+          DeviceOrientationEvent.requestPermission()
+            .then(permissionState => {
+              if (permissionState === 'granted') {
+                console.log("Permesso giroscopio accordato!");
+              }
+            })
+            .catch(console.error);
+        }
+      }
+
+      var introScreen = document.getElementById('introScreen');
+      if (introScreen) {
+        introScreen.addEventListener('click', requestGyroPermission, { once: true });
+      } else {
+        document.body.addEventListener('click', requestGyroPermission, { once: true });
+      }
     })();
   </script>
 
