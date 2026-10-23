@@ -2512,7 +2512,7 @@
   </script>
 
   <script>
-    (function initLogo3D() {
+(function initLogo3D() {
       var elements = [
         { stage: document.getElementById('logoStage'), wrap: document.getElementById('logoWrap') },
         { stage: document.getElementById('introLogoStage'), wrap: document.getElementById('introLogoWrap') }
@@ -2524,14 +2524,51 @@
       var MAX = 15;
       var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || window.matchMedia('(hover: none)').matches;
 
-      elements.forEach(function(el) {
-        if (!el.stage || !el.wrap) return;
+      var targetRx = 0, targetRy = 0;
+      var currentRx = 0, currentRy = 0;
 
-        var targetRx = 0, targetRy = 0;
-        var currentRx = 0, currentRy = 0;
+      // Funzione che riceve i dati dal giroscopio
+      function handleOrientation(e) {
+        if (e.gamma !== null && e.beta !== null) {
+          var gyroY = Math.max(-45, Math.min(45, e.gamma)); 
+          var gyroX = Math.max(-45, Math.min(45, e.beta - 45)); 
+          targetRy = (gyroY / 45) * MAX;
+          targetRx = -(gyroX / 45) * MAX;
+        }
+      }
 
-        // 1. LOGICA PER COMPUTER (Mouse)
-        if (!isTouch) {
+      // Funzione per chiedere il permesso a iOS
+      function requestGyroPermission() {
+        if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+          DeviceOrientationEvent.requestPermission()
+            .then(permissionState => {
+              if (permissionState === 'granted') {
+                window.addEventListener('deviceorientation', handleOrientation, true);
+              }
+            })
+            .catch(console.error);
+        } else {
+          // Android o browser normali: attiva subito
+          window.addEventListener('deviceorientation', handleOrientation, true);
+        }
+      }
+
+      // Aggancia la richiesta di permesso al click sull'intro
+      var introScreen = document.getElementById('introScreen');
+      if (introScreen && !introScreen.classList.contains('hidden')) {
+        introScreen.addEventListener('click', requestGyroPermission, { once: true });
+      } else {
+        // Se l'intro è già chiusa (es. refresh), chiedi al click sul body
+        document.body.addEventListener('click', requestGyroPermission, { once: true });
+        if (!(typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function')) {
+          window.addEventListener('deviceorientation', handleOrientation, true);
+        }
+      }
+
+      // Logica per il Mouse (Computer)
+      if (!isTouch) {
+        elements.forEach(function(el) {
+          if (!el.stage) return;
           el.stage.addEventListener('pointermove', function(e) {
             var rect = el.stage.getBoundingClientRect();
             var cx = rect.left + rect.width / 2;
@@ -2548,49 +2585,22 @@
             targetRx = 0;
             targetRy = 0;
           });
-        } else {
-          // 2. LOGICA PER MOBILE (Giroscopio)
-          window.addEventListener('deviceorientation', function(e) {
-            if (e.gamma !== null && e.beta !== null) {
-              var gyroY = Math.max(-45, Math.min(45, e.gamma)); 
-              var gyroX = Math.max(-45, Math.min(45, e.beta - 45)); 
-              
-              targetRy = (gyroY / 45) * MAX;
-              targetRx = -(gyroX / 45) * MAX;
-            }
-          }, true);
-        }
-
-        // 3. Animazione fluida
-        function tick() {
-          currentRx += (targetRx - currentRx) * 0.08;
-          currentRy += (targetRy - currentRy) * 0.08;
-          el.wrap.style.setProperty('--logo-rx', currentRx.toFixed(2) + 'deg');
-          el.wrap.style.setProperty('--logo-ry', currentRy.toFixed(2) + 'deg');
-          requestAnimationFrame(tick);
-        }
-        tick();
-      });
-
-      // --- RICHIESTA PERMESSO PER IOS ---
-      function requestGyroPermission() {
-        if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
-          DeviceOrientationEvent.requestPermission()
-            .then(permissionState => {
-              if (permissionState === 'granted') {
-                console.log("Permesso giroscopio accordato!");
-              }
-            })
-            .catch(console.error);
-        }
+        });
       }
 
-      var introScreen = document.getElementById('introScreen');
-      if (introScreen) {
-        introScreen.addEventListener('click', requestGyroPermission, { once: true });
-      } else {
-        document.body.addEventListener('click', requestGyroPermission, { once: true });
+      // Animazione fluida
+      function updateLogo() {
+        currentRx += (targetRx - currentRx) * 0.08;
+        currentRy += (targetRy - currentRy) * 0.08;
+        elements.forEach(function(el) {
+          if (el.wrap) {
+            el.wrap.style.setProperty('--logo-rx', currentRx.toFixed(2) + 'deg');
+            el.wrap.style.setProperty('--logo-ry', currentRy.toFixed(2) + 'deg');
+          }
+        });
+        requestAnimationFrame(updateLogo);
       }
+      updateLogo();
     })();
   </script>
 
@@ -2737,7 +2747,7 @@
   </script>
 
   <script>
-    (function initIntroScreen() {
+(function initIntroScreen() {
       var intro = document.getElementById('introScreen');
       if (!intro) return;
 
@@ -2764,10 +2774,9 @@
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); enter(); }
       });
 
-      setTimeout(function() {
-        if (!intro.classList.contains('hidden')) enter();
-      }, 8000);
+      // IL TIMEOUT DI 8 SECONDI È STATO RIMOSSO!
     })();
+
   </script>
 </body>
 </html>
