@@ -312,13 +312,13 @@
         radial-gradient(ellipse at center, transparent 55%, rgba(248, 246, 242, 0.7) 100%),
         linear-gradient(180deg, rgba(248, 246, 242, 0.5) 0%, transparent 15%, transparent 85%, rgba(248, 246, 242, 0.7) 100%);
       pointer-events: none;
-      z-index: 1;
+      z-index: 2; /* Messo sopra l'immagine ma sotto i testi */
     }
 
     .hero-particles {
       position: absolute;
       inset: 0;
-      z-index: 1;
+      z-index: 3;
       pointer-events: none;
       overflow: hidden;
     }
@@ -343,13 +343,13 @@
       border: 1px solid rgba(197, 160, 89, 0.22);
       border-radius: 50%;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1;
       animation: ringPulse 5s ease-out 1.5s infinite;
     }
 
     .hero-logo-stage {
       position: relative;
-      z-index: 3;
+      z-index: 10;
       width: 100%;
       max-width: min(560px, 88vw);
       margin: 0 auto clamp(1.5rem, 3.5vw, 2rem);
@@ -425,7 +425,7 @@
       opacity: 0;
       animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1.35s forwards;
       position: relative;
-      z-index: 3;
+      z-index: 10;
     }
     .hero-divider::before,
     .hero-divider::after {
@@ -448,7 +448,7 @@
 
     .hero-wrap {
       position: relative;
-      z-index: 3;
+      z-index: 10;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -568,7 +568,7 @@
       bottom: clamp(1rem, 3vw, 1.75rem);
       left: 50%;
       transform: translateX(-50%);
-      z-index: 3;
+      z-index: 10;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1128,10 +1128,11 @@
       background: radial-gradient(circle, rgba(197, 160, 89, 0.16) 0%, rgba(197, 160, 89, 0.05) 35%, transparent 65%);
       pointer-events: none;
       animation: introGlow 5s ease-in-out infinite;
+      z-index: 0;
     }
     .intro-logo-stage {
       position: relative;
-      z-index: 2;
+      z-index: 10;
       width: 100%;
       max-width: min(460px, 78vw);
       margin-bottom: 2.5rem;
@@ -1157,7 +1158,7 @@
     }
     .intro-tagline {
       position: relative;
-      z-index: 2;
+      z-index: 10;
       font-family: var(--font-serif);
       font-style: italic;
       font-size: clamp(0.95rem, 2.3vw, 1.15rem);
@@ -1169,7 +1170,7 @@
     }
     .intro-enter {
       position: relative;
-      z-index: 2;
+      z-index: 10;
       display: inline-flex;
       align-items: center;
       gap: 0.75rem;
@@ -1194,7 +1195,7 @@
       bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 2;
+      z-index: 10;
       font-size: 0.6rem;
       letter-spacing: 0.24em;
       text-transform: uppercase;
@@ -1221,12 +1222,6 @@
       50%      { opacity: 1; }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .intro-screen::before,
-      .intro-logo-wrap img,
-      .intro-enter-text,
-      .intro-hint { animation: none !important; opacity: 1 !important; }
-    }
     /* Effetto Sfondo Capelli in Trasparenza */
     .bg-hair-texture {
       position: absolute;
@@ -1234,27 +1229,20 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: 1; /* Sopra lo sfondo, sotto i testi */
+      z-index: 1; /* Sopra lo sfondo e i gradienti, sotto i testi */
       pointer-events: none; /* Permette di cliccare i bottoni sotto */
       mix-blend-mode: screen; /* Rende invisibile lo sfondo scuro */
-      opacity: 0.25; /* Regola la trasparenza (0 = invisibile, 1 = pieno) */
-      animation: fadeIn 2s ease-in-out; /* Appare dolcemente */
+      opacity: 0.45; /* Trasparenza delicata */
+      animation: fadeIn 2s ease-in-out;
     }
 
-    /* Assicuriamoci che i testi stiano sopra la foto */
-    .intro-screen .intro-logo-stage,
-    .intro-screen .intro-tagline,
-    .intro-screen .intro-enter,
-    .intro-screen .intro-hint {
-      z-index: 2;
+    @media (prefers-reduced-motion: reduce) {
+      .intro-screen::before,
+      .intro-logo-wrap img,
+      .intro-enter-text,
+      .intro-hint { animation: none !important; opacity: 1 !important; }
     }
-    
-    .hero .hero-logo-stage,
-    .hero .hero-divider,
-    .hero .hero-wrap,
-    .hero .hero-scroll {
-      z-index: 2;
-    }
+
   </style>
 
   <script type="application/ld+json">
@@ -1421,6 +1409,7 @@
   <main id="main-content">
     <section class="hero" id="heroSection">
       <img src="img/capelli-sfondo.jpg" class="bg-hair-texture" alt="" aria-hidden="true">
+      
       <div class="hero-particles" aria-hidden="true">
         <span style="left: 8%;  top: 22%; --size: 2px;   --dur: 13s; --delay: 0s;   --tx: 22px;  --ty: -38px;"></span>
         <span style="left: 16%; top: 68%; --size: 2.5px; --dur: 16s; --delay: 2.1s; --tx: -18px; --ty: -46px;"></span>
@@ -2565,7 +2554,14 @@
         }
       }
 
-      // Funzione per chiedere il permesso a iOS
+      // --- 1. LOGICA ANDROID ---
+      // Su Android non serve il click per il permesso, attiviamo SUBITO il sensore
+      if (!(typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function')) {
+        window.addEventListener('deviceorientation', handleOrientation, true);
+      }
+
+      // --- 2. LOGICA IOS ---
+      // Su iOS serve il click per il permesso.
       function requestGyroPermission() {
         if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
           DeviceOrientationEvent.requestPermission()
@@ -2575,25 +2571,17 @@
               }
             })
             .catch(console.error);
-        } else {
-          // Android o browser normali: attiva subito
-          window.addEventListener('deviceorientation', handleOrientation, true);
         }
       }
 
-      // Aggancia la richiesta di permesso al click sull'intro
       var introScreen = document.getElementById('introScreen');
       if (introScreen && !introScreen.classList.contains('hidden')) {
         introScreen.addEventListener('click', requestGyroPermission, { once: true });
       } else {
-        // Se l'intro è già chiusa (es. refresh), chiedi al click sul body
         document.body.addEventListener('click', requestGyroPermission, { once: true });
-        if (!(typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function')) {
-          window.addEventListener('deviceorientation', handleOrientation, true);
-        }
       }
 
-      // Logica per il Mouse (Computer)
+      // --- 3. LOGICA COMPUTER (Mouse) ---
       if (!isTouch) {
         elements.forEach(function(el) {
           if (!el.stage) return;
@@ -2663,94 +2651,54 @@
   </script>
 
   <script>
-     (function initLogo3D() {
-      var elements = [
-        { stage: document.getElementById('logoStage'), wrap: document.getElementById('logoWrap') },
-        { stage: document.getElementById('introLogoStage'), wrap: document.getElementById('introLogoWrap') }
-      ];
-      
-      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReduced) return;
+    (function initLightbox() {
+      var gallery = document.getElementById('galleryGrid');
+      if (!gallery) return;
 
-      var MAX = 15;
-      var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || window.matchMedia('(hover: none)').matches;
+      var items = gallery.querySelectorAll('.gallery-item');
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightboxImg');
+      var counter = document.getElementById('lightboxCounter');
+      var currentIndex = 0;
 
-      var targetRx = 0, targetRy = 0;
-      var currentRx = 0, currentRy = 0;
-
-      // Funzione che riceve i dati dal giroscopio
-      function handleOrientation(e) {
-        if (e.gamma !== null && e.beta !== null) {
-          var gyroY = Math.max(-45, Math.min(45, e.gamma)); 
-          var gyroX = Math.max(-45, Math.min(45, e.beta - 45)); 
-          targetRy = (gyroY / 45) * MAX;
-          targetRx = -(gyroX / 45) * MAX;
-        }
+      function open(index) {
+        currentIndex = index;
+        var img = items[index].querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        counter.textContent = (index + 1) + ' / ' + items.length;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
       }
 
-      // --- 1. LOGICA ANDROID ---
-      // Su Android non serve il click per il permesso, attiviamo SUBITO il sensore
-      if (!(typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function')) {
-        window.addEventListener('deviceorientation', handleOrientation, true);
+      function close() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
       }
 
-      // --- 2. LOGICA IOS ---
-      // Su iOS serve il click per il permesso.
-      function requestGyroPermission() {
-        if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
-          DeviceOrientationEvent.requestPermission()
-            .then(permissionState => {
-              if (permissionState === 'granted') {
-                window.addEventListener('deviceorientation', handleOrientation, true);
-              }
-            })
-            .catch(console.error);
-        }
+      function navigate(delta) {
+        currentIndex = (currentIndex + delta + items.length) % items.length;
+        open(currentIndex);
       }
 
-      var introScreen = document.getElementById('introScreen');
-      if (introScreen && !introScreen.classList.contains('hidden')) {
-        introScreen.addEventListener('click', requestGyroPermission, { once: true });
-      } else {
-        document.body.addEventListener('click', requestGyroPermission, { once: true });
-      }
+      items.forEach(function(item, i) {
+        item.addEventListener('click', function() { open(i); });
+      });
 
-      // --- 3. LOGICA COMPUTER (Mouse) ---
-      if (!isTouch) {
-        elements.forEach(function(el) {
-          if (!el.stage) return;
-          el.stage.addEventListener('pointermove', function(e) {
-            var rect = el.stage.getBoundingClientRect();
-            var cx = rect.left + rect.width / 2;
-            var cy = rect.top + rect.height / 2;
-            var dx = (e.clientX - cx) / (rect.width / 2);
-            var dy = (e.clientY - cy) / (rect.height / 2);
-            if (dx > 1) dx = 1; if (dx < -1) dx = -1;
-            if (dy > 1) dy = 1; if (dy < -1) dy = -1;
-            targetRy = dx * MAX;
-            targetRx = -dy * MAX;
-          });
+      document.getElementById('lightboxClose').addEventListener('click', close);
+      document.getElementById('lightboxPrev').addEventListener('click', function() { navigate(-1); });
+      document.getElementById('lightboxNext').addEventListener('click', function() { navigate(1); });
 
-          el.stage.addEventListener('pointerleave', function() {
-            targetRx = 0;
-            targetRy = 0;
-          });
-        });
-      }
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) close();
+      });
 
-      // Animazione fluida
-      function updateLogo() {
-        currentRx += (targetRx - currentRx) * 0.08;
-        currentRy += (targetRy - currentRy) * 0.08;
-        elements.forEach(function(el) {
-          if (el.wrap) {
-            el.wrap.style.setProperty('--logo-rx', currentRx.toFixed(2) + 'deg');
-            el.wrap.style.setProperty('--logo-ry', currentRy.toFixed(2) + 'deg');
-          }
-        });
-        requestAnimationFrame(updateLogo);
-      }
-      updateLogo();
+      document.addEventListener('keydown', function(e) {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') navigate(-1);
+        if (e.key === 'ArrowRight') navigate(1);
+      });
     })();
   </script>
 
