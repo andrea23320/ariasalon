@@ -1229,11 +1229,10 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: 1; /* Sopra lo sfondo e i gradienti, sotto i testi */
-      pointer-events: none; /* Permette di cliccare i bottoni sotto */
-      mix-blend-mode: screen; /* Rende invisibile lo sfondo scuro */
-      opacity: 0.45; /* Trasparenza delicata */
-      animation: fadeIn 2s ease-in-out;
+      z-index: 1; 
+      pointer-events: none; 
+      /* Ho rimosso temporaneamente mix-blend-mode e opacity */
+      opacity: 1; 
     }
 
     @media (prefers-reduced-motion: reduce) {
