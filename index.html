@@ -1227,7 +1227,34 @@
       .intro-enter-text,
       .intro-hint { animation: none !important; opacity: 1 !important; }
     }
+    /* Effetto Sfondo Capelli in Trasparenza */
+    .bg-hair-texture {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1; /* Sopra lo sfondo, sotto i testi */
+      pointer-events: none; /* Permette di cliccare i bottoni sotto */
+      mix-blend-mode: screen; /* Rende invisibile lo sfondo scuro */
+      opacity: 0.25; /* Regola la trasparenza (0 = invisibile, 1 = pieno) */
+      animation: fadeIn 2s ease-in-out; /* Appare dolcemente */
+    }
 
+    /* Assicuriamoci che i testi stiano sopra la foto */
+    .intro-screen .intro-logo-stage,
+    .intro-screen .intro-tagline,
+    .intro-screen .intro-enter,
+    .intro-screen .intro-hint {
+      z-index: 2;
+    }
+    
+    .hero .hero-logo-stage,
+    .hero .hero-divider,
+    .hero .hero-wrap,
+    .hero .hero-scroll {
+      z-index: 2;
+    }
   </style>
 
   <script type="application/ld+json">
@@ -1304,6 +1331,7 @@
 <body>
   <!-- INTRO / SPLASH SCREEN -->
   <div class="intro-screen" id="introScreen" role="button" tabindex="0" aria-label="Tocca per entrare nel sito">
+    <img src="img/capelli-sfondo.jpg" class="bg-hair-texture" alt="" aria-hidden="true">
     <div class="intro-logo-stage" id="introLogoStage">
       <div class="intro-logo-wrap" id="introLogoWrap">
         <img src="logo-aria.svg" alt="Aria Salon" loading="eager" decoding="async">
@@ -1392,7 +1420,7 @@
 
   <main id="main-content">
     <section class="hero" id="heroSection">
-
+      <img src="img/capelli-sfondo.jpg" class="bg-hair-texture" alt="" aria-hidden="true">
       <div class="hero-particles" aria-hidden="true">
         <span style="left: 8%;  top: 22%; --size: 2px;   --dur: 13s; --delay: 0s;   --tx: 22px;  --ty: -38px;"></span>
         <span style="left: 16%; top: 68%; --size: 2.5px; --dur: 16s; --delay: 2.1s; --tx: -18px; --ty: -46px;"></span>
